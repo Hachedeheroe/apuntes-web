@@ -9,15 +9,12 @@
 
 ## 2 · Apuntes
 
-<!-- TODO Fase 1: sustituir FOLDER_ID_APUNTES por el ID real de la carpeta de Drive
-     (compartida como "Cualquier persona con el enlace → Lector") -->
-<iframe src="https://drive.google.com/embeddedfolderview?id=FOLDER_ID_APUNTES#list"
+<iframe src="https://drive.google.com/embeddedfolderview?id=1udnsgdVm-xKNhKyN__imQej8ybX7O1WC#list"
         width="100%" height="500" frameborder="0"></iframe>
 
 ## 3 · Exámenes pasados
 
-<!-- TODO Fase 1: sustituir FOLDER_ID_EXAMENES -->
-<iframe src="https://drive.google.com/embeddedfolderview?id=FOLDER_ID_EXAMENES#list"
+<iframe src="https://drive.google.com/embeddedfolderview?id=1NocuwiGG6X7R_fdMGVAsL6Wo94SCUigA#list"
         width="100%" height="400" frameborder="0"></iframe>
 
 ## 4 · Calendario

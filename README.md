@@ -44,14 +44,13 @@ GitHub ──(push a main → Action → deploy)──▶  Publicación automát
 
 **Resultado:** web viva con estructura completa, contenido pendiente.
 
-## Fase 1 — Estructura en Drive
+## Fase 1 — Estructura en Drive ✅ (automatizada vía conector Drive)
 
-- [ ] Crear en Drive un árbol espejo: `Apuntes-Web/<Asignatura>/<Curso>/{Apuntes, Examenes}`
-- [ ] Compartir cada carpeta como **«Cualquier persona con el enlace → Lector»** (imprescindible para el iframe)
-- [ ] Copiar el `FOLDER_ID` de cada carpeta (la parte final de la URL: `drive.google.com/drive/folders/`**`ESTE_ID`**)
-- [ ] Sustituir los huecos `FOLDER_ID_APUNTES` y `FOLDER_ID_EXAMENES` en cada página `.md`
+- [x] Árbol creado en Drive (cuenta `hugosierra@pcsantaana.com`): `Apuntes-Web/<Asignatura>/<Curso>/{Apuntes, Examenes}` — 55 carpetas
+- [x] IDs insertados en las 17 páginas `.md` — mapa completo con enlaces en [DRIVE.md](DRIVE.md)
+- [ ] **ÚNICO PASO MANUAL:** compartir la carpeta raíz [Apuntes-Web](https://drive.google.com/drive/folders/1pDBenh9iQ6y7X9v4RERRNlKkyCS9YT2E) como **«Cualquier persona con el enlace → Lector»** (se hereda a todas las subcarpetas). Si la cuenta del colegio bloquea compartir fuera del dominio, avisar y se migra a cuenta personal.
 
-**Resultado:** las secciones Apuntes y Exámenes muestran las carpetas en vivo.
+**Resultado:** las secciones Apuntes y Exámenes muestran las carpetas en vivo (tras el paso manual de permisos).
 
 ## Fase 2 — Contenido curricular mínimo
 
