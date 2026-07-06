@@ -76,20 +76,22 @@ GitHub ──(push a main → Action → deploy)──▶  Publicación automát
 - [x] Exámenes propios limpios y PAU completas subidos a las carpetas `Examenes` (sin datos de alumnado, verificado)
 - [x] Decisión soluciones (2026-07-06): **se quedan públicas** junto a los exámenes
 
-## Fase 5 — Calendarios 🔶 (en curso)
+## Fase 5 — Calendarios ⏸ (aparcada hasta el inicio del curso 2026-27, decisión 2026-07-06)
 
 - [x] Páginas saneadas: aviso «disponible al inicio del curso 2026-27» en vez del iframe roto con placeholder
 - [x] Descartados los calendarios de Classroom (Google no permite hacerlos públicos)
-- [ ] **Hugo:** crear 3 calendarios nuevos — `Exámenes Matemáticas`, `Exámenes FyQ`, `Exámenes Biología` (Google Calendar → ⚙ → Crear calendario) y en cada uno: Configuración → **«Hacer disponible públicamente»**. Si el dominio del colegio bloquea la opción, avisar (plan B: cuenta personal)
-- [ ] Cablear los `CALENDAR_ID` en las 17 páginas (detectables vía conector, no hace falta pasarlos a mano)
-- [ ] Añadir fechas de exámenes y entregas (se pueden crear en bloque vía conector cuando Hugo pase las fechas)
+- [ ] **Al arrancar el curso — Hugo:** crear 3 calendarios — `Exámenes Matemáticas`, `Exámenes FyQ`, `Exámenes Biología` (Google Calendar → ⚙ → Crear calendario) y en cada uno: Configuración → **«Hacer disponible públicamente»**. Si el dominio del colegio bloquea la opción, avisar (plan B: cuenta personal)
+- [ ] Cablear los `CALENDAR_ID` en las 17 páginas (detectables vía conector; plantilla comentada ya en cada página)
+- [ ] Añadir fechas de exámenes y entregas (creación en bloque vía conector pasando las fechas en texto)
 
-## Fase 6 — Pulido (opcional)
+## Fase 6 — Pulido 🔶 (en curso, 2026-07-06)
 
-- [ ] Dominio propio (ej. `apuntes.hugosierra.es`) — CNAME + config Pages
-- [ ] Favicon y logo
-- [ ] Analytics (Plausible o GA4) si interesa medir uso
-- [ ] Aviso legal / protección de datos si se publican fotos o nombres
+- [x] Favicon (átomo SVG) y logo en cabecera
+- [x] Aviso legal: responsable, finalidad, propiedad intelectual, datos/cookies — página propia enlazada en nav
+- [x] Footer con copyright
+- [x] Portada sin «en construcción»
+- [ ] Dominio propio (ej. `apuntes.hugosierra.es`) — decisión de Hugo: comprar dominio (~10 €/año) o quedarse con `hachedeheroe.github.io/apuntes-web`
+- [ ] Analytics — decisión de Hugo: GA4 (gratis, cuenta Google) o nada
 
 ---
 

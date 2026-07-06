@@ -5,6 +5,9 @@ site_description: Repositorio de apuntes, exámenes y calendarios — Matemátic
 theme:
   name: material
   language: es
+  icon:
+    logo: material/atom
+  favicon: assets/favicon.svg
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -58,3 +61,6 @@ nav:
       - 4º ESO: biologia/4eso.md
       - 1º Bachillerato: biologia/1bach.md
       - 2º Bachillerato: biologia/2bach.md
+  - Aviso legal: aviso-legal.md
+
+copyright: "© 2026 Hugo Sierra · Material educativo"

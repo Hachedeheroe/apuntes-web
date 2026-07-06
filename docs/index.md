@@ -43,5 +43,6 @@ Todos los contenidos siguen el currículo **LOMLOE** vigente en la **Comunitat V
 
 ---
 
-!!! info "En construcción"
-    La web se está montando por fases. Si una sección aparece vacía, pronto tendrá contenido.
+!!! info "Calendarios"
+    Los calendarios de exámenes y entregas se activarán al **inicio del curso 2026-27**.
+    El resto de secciones están operativas; el material se amplía continuamente.
