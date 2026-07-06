@@ -26,9 +26,14 @@ Secuencia de temas del curso (nivel exigente, preparación para Bachillerato):
 
 ## 4 · Calendario
 
-<!-- TODO Fase 5: Google Calendar → Configuración → Integrar calendario → copiar ID público -->
+!!! note "Disponible al inicio del curso 2026-27"
+    Aquí aparecerán las fechas de exámenes y entregas de la asignatura, sincronizadas
+    con Google Calendar.
+
+<!-- Fase 5 — plantilla pendiente de CALENDAR_ID público:
 <iframe src="https://calendar.google.com/calendar/embed?src=CALENDAR_ID&ctz=Europe%2FMadrid"
         width="100%" height="500" frameborder="0"></iframe>
+-->
 
 ## 5 · Criterios de evaluación
 

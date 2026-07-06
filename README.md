@@ -71,17 +71,18 @@ GitHub ──(push a main → Action → deploy)──▶  Publicación automát
 
 **Resultado:** secciones Apuntes y Exámenes pobladas con todo el material existente. Cero mantenimiento futuro: subir a Drive basta.
 
-## Fase 4 — Exámenes pasados
+## Fase 4 — Exámenes pasados ✅ (2026-07-06, integrada en Fase 3)
 
-- [ ] Subir exámenes de cursos anteriores (anonimizados) a carpetas `Examenes`
-- [ ] Opcional: soluciones en subcarpeta `Soluciones`
+- [x] Exámenes propios limpios y PAU completas subidos a las carpetas `Examenes` (sin datos de alumnado, verificado)
+- [x] Decisión soluciones (2026-07-06): **se quedan públicas** junto a los exámenes
 
-## Fase 5 — Calendarios
+## Fase 5 — Calendarios 🔶 (en curso)
 
-- [ ] Crear un Google Calendar por asignatura (o uno por curso si hace falta)
-- [ ] Google Calendar → Configuración del calendario → «Integrar calendario» → copiar ID
-- [ ] Sustituir `CALENDAR_ID` en cada página
-- [ ] Añadir fechas de exámenes y entregas
+- [x] Páginas saneadas: aviso «disponible al inicio del curso 2026-27» en vez del iframe roto con placeholder
+- [x] Descartados los calendarios de Classroom (Google no permite hacerlos públicos)
+- [ ] **Hugo:** crear 3 calendarios nuevos — `Exámenes Matemáticas`, `Exámenes FyQ`, `Exámenes Biología` (Google Calendar → ⚙ → Crear calendario) y en cada uno: Configuración → **«Hacer disponible públicamente»**. Si el dominio del colegio bloquea la opción, avisar (plan B: cuenta personal)
+- [ ] Cablear los `CALENDAR_ID` en las 17 páginas (detectables vía conector, no hace falta pasarlos a mano)
+- [ ] Añadir fechas de exámenes y entregas (se pueden crear en bloque vía conector cuando Hugo pase las fechas)
 
 ## Fase 6 — Pulido (opcional)
 
