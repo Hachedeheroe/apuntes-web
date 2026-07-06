@@ -61,15 +61,15 @@ GitHub ──(push a main → Action → deploy)──▶  Publicación automát
 
 **Resultado:** cada página es útil para familias/alumnado aunque aún no haya PDFs.
 
-## Fase 3 — Apuntes 🔶 (staging listo, subida manual pendiente)
+## Fase 3 — Apuntes y exámenes ✅ (2026-07-06, material existente subido)
 
-- [x] Material curado y organizado en `~/Desktop/Apuntes-Web` (301 archivos, 118 MB): beamers FyQ 2º/4º ESO y Física 2º Bach, exámenes con soluciones, PAU Física/Química/Bio, banco fiquipedia 1º Bach, currículos LOMLOE de las 3 asignaturas (2026-07-06)
-- [x] `INVENTARIO.md` + `LEEME.txt` por curso con contenido y pendientes
-- [x] Filtrado de datos personales (informes de alumnos excluidos)
-- [ ] **Hugo:** arrastrar el CONTENIDO de cada carpeta local a su gemela en Drive (ver LEEME de cada curso)
-- [ ] Ojo: Drive para escritorio tiene un catch-up largo pendiente; puede que suba solo una copia del árbol — comprobar antes de subir a mano para no duplicar
+- [x] Material curado en staging local `~/Desktop/Apuntes-Web` y **subido a Drive** (~450 archivos): presentaciones FyQ 2º/3º/4º ESO y Física 2º Bach (T1–T11), PAU Física CV 2000–2025, PAU Química 2003–2024, PAU Biología 2010–2026, libro Bio PAU resuelto, simulacros Mates 2º Bach, banco fiquipedia FyQ 1º Bach, currículos LOMLOE y criterios por curso
+- [x] Verificado en Drive: sin datos de alumnado (informes y exámenes con nombres excluidos)
+- [x] Ampliado 2026-07-06 tarde: ejercicios FyQ 3º ESO, exámenes propios limpios Física 2º Bach (PRUEBA/Tn), selección PAU adicional
+- [ ] **Decisión pendiente (Hugo):** soluciones de exámenes propios ya subidas a Drive (2º ESO `*_SOL`, 4º ESO, solucionarios Mates 2º Bach) — ¿se quedan públicas o se retiran? Copias también en `~/Desktop/Apuntes-Web/_NO-SUBIR_Soluciones-pendientes/`
+- [ ] Huecos sin material propio: FyQ 1º Bach (apuntes), Mates 1º/3º/4º ESO y 1º Bach, Biología ESO y 1º Bach
 
-**Resultado:** sección Apuntes operativa. Cero mantenimiento futuro: subir a Drive basta.
+**Resultado:** secciones Apuntes y Exámenes pobladas con todo el material existente. Cero mantenimiento futuro: subir a Drive basta.
 
 ## Fase 4 — Exámenes pasados
 
