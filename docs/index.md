@@ -32,6 +32,7 @@ Cada asignatura y curso tiene su propia página con cinco secciones fijas:
 
 - Elige tu **asignatura** en el menú superior y tu **curso** en el lateral.
 - Los apuntes y exámenes se abren directamente desde Google Drive; puedes verlos o descargarlos.
+- Dentro de cada sección hay **carpetas** (teoría, criterios, simulacros, exámenes de PAU…): haz clic para entrar y usa la flecha de volver del recuadro.
 - El calendario muestra las fechas de exámenes y entregas de cada asignatura.
 
 ## Marco normativo
