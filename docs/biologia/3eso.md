@@ -2,10 +2,10 @@
 
 ## 1 · Currículo LOMLOE
 
-!!! note "Pendiente"
-    Resumen del currículo oficial y enlace al decreto de la GVA.
+**Biología y Geología de 3º de ESO**. Bloques: el cuerpo humano — anatomía y fisiología de los aparatos y sistemas, salud y enfermedad, hábitos saludables — y relieve y dinámica terrestre.
 
-<!-- TODO Fase 2: resumen currículo + enlace PDF/decreto -->
+- **Enseñanzas mínimas (Estado):** [Real Decreto 217/2022](https://www.boe.es/eli/es/rd/2022/03/29/217/con)
+- **Currículo (Comunitat Valenciana):** [Decreto 107/2022, GVA](https://dogv.gva.es/es/eli/es-vc/d/2022/08/05/107/)
 
 ## 2 · Apuntes
 
@@ -25,10 +25,14 @@
 
 ## 5 · Criterios de evaluación
 
+!!! note "Pendiente de publicar"
+    Los pesos definitivos se publicarán al inicio de curso según la programación del departamento.
+    Estructura orientativa mientras tanto:
+
 | Instrumento | Peso |
 |---|---|
-| Pruebas escritas | — |
-| Trabajo diario / cuaderno | — |
+| Pruebas escritas / exámenes | — |
+| Pruebas cortas y trabajo de aula | — |
+| Trabajos, proyectos y cuaderno | — |
 | Actitud y participación | — |
 
-<!-- TODO Fase 2: rellenar pesos reales según programación -->

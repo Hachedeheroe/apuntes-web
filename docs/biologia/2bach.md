@@ -2,10 +2,10 @@
 
 ## 1 · Currículo LOMLOE
 
-!!! note "Pendiente"
-    Resumen del currículo oficial y enlace al decreto de la GVA.
+**Biología de 2º de Bachillerato**, orientada a la PAU. Bloques: la base molecular y fisicoquímica de la vida (biomoléculas), la célula (estructura, metabolismo, ciclo celular), genética y evolución, y microbiología e inmunología.
 
-<!-- TODO Fase 2: resumen currículo + enlace PDF/decreto -->
+- **Enseñanzas mínimas (Estado):** [Real Decreto 243/2022](https://www.boe.es/eli/es/rd/2022/04/05/243/con)
+- **Currículo (Comunitat Valenciana):** [Decreto 108/2022, GVA](https://dogv.gva.es/es/eli/es-vc/d/2022/08/05/108/)
 
 ## 2 · Apuntes
 
@@ -25,10 +25,14 @@
 
 ## 5 · Criterios de evaluación
 
+!!! note "Pendiente de publicar"
+    Los pesos definitivos se publicarán al inicio de curso según la programación del departamento.
+    Estructura orientativa mientras tanto:
+
 | Instrumento | Peso |
 |---|---|
-| Pruebas escritas | — |
-| Trabajo diario / cuaderno | — |
+| Pruebas escritas / exámenes | — |
+| Pruebas cortas y trabajo de aula | — |
+| Trabajos, proyectos y cuaderno | — |
 | Actitud y participación | — |
 
-<!-- TODO Fase 2: rellenar pesos reales según programación -->

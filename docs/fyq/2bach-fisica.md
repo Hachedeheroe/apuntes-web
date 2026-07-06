@@ -2,10 +2,15 @@
 
 ## 1 · Currículo LOMLOE
 
-!!! note "Pendiente"
-    Resumen del currículo oficial y enlace al decreto de la GVA.
+**Física de 2º de Bachillerato**, orientada a la PAU. Bloques:
 
-<!-- TODO Fase 2: resumen currículo + enlace PDF/decreto -->
+1. Campo gravitatorio — campo y energía, leyes de Kepler, satélites
+2. Campo electromagnético — campo eléctrico y magnético, ley de Lorentz, inducción
+3. Vibraciones y ondas — MAS, sonido, óptica física y geométrica
+4. Física moderna — relatividad, física cuántica, física nuclear y de partículas
+
+- **Enseñanzas mínimas (Estado):** [Real Decreto 243/2022](https://www.boe.es/eli/es/rd/2022/04/05/243/con)
+- **Currículo (Comunitat Valenciana):** [Decreto 108/2022, GVA](https://dogv.gva.es/es/eli/es-vc/d/2022/08/05/108/)
 
 ## 2 · Apuntes
 
@@ -25,10 +30,28 @@
 
 ## 5 · Criterios de evaluación
 
-| Instrumento | Peso |
-|---|---|
-| Pruebas escritas | — |
-| Trabajo diario / cuaderno | — |
-| Actitud y participación | — |
+Criterios del departamento (programación vigente):
 
-<!-- TODO Fase 2: rellenar pesos reales según programación -->
+| Instrumento | Peso | Recuperable |
+|---|---|---|
+| Pruebas cortas (2–3 por evaluación, solo con apuntes personales) | 40 % | No |
+| Exámenes finales de evaluación | 60 % | Sí |
+| Ejercicios opcionales por bloque (entrega voluntaria) | +10 % extra | — |
+
+**Exámenes finales — media ponderada acumulativa.** Se realizan cuatro exámenes con ponderaciones
+crecientes (P1=1, P2=2, P3=3, P4=4). Si la nota más alta es de un examen posterior, esa nota marca
+la referencia y se pondera con los exámenes siguientes:
+
+- Mejor nota en **P4** → la calificación final es P4.
+- Mejor nota en **P3** → media ponderada `(P3·6 + P4·4) / 10`.
+- Mejor nota en **P2** → media ponderada `(P2·3 + P3·3 + P4·4) / 10`.
+
+!!! example "Ejemplos"
+    - P1=1, P2=5, P3=6, **P4=10** → **10** (se toma P4)
+    - P1=5, **P2=8**, P3=7, P4=4 → (8·3+7·3+4·4)/10 = **6,6**
+    - P1=3, P2=4, **P3=9**, P4=6 → (9·6+6·4)/10 = **7,8**
+
+!!! warning "Uso de materiales"
+    En las pruebas cortas solo se permiten los apuntes personales del alumno. El uso de materiales
+    externos supone una calificación de 0 en esa prueba.
+

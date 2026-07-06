@@ -2,10 +2,20 @@
 
 ## 1 · Currículo LOMLOE
 
-!!! note "Pendiente"
-    Resumen del currículo oficial y enlace al decreto de la GVA.
+Bloques del currículo: metodología de la ciencia (transversal), el mundo material e interacciones. Secuencia de temas del curso:
 
-<!-- TODO Fase 2: resumen currículo + enlace PDF/decreto -->
+1. La materia y su medida
+2. Estados de la materia y gases
+3. Mezclas y disoluciones
+4. Elementos y Tabla Periódica
+5. Reacciones químicas
+6. El movimiento
+7. Fuerzas e interacciones
+
+Transversal en todos los temas: científicas/os relevantes, lenguaje científico, tablas y gráficos, error en la medida, normas de seguridad del laboratorio y proyecto de investigación.
+
+- **Enseñanzas mínimas (Estado):** [Real Decreto 217/2022](https://www.boe.es/eli/es/rd/2022/03/29/217/con)
+- **Currículo (Comunitat Valenciana):** [Decreto 107/2022, GVA](https://dogv.gva.es/es/eli/es-vc/d/2022/08/05/107/)
 
 ## 2 · Apuntes
 
@@ -25,10 +35,14 @@
 
 ## 5 · Criterios de evaluación
 
+!!! note "Pendiente de publicar"
+    Los pesos definitivos se publicarán al inicio de curso según la programación del departamento.
+    Estructura orientativa mientras tanto:
+
 | Instrumento | Peso |
 |---|---|
-| Pruebas escritas | — |
-| Trabajo diario / cuaderno | — |
+| Pruebas escritas / exámenes | — |
+| Pruebas cortas y trabajo de aula | — |
+| Trabajos, proyectos y cuaderno | — |
 | Actitud y participación | — |
 
-<!-- TODO Fase 2: rellenar pesos reales según programación -->

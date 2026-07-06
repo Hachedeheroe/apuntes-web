@@ -52,11 +52,12 @@ GitHub ──(push a main → Action → deploy)──▶  Publicación automát
 
 **Resultado:** las secciones Apuntes y Exámenes muestran las carpetas en vivo (tras el paso manual de permisos).
 
-## Fase 2 — Contenido curricular mínimo
+## Fase 2 — Contenido curricular mínimo ✅ (2026-07-06)
 
-- [ ] Currículo LOMLOE por asignatura-curso (resumen + enlace al decreto GVA)
-- [ ] Criterios de evaluación: rellenar tabla de instrumentos y pesos por curso
-- [ ] Portada: presentación breve y normas de uso
+- [x] Currículo LOMLOE en las 17 páginas: resumen por asignatura-curso + enlaces oficiales (RD estatales 217/2022 y 243/2022 + Decretos GVA 107/2022 y 108/2022). FyQ 2º/3º/4º ESO y Física 2º Bach con la secuencia real de temas de la programación 2026-27.
+- [x] Criterios de evaluación de **Física 2º Bach** con los pesos reales del departamento (pruebas cortas 40 %, exámenes finales 60 % con media ponderada acumulativa P1–P4, +10 % opcional).
+- [x] Portada: presentación, cómo usar la web y marco normativo.
+- [ ] Pendiente: pesos reales de las otras 16 asignaturas (placeholder honesto «pendiente de publicar» hasta que Hugo confirme la programación de cada una).
 
 **Resultado:** cada página es útil para familias/alumnado aunque aún no haya PDFs.
 
