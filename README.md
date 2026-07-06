@@ -60,11 +60,13 @@ GitHub ──(push a main → Action → deploy)──▶  Publicación automát
 
 **Resultado:** cada página es útil para familias/alumnado aunque aún no haya PDFs.
 
-## Fase 3 — Apuntes
+## Fase 3 — Apuntes 🔶 (staging listo, subida manual pendiente)
 
-- [ ] Volcar PDFs existentes a las carpetas Drive por curso (fuente: `~/Desktop/1-Colegio`, packs beamer FyQ 2º/4º ESO ya generados)
-- [ ] Nombrado consistente: `T01-Titulo.pdf`, `T02-...` para que ordenen bien en el iframe
-- [ ] Prioridad: FyQ (material ya listo) → Matemáticas → Biología
+- [x] Material curado y organizado en `~/Desktop/Apuntes-Web` (301 archivos, 118 MB): beamers FyQ 2º/4º ESO y Física 2º Bach, exámenes con soluciones, PAU Física/Química/Bio, banco fiquipedia 1º Bach, currículos LOMLOE de las 3 asignaturas (2026-07-06)
+- [x] `INVENTARIO.md` + `LEEME.txt` por curso con contenido y pendientes
+- [x] Filtrado de datos personales (informes de alumnos excluidos)
+- [ ] **Hugo:** arrastrar el CONTENIDO de cada carpeta local a su gemela en Drive (ver LEEME de cada curso)
+- [ ] Ojo: Drive para escritorio tiene un catch-up largo pendiente; puede que suba solo una copia del árbol — comprobar antes de subir a mano para no duplicar
 
 **Resultado:** sección Apuntes operativa. Cero mantenimiento futuro: subir a Drive basta.
 
