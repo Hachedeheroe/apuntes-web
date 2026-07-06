@@ -1,0 +1,60 @@
+site_name: Apuntes · Hugo Sierra
+site_url: https://hachedeheroe.github.io/apuntes-web/
+site_description: Repositorio de apuntes, exámenes y calendarios — Matemáticas, Física y Química, Biología
+
+theme:
+  name: material
+  language: es
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - toc.integrate
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Inicio: index.md
+  - Matemáticas:
+      - 1º ESO: matematicas/1eso.md
+      - 2º ESO: matematicas/2eso.md
+      - 3º ESO: matematicas/3eso.md
+      - 4º ESO: matematicas/4eso.md
+      - 1º Bachillerato: matematicas/1bach.md
+      - 2º Bachillerato: matematicas/2bach.md
+  - Física y Química:
+      - 2º ESO: fyq/2eso.md
+      - 3º ESO: fyq/3eso.md
+      - 4º ESO: fyq/4eso.md
+      - 1º Bachillerato: fyq/1bach.md
+      - 2º Bach · Física: fyq/2bach-fisica.md
+      - 2º Bach · Química: fyq/2bach-quimica.md
+  - Biología:
+      - 1º ESO: biologia/1eso.md
+      - 3º ESO: biologia/3eso.md
+      - 4º ESO: biologia/4eso.md
+      - 1º Bachillerato: biologia/1bach.md
+      - 2º Bachillerato: biologia/2bach.md
