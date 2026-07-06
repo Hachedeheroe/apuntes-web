@@ -32,14 +32,21 @@ Secuencia de temas del curso (nivel exigente, preparación para Bachillerato):
 
 ## 5 · Criterios de evaluación
 
-!!! note "Pendiente de publicar"
-    Los pesos definitivos se publicarán al inicio de curso según la programación del departamento.
-    Estructura orientativa mientras tanto:
+Criterios de calificación del departamento (evaluación continua):
 
-| Instrumento | Peso |
+| Aspecto evaluado | Peso |
 |---|---|
-| Pruebas escritas / exámenes | — |
-| Pruebas cortas y trabajo de aula | — |
-| Trabajos, proyectos y cuaderno | — |
-| Actitud y participación | — |
+| Exámenes y pruebas escritas (2–3 por evaluación, mismo peso) | 80 % |
+| Actitud y trabajo en clase (libreta al día, participación) | 10 % |
+| Tareas entregables (Classroom: planteamiento, desarrollo, conclusiones y corrección) | 10 % |
+
+!!! warning "Nota mínima en los exámenes"
+    Es imprescindible una **media mínima de 4 sobre 10** en los exámenes para que se aplique la
+    ponderación. Si la media es inferior a 4, la calificación de la evaluación será esa media,
+    sin ponderar con actitud ni entregables.
+
+- **Recuperación por evaluación:** si la media de exámenes no llega a 5, examen de recuperación de los
+  contenidos suspensos; su nota reemplaza la media de exámenes de esa evaluación.
+- La calificación final es la **media aritmética de las tres evaluaciones**; se aprueba con **5 o más**.
+- La puntualidad cuenta: los retrasos reiterados pueden bajar hasta 1 punto la calificación de comportamiento.
 

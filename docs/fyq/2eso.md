@@ -35,14 +35,24 @@ Transversal en todos los temas: científicas/os relevantes, lenguaje científico
 
 ## 5 · Criterios de evaluación
 
-!!! note "Pendiente de publicar"
-    Los pesos definitivos se publicarán al inicio de curso según la programación del departamento.
-    Estructura orientativa mientras tanto:
+Criterios de calificación del departamento (curso 25/26):
 
-| Instrumento | Peso |
+| Apartado | Peso |
 |---|---|
-| Pruebas escritas / exámenes | — |
-| Pruebas cortas y trabajo de aula | — |
-| Trabajos, proyectos y cuaderno | — |
-| Actitud y participación | — |
+| Saberes básicos conceptuales y procedimentales (pruebas escritas, trabajos individuales o en grupo, cuaderno, exposiciones, actividades digitales) | 70 % |
+| Saberes básicos actitudinales (atención, respeto, participación, esfuerzo, material, cuidado de espacios) | 30 % |
+
+!!! warning "Nota mínima en las pruebas escritas"
+    Para ponderar y superar la evaluación es imprescindible una **media mínima de 4 sobre 10** en las
+    pruebas escritas. Si la media es inferior a 4, la calificación de la evaluación será esa media,
+    sin ponderar con el resto de apartados.
+
+- La nota del curso es la **media aritmética de las tres evaluaciones**; se aprueba con **5 o más**.
+- Si no se supera, habrá una **prueba escrita final** de la parte no superada (puntúa máximo 5) que hace media con el resto de evaluaciones.
+- La puntualidad cuenta: los retrasos reiterados pueden bajar hasta 1 punto la calificación de comportamiento.
+
+??? info "Recuperación de la materia pendiente de 2º ESO (para alumnado de 3º)"
+    - Si cursa FyQ en 3º, el profesorado de ese curso valora la recuperación de los contenidos de 2º.
+    - Si no la cursa: dos exámenes durante el curso. Aprobando el primero se elimina esa parte y en abril
+      solo se examina de la segunda; si no, en abril hay examen global. Se supera con nota ≥ 5.
 
