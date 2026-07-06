@@ -12,7 +12,9 @@ La asignatura se organiza en torno a los **sentidos matemáticos** de la LOMLOE:
 <iframe src="https://drive.google.com/embeddedfolderview?id=1udnsgdVm-xKNhKyN__imQej8ybX7O1WC#list"
         width="100%" height="500" frameborder="0"></iframe>
 
-## 3 · Exámenes pasados
+## 3 · Simulacros de repaso
+
+Simulacros para practicar por parcial (3 variantes de cada uno, con soluciones) y por evaluación completa.
 
 <iframe src="https://drive.google.com/embeddedfolderview?id=1NocuwiGG6X7R_fdMGVAsL6Wo94SCUigA#list"
         width="100%" height="400" frameborder="0"></iframe>
