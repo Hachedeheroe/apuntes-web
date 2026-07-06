@@ -90,8 +90,11 @@ GitHub ──(push a main → Action → deploy)──▶  Publicación automát
 - [x] Aviso legal: responsable, finalidad, propiedad intelectual, datos/cookies — página propia enlazada en nav
 - [x] Footer con copyright
 - [x] Portada sin «en construcción»
-- [ ] Dominio propio (ej. `apuntes.hugosierra.es`) — decisión de Hugo: comprar dominio (~10 €/año) o quedarse con `hachedeheroe.github.io/apuntes-web`
-- [ ] Analytics — decisión de Hugo: GA4 (gratis, cuenta Google) o nada
+- [x] Dominio: decisión 2026-07-06 — **se queda `hachedeheroe.github.io/apuntes-web`** (sin dominio propio)
+- [ ] Analytics: decisión 2026-07-06 — **GA4**. Pendiente que Hugo cree la propiedad y pase el ID `G-XXXXXXXXXX`:
+    1. [analytics.google.com](https://analytics.google.com) → Empezar → nombre de cuenta y propiedad (ej. «Apuntes Web»)
+    2. Plataforma: **Web** → URL `hachedeheroe.github.io` → nombre del flujo «apuntes-web»
+    3. Copiar el **ID de medición** (`G-...`) y pasarlo — se cablea en `mkdocs.yml` (`extra.analytics`) + banner de consentimiento de cookies (`extra.consent`) + actualización del aviso legal
 
 ---
 
