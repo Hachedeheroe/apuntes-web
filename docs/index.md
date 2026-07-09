@@ -26,6 +26,10 @@ Cada asignatura y curso tiene su propia página con cinco secciones fijas:
 
     1º, 3º, 4º ESO · 1º–2º Bachillerato
 
+- :material-school: **[Selectividad (PAU)](selectividad.md)**
+
+    Exámenes PAU de todas las asignaturas · 2010–2026
+
 </div>
 
 ## Cómo usar esta web

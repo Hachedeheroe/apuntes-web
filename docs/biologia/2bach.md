@@ -9,6 +9,8 @@
 
 ## 2 · Apuntes
 
+Incluye **teoría por temas** (carpeta `02_Teoria-por-temas`: 19 temas, de bioelementos a inmunología), currículo y criterios, y el libro de PAU resuelto.
+
 <iframe src="https://drive.google.com/embeddedfolderview?id=1MXWsnf-749mLYpnD1N2OJD6MR9ACIUlM#list"
         width="100%" height="500" frameborder="0"></iframe>
 
