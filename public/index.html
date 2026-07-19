@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apuntes — Física y Química, Matemáticas y Biología</title>
+<meta name="description" content="Apuntes de clase y bancos de exámenes de Física y Química, Matemáticas y Biología (ESO y Bachillerato), y archivo completo de la PAU de la Comunitat Valenciana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --papel: #FAF9F6;
+    --tinta: #17171B;
+    --tinta-suave: #55534E;
+    --regla: #D9D5CB;
+    --fyq: #1D4E89;
+    --mat: #9E3320;
+    --bio: #3A7A4E;
+    --pau: #B35A11;
+    --serif: "STIX Two Text", "Times New Roman", Georgia, serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+
+  body {
+    background: var(--papel);
+    color: var(--tinta);
+    font-family: var(--serif);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  a { color: inherit; }
+  a:focus-visible { outline: 2px solid var(--tinta); outline-offset: 2px; }
+
+  .hoja {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 3rem;
+  }
+
+  /* ---------- Portada (titlepage) ---------- */
+
+  .antetitulo {
+    font-variant: small-caps;
+    letter-spacing: 0.22em;
+    font-size: 0.8rem;
+    color: var(--tinta-suave);
+    text-align: center;
+    text-transform: lowercase;
+  }
+
+  .regla-gruesa { border: 0; border-top: 2.5px solid var(--tinta); margin: 1.1rem 0 0; }
+  .regla-fina   { border: 0; border-top: 1px solid var(--tinta); margin: 3px 0 0; }
+
+  h1 {
+    font-size: clamp(3.2rem, 9vw, 5rem);
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    margin: 1.6rem 0;
+  }
+
+  .subtitulo {
+    text-align: center;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--tinta-suave);
+    max-width: 34rem;
+    margin: 1.4rem auto 0;
+  }
+
+  .autor {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--tinta-suave);
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  /* ---------- Índice (TOC con puntos conductores) ---------- */
+
+  .indice { margin-top: 4rem; }
+
+  h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .indice ol { list-style: none; }
+
+  .toc-fila {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    text-decoration: none;
+    padding: 0.35rem 0;
+  }
+  .toc-fila strong { font-weight: 600; }
+  .toc-fila:hover strong { text-decoration: underline; text-underline-offset: 3px; }
+  .toc-num {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    min-width: 1.1rem;
+  }
+  .toc-puntos {
+    flex: 1;
+    border-bottom: 2px dotted var(--regla);
+    transform: translateY(-5px);
+  }
+  .toc-dato {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--tinta-suave);
+  }
+
+  /* ---------- Partes ---------- */
+
+  .parte { margin-top: 4.5rem; scroll-margin-top: 1.5rem; }
+
+  .parte-cabecera {
+    color: #fff;
+    padding: 1.1rem 1.4rem 1.2rem;
+  }
+  .parte-cabecera .antetitulo {
+    color: rgba(255,255,255,0.85);
+    text-align: left;
+  }
+  .parte-cabecera h2 {
+    font-size: 1.9rem;
+    margin: 0.15rem 0 0;
+    line-height: 1.2;
+  }
+  .parte-fyq .parte-cabecera { background: var(--fyq); }
+  .parte-mat .parte-cabecera { background: var(--mat); }
+  .parte-bio .parte-cabecera { background: var(--bio); }
+  .parte-pau .parte-cabecera { background: var(--pau); }
+  .parte-fyq { --color-parte: var(--fyq); }
+  .parte-mat { --color-parte: var(--mat); }
+  .parte-bio { --color-parte: var(--bio); }
+  .parte-pau { --color-parte: var(--pau); }
+
+  /* ---------- Filas de curso ---------- */
+
+  .curso {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.2rem 1.5rem;
+    align-items: baseline;
+    padding: 1.05rem 0.2rem;
+    border-bottom: 1px solid var(--regla);
+  }
+  .curso-nombre { font-weight: 600; font-size: 1.12rem; }
+  .curso-nota {
+    grid-column: 1;
+    color: var(--tinta-suave);
+    font-size: 0.92rem;
+  }
+  .curso-datos {
+    grid-column: 2;
+    grid-row: 1;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--tinta-suave);
+    white-space: nowrap;
+  }
+  .curso-enlaces {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    gap: 0.9rem;
+    justify-content: flex-end;
+    white-space: nowrap;
+  }
+
+  /* Enlaces entre corchetes, estilo hyperref */
+  .enlace {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--color-parte, var(--tinta));
+    padding: 0.15rem 0.1rem;
+  }
+  .enlace::before { content: "[ "; }
+  .enlace::after  { content: " ]"; }
+  .enlace:hover { background: color-mix(in srgb, var(--color-parte) 12%, transparent); }
+  .enlace.pendiente {
+    color: var(--tinta-suave);
+    opacity: 0.55;
+    cursor: default;
+  }
+  .enlace.pendiente:hover { background: none; }
+
+  .en-preparacion {
+    font-size: 0.92rem;
+    font-style: italic;
+    color: var(--tinta-suave);
+    padding: 1rem 0.2rem 0;
+  }
+
+  /* ---------- Sección PAU ---------- */
+
+  .pau-intro { margin-top: 1.4rem; }
+  .pau-stats {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--tinta-suave);
+    margin-top: 0.5rem;
+  }
+
+  .filtro {
+    margin-top: 1.4rem;
+    width: 100%;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--tinta);
+    background: transparent;
+    color: var(--tinta);
+  }
+  .filtro:focus-visible { outline: 2px solid var(--pau); outline-offset: 2px; }
+
+  .pau-lista { list-style: none; margin-top: 0.8rem; }
+  .pau-fila {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    text-decoration: none;
+    padding: 0.42rem 0.2rem;
+    border-bottom: 1px solid var(--regla);
+  }
+  .pau-fila:hover { background: color-mix(in srgb, var(--pau) 8%, transparent); }
+  .pau-lista li.oculta { display: none; }
+  .pau-puntos {
+    flex: 1;
+    border-bottom: 2px dotted var(--regla);
+    transform: translateY(-5px);
+  }
+  .pau-n {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--tinta-suave);
+  }
+  .punto-materia {
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    margin-right: 0.45em;
+    vertical-align: baseline;
+  }
+  .sin-resultados {
+    display: none;
+    font-style: italic;
+    color: var(--tinta-suave);
+    padding: 1rem 0.2rem;
+  }
+  .sin-resultados.visible { display: block; }
+
+  /* ---------- Pestañas laterales (thumb tabs) ---------- */
+
+  .pestanas {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 10;
+  }
+  .pestana {
+    writing-mode: vertical-rl;
+    text-decoration: none;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    padding: 0.9rem 0.42rem;
+    transition: padding-right 0.15s ease;
+  }
+  .pestana:hover, .pestana.activa { padding-right: 0.85rem; }
+  .pestana:focus-visible { outline: 2px solid var(--tinta); outline-offset: -3px; }
+
+  /* ---------- Pie ---------- */
+
+  footer {
+    margin-top: 5rem;
+    padding-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--tinta-suave);
+  }
+  footer .regla-gruesa { margin-bottom: 0.9rem; border-top-width: 2px; }
+  footer p + p { margin-top: 0.4rem; }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 720px) {
+    .pestanas { display: none; }
+    .hoja { padding-top: 3rem; }
+    .curso { grid-template-columns: 1fr; }
+    .curso-datos { grid-column: 1; grid-row: auto; }
+    .curso-enlaces { grid-column: 1; grid-row: auto; justify-content: flex-start; margin-top: 0.3rem; }
+  }
+
+  @media print {
+    .pestanas, .filtro { display: none; }
+    .parte-cabecera { color: var(--tinta); background: none !important; padding: 0; border-top: 2.5px solid var(--tinta); }
+    .parte-cabecera .antetitulo { color: var(--tinta-suave); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="pestanas" aria-label="Ir a la parte">
+  <a class="pestana" style="background:var(--fyq)" href="#fisica-y-quimica">Física y Química</a>
+  <a class="pestana" style="background:var(--mat)" href="#matematicas">Matemáticas</a>
+  <a class="pestana" style="background:var(--bio)" href="#biologia">Biología</a>
+  <a class="pestana" style="background:var(--pau)" href="#selectivos">Selectivos PAU</a>
+</nav>
+
+<div class="hoja">
+
+  <header>
+    <p class="antetitulo">física y química · matemáticas · biología</p>
+    <hr class="regla-gruesa"><hr class="regla-fina">
+    <h1>Apuntes</h1>
+    <hr class="regla-fina" style="margin:0"><hr class="regla-gruesa" style="margin-top:3px">
+    <p class="subtitulo">Materiales de clase y bancos de exámenes, de 2º de ESO a 2º de Bachillerato, y el archivo completo de la PAU valenciana.</p>
+    <p class="autor">H. SIERRA · VALÈNCIA · CURSO 2026–2027 · ACTUALIZADO JULIO 2026</p>
+  </header>
+
+  <nav class="indice" aria-label="Índice">
+    <h2>Índice</h2>
+    <ol>
+      <li><a class="toc-fila" href="#fisica-y-quimica"><span class="toc-num">1</span><strong>Física y Química</strong><span class="toc-puntos"></span><span class="toc-dato">6 cursos</span></a></li>
+      <li><a class="toc-fila" href="#matematicas"><span class="toc-num">2</span><strong>Matemáticas</strong><span class="toc-puntos"></span><span class="toc-dato">3 cursos</span></a></li>
+      <li><a class="toc-fila" href="#biologia"><span class="toc-num">3</span><strong>Biología</strong><span class="toc-puntos"></span><span class="toc-dato">1 curso</span></a></li>
+      <li><a class="toc-fila" href="#selectivos"><span class="toc-num">4</span><strong>Selectivos — PAU Comunitat Valenciana</strong><span class="toc-puntos"></span><span class="toc-dato">40 asignaturas · 1921 PDF</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- ================= 1 · FÍSICA Y QUÍMICA ================= -->
+  <section class="parte parte-fyq" id="fisica-y-quimica">
+    <div class="parte-cabecera">
+      <p class="antetitulo">parte 1</p>
+      <h2>Física y Química</h2>
+    </div>
+
+    <div class="curso">
+      <span class="curso-nombre">2º ESO</span>
+      <span class="curso-datos">9 apuntes · 39 exámenes</span>
+      <span class="curso-nota">Presentaciones T1–T7 «para el 10» y criterios de calificación.</span>
+      <span class="curso-enlaces">
+        <a class="enlace" href="#" data-enlace="fyq-2eso-apuntes">Apuntes</a>
+        <a class="enlace" href="#" data-enlace="fyq-2eso-examenes">Exámenes</a>
+      </span>
+    </div>
+    <div class="curso">
+      <span class="curso-nombre">3º ESO</span>
+      <span class="curso-datos">18 apuntes · 4 exámenes</span>
+      <span class="curso-nota">Presentaciones T1–T8, boletines de ejercicios con soluciones y criterios.</span>
+      <span class="curso-enlaces">
+        <a class="enlace" href="#" data-enlace="fyq-3eso-apuntes">Apuntes</a>
+        <a class="enlace" href="#" data-enlace="fyq-3eso-examenes">Exámenes</a>
+      </span>
+    </div>
+    <div class="curso">
+      <span class="curso-nombre">4º ESO</span>
+      <span class="curso-datos">11 apuntes · 10 exámenes</span>
+      <span class="curso-nota">Presentaciones T1–T9 de nivel exigente y criterios de calificación.</span>
+      <span class="curso-enlaces">
+        <a class="enlace" href="#" data-enlace="fyq-4eso-apuntes">Apuntes</a>
+        <a class="enlace" href="#" data-enlace="fyq-4eso-examenes">Exámenes</a>
+      </span>
+    </div>
+    <div class="curso">
+      <span class="curso-nombre">1º Bachillerato</span>
+      <span class="curso-datos">currículo · 22 exámenes</span>
+      <span class="curso-nota">Banco de exámenes 2024-25 con solución (autoría fiquipedia.es, licencia CC).</span>
+      <span class="curso-enlaces">
+        <a class="enlace" href="#" data-enlace="fyq-1bach-apuntes">Currículo</a>
+        <a class="enlace" href="#" data-enlace="fyq-1bach-examenes">Exámenes</a>
+      </span>
+    </div>
+    <div class="curso">
+      <span class="curso-nombre">2º Bachillerato · Física</span>
+      <span class="curso-datos">23 apuntes · 111 exámenes</span>
+      <span class="curso-nota">Presentaciones T1–T11, teoría por bloques, formulario y selectivos resueltos 2000–2025.</span>
+      <span class="curso-enlaces">
+        <a class="enlace" href="#" data-enlace="fyq-2bach-fisica-apuntes">Apuntes</a>
+        <a class="enlace" href="#" data-enlace="fyq-2bach-fisica-examenes">Exámenes</a>
+      </span>
+    </div>
+    <div class="curso">
+      <span class="curso-nombre">2º Bachillerato · Química</span>
+      <span class="curso-datos">currículo · 88 exámenes</span>
+      <span class="curso-nota">Archivo PAU: exámenes sueltos 2001–09 y serie oficial completa 2010–2026.</span>
+      <span class="curso-enlaces">
+        <a class="enlace" href="#" data-enlace="fyq-2bach-quimica-apuntes">Currículo</a>
+        <a class="enlace" href="#" data-enlace="fyq-2bach-quimica-examenes">Exámenes</a>
+      </span>
+    </div>
+  </section>
+
+  <!-- ================= 2 · MATEMÁTICAS ================= -->
+  <section class="parte parte-mat" id="matematicas">
+    <div class="parte-cabecera">
+      <p class="antetitulo">parte 2</p>
+      <h2>Matemáticas</h2>
+    </div>
+
+    <div class="curso">
+      <span class="curso-nombre">2º ESO</span>
+      <span class="curso-datos">16 apuntes · 20 exámenes</span>
+      <span class="curso-nota">Presentaciones T1–T8, ejercicios estandarizados con solucionario y exámenes reales 24-25.</span>
+      <span class="curso-enlaces">
+        <a class="enlace" href="#" data-enlace="mat-2eso-apuntes">Apuntes</a>
+        <a class="enlace" href="#" data-enlace="mat-2eso-examenes">Exámenes</a>
+      </span>
+    </div>
+    <div class="curso">
+      <span class="curso-nombre">3º ESO</span>
+      <span class="curso-datos">10 apuntes · 15 exámenes</span>
+      <span class="curso-nota">Presentaciones T1–T8, exámenes reales 24-25 con solución oficial y simulacros.</span>
+      <span class="curso-enlaces">
+        <a class="enlace" href="#" data-enlace="mat-3eso-apuntes">Apuntes</a>
+        <a class="enlace" href="#" data-enlace="mat-3eso-examenes">Exámenes</a>
+      </span>
+    </div>
+    <div class="curso">
+      <span class="curso-nombre">2º Bachillerato</span>
+      <span class="curso-datos">99 exámenes</span>
+      <span class="curso-nota">Simulacros por evaluación con solucionario completo y archivo PAU de Matemáticas II 2010–2026.</span>
+      <span class="curso-enlaces">
+        <a class="enlace" href="#" data-enlace="mat-2bach-examenes">Exámenes</a>
+      </span>
+    </div>
+    <p class="en-preparacion">En preparación: 1º ESO, 4º ESO y 1º de Bachillerato — de momento, currículo oficial.</p>
+  </section>
+
+  <!-- ================= 3 · BIOLOGÍA ================= -->
+  <section class="parte parte-bio" id="biologia">
+    <div class="parte-cabecera">
+      <p class="antetitulo">parte 3</p>
+      <h2>Biología</h2>
+    </div>
+
+    <div class="curso">
+      <span class="curso-nombre">2º Bachillerato</span>
+      <span class="curso-datos">2 apuntes · 67 exámenes</span>
+      <span class="curso-nota">Libro de Biología PAU (enunciados) y archivo oficial PAU 2010–2026 con criterios.</span>
+      <span class="curso-enlaces">
+        <a class="enlace" href="#" data-enlace="bio-2bach-apuntes">Apuntes</a>
+        <a class="enlace" href="#" data-enlace="bio-2bach-examenes">Exámenes</a>
+      </span>
+    </div>
+    <p class="en-preparacion">En preparación: 1º ESO, 3º ESO, 4º ESO y 1º de Bachillerato — de momento, currículo oficial.</p>
+  </section>
+
+  <!-- ================= 4 · SELECTIVOS PAU ================= -->
+  <section class="parte parte-pau" id="selectivos">
+    <div class="parte-cabecera">
+      <p class="antetitulo">parte 4</p>
+      <h2>Selectivos — PAU Comunitat Valenciana</h2>
+    </div>
+
+    <div class="pau-intro">
+      <p>Archivo completo de la PAU valenciana: las 40 asignaturas, convocatorias 2010–2026 (ordinaria, extraordinaria y modelos), cada una con examen y criterios de corrección. Fuente: universitats.gva.es.</p>
+      <p class="pau-stats">40 ASIGNATURAS · 1921 PDF · 2010–2026 · EXAMEN + CRITERIOS + MODELO</p>
+    </div>
+
+    <label for="filtro-pau" class="visually-hidden" style="position:absolute;left:-9999px">Filtrar asignatura</label>
+    <input class="filtro" id="filtro-pau" type="search" placeholder="Filtrar asignatura — p. ej. física, latín, dibujo…" autocomplete="off">
+
+    <ul class="pau-lista" id="pau-lista">
+      <li><a class="pau-fila" href="#" data-enlace="pau-dibujo-tecnico"><span>Dibujo Técnico</span><span class="pau-puntos"></span><span class="pau-n">79 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-historia-del-arte"><span>Historia del Arte</span><span class="pau-puntos"></span><span class="pau-n">77 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-historia-de-la-filosofia"><span>Historia de la Filosofía</span><span class="pau-puntos"></span><span class="pau-n">72 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-aleman"><span>Alemán</span><span class="pau-puntos"></span><span class="pau-n">72 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-ingles"><span>Inglés</span><span class="pau-puntos"></span><span class="pau-n">71 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-frances"><span>Francés</span><span class="pau-puntos"></span><span class="pau-n">71 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-matematicas-ii"><span><span class="punto-materia" style="background:var(--mat)"></span>Matemáticas II</span><span class="pau-puntos"></span><span class="pau-n">70 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-italiano"><span>Italiano</span><span class="pau-puntos"></span><span class="pau-n">70 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-geografia"><span>Geografía</span><span class="pau-puntos"></span><span class="pau-n">70 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-matematicas-aplicadas-a-las-ciencias-sociales"><span><span class="punto-materia" style="background:var(--mat)"></span>Matemáticas Aplicadas a las Ciencias Sociales</span><span class="pau-puntos"></span><span class="pau-n">69 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-fisica"><span><span class="punto-materia" style="background:var(--fyq)"></span>Física</span><span class="pau-puntos"></span><span class="pau-n">69 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-diseno"><span>Diseño</span><span class="pau-puntos"></span><span class="pau-n">68 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-valenciano-lengua-y-literatura"><span>Valenciano — Lengua y Literatura</span><span class="pau-puntos"></span><span class="pau-n">67 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-latin"><span>Latín</span><span class="pau-puntos"></span><span class="pau-n">67 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-biologia"><span><span class="punto-materia" style="background:var(--bio)"></span>Biología</span><span class="pau-puntos"></span><span class="pau-n">67 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-quimica"><span><span class="punto-materia" style="background:var(--fyq)"></span>Química</span><span class="pau-puntos"></span><span class="pau-n">66 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-historia-de-espana"><span>Historia de España</span><span class="pau-puntos"></span><span class="pau-n">66 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-griego"><span>Griego</span><span class="pau-puntos"></span><span class="pau-n">66 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-castellano-lengua-y-literatura"><span>Castellano — Lengua y Literatura</span><span class="pau-puntos"></span><span class="pau-n">66 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-economia-de-la-empresa"><span>Economía de la Empresa</span><span class="pau-puntos"></span><span class="pau-n">54 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-artes-escenicas"><span>Artes Escénicas</span><span class="pau-puntos"></span><span class="pau-n">44 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-dibujo-artistico"><span>Dibujo Artístico</span><span class="pau-puntos"></span><span class="pau-n">43 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-fundamentos-del-arte"><span>Fundamentos del Arte</span><span class="pau-puntos"></span><span class="pau-n">41 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-analisis-musical"><span>Análisis Musical</span><span class="pau-puntos"></span><span class="pau-n">41 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-tecnologia-e-ingenieria"><span>Tecnología e Ingeniería</span><span class="pau-puntos"></span><span class="pau-n">38 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-geologia-y-ciencias-ambientales"><span>Geología y Ciencias Ambientales</span><span class="pau-puntos"></span><span class="pau-n">38 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-tecnicas-de-expresion-grafico-plasticas"><span>Técnicas de Expresión Gráfico-Plásticas</span><span class="pau-puntos"></span><span class="pau-n">37 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-literatura-universal"><span>Literatura Universal</span><span class="pau-puntos"></span><span class="pau-n">35 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-historia-de-la-musica-y-la-danza"><span>Historia de la Música y la Danza</span><span class="pau-puntos"></span><span class="pau-n">35 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-portugues"><span>Portugués</span><span class="pau-puntos"></span><span class="pau-n">29 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-ciencias-de-la-tierra-y-medioambientales"><span>Ciencias de la Tierra y Medioambientales</span><span class="pau-puntos"></span><span class="pau-n">29 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-cultura-audiovisual"><span>Cultura Audiovisual</span><span class="pau-puntos"></span><span class="pau-n">28 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-lenguaje-y-practica-musical"><span>Lenguaje y Práctica Musical</span><span class="pau-puntos"></span><span class="pau-n">25 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-electrotecnia"><span>Electrotecnia</span><span class="pau-puntos"></span><span class="pau-n">25 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-empresa-y-diseno-de-modelos-de-negocio"><span>Empresa y Diseño de Modelos de Negocio</span><span class="pau-puntos"></span><span class="pau-n">15 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-ciencias-generales"><span>Ciencias Generales</span><span class="pau-puntos"></span><span class="pau-n">12 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-dibujo-tecnico-aplicado-a-artes-plasticas-y-diseno"><span>Dibujo Técnico Aplicado a Artes Plásticas y Diseño</span><span class="pau-puntos"></span><span class="pau-n">11 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-coreografia-y-tecnicas-de-interpretacion-de-la-danza"><span>Coreografía y Técnicas de Interpretación de la Danza</span><span class="pau-puntos"></span><span class="pau-n">11 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-movimientos-culturales-y-artisticos"><span>Movimientos Culturales y Artísticos</span><span class="pau-puntos"></span><span class="pau-n">6 PDF</span></a></li>
+      <li><a class="pau-fila" href="#" data-enlace="pau-electronica"><span>Electrónica</span><span class="pau-puntos"></span><span class="pau-n">1 PDF</span></a></li>
+    </ul>
+    <p class="sin-resultados" id="sin-resultados">Ninguna asignatura coincide con el filtro.</p>
+  </section>
+
+  <footer>
+    <hr class="regla-gruesa">
+    <p>Material propio salvo indicación. Exámenes PAU: universitats.gva.es (GVA). Banco 1º Bach FyQ: fiquipedia.es, licencia Creative Commons.</p>
+    <p>Los enlaces abren carpetas de Google Drive con los PDF de cada curso.</p>
+  </footer>
+
+</div>
+
+<script>
+// ── Enlaces a Drive ──────────────────────────────────────────────
+// Carpetas de Drive/Apuntes-Web 2 (compartidas: cualquiera con enlace, lector).
+const D = id => "https://drive.google.com/drive/folders/" + id;
+const ENLACES = {
+  "fyq-2eso-apuntes": D("1Rtuwwu-qqPffycQf4tIIuAzNOzOcNKtE"),
+  "fyq-2eso-examenes": D("1pz0STKR4GagVSMM5vC85kfeWFwLjGWrs"),
+  "fyq-3eso-apuntes": D("13n4BWZQnOu4QcI3YN-OBm1dvk77X_7Yg"),
+  "fyq-3eso-examenes": D("1yprLcYpwWwURKfJYNe7dur60rjUkKLXw"),
+  "fyq-4eso-apuntes": D("1kCCLdPIVzOEMHKPuofVYaZVYZ9Pjx7QV"),
+  "fyq-4eso-examenes": D("1JC95YE8nKGdq-vUgHGueluPWBnvimlqu"),
+  "fyq-1bach-apuntes": D("15GRorpElFr40vIvAja6dkBYDrmyCnAW4"),
+  "fyq-1bach-examenes": D("16Q0DWuayNAU7h0CbrknVqg1y2u26gW14"),
+  "fyq-2bach-fisica-apuntes": D("1rtIWTIlBCIsecDSobVFrQMLSQJqfSVr1"),
+  "fyq-2bach-fisica-examenes": D("17i_AA2HXiUoik0pzs_wiVNqCX6NR4_jB"),
+  "fyq-2bach-quimica-apuntes": D("1XYcyXyBBTL1qxjIIRAuXwv-d3S0BOZPu"),
+  "fyq-2bach-quimica-examenes": D("1IMNeXk5XHx--CH3wi9EJes97T_3JCoc2"),
+  "mat-2eso-apuntes": D("1udnsgdVm-xKNhKyN__imQej8ybX7O1WC"),
+  "mat-2eso-examenes": D("1NocuwiGG6X7R_fdMGVAsL6Wo94SCUigA"),
+  "mat-3eso-apuntes": D("1WjpkQpREho-Y22vPim2a1NkDbWXjxFnQ"),
+  "mat-3eso-examenes": D("14d1uHQ-tDwmwb9pVS27leGpwwKI_Kx5m"),
+  "mat-2bach-examenes": D("1LU1LnJkyortlsWAHLcR93UJ9bDj2exh0"),
+  "bio-2bach-apuntes": D("1MXWsnf-749mLYpnD1N2OJD6MR9ACIUlM"),
+  "bio-2bach-examenes": D("14NsO0XivbyHSPsqIUNoofkvCMV2IIuWF"),
+  "pau-aleman": D("10Sfhx_VrgzfXD_DNhqdmqF0KO2YMsSjF"),
+  "pau-analisis-musical": D("1DWmNYKtVcofjV9OLc-s4Wt97s2yMLsks"),
+  "pau-artes-escenicas": D("1TmCOzDC0PSDi4-O3UL4Zyh1wO6OQsU2L"),
+  "pau-biologia": D("1YXRrCA86zMjfPDxRxIUI0Rhbvj5WlTPV"),
+  "pau-castellano-lengua-y-literatura": D("1cD0a6QFMX8AGPB4r8TDhuqQtV9-sncZC"),
+  "pau-ciencias-de-la-tierra-y-medioambientales": D("1rDf_NxuiLUEAtxeJV7nD0kdDbj8BhMH-"),
+  "pau-ciencias-generales": D("14nvF0dzdpKFz6GbZAJ8h_40Tb1BE8oka"),
+  "pau-coreografia-y-tecnicas-de-interpretacion-de-la-danza": D("1wnZY9qlZO3jLKDdcBREDx_vHCya4oxAx"),
+  "pau-cultura-audiovisual": D("1bFYWQ1IVgIQmdgEF3nDZk8hcKQcDeYzy"),
+  "pau-dibujo-artistico": D("1mcpZyQSXpTtIRnioibp9fVDyYgZWzVPT"),
+  "pau-dibujo-tecnico": D("1YV19C7kN4evs953XWIOGb6sM2kl4OfEp"),
+  "pau-dibujo-tecnico-aplicado-a-artes-plasticas-y-diseno": D("12-E_my5kiZjHulmzcPeVA9jp47gTg_NZ"),
+  "pau-diseno": D("1QEyZmtz-L_hPSphWsGqnPx6iGi7Eie-g"),
+  "pau-economia-de-la-empresa": D("1Nq9lQ40vaaBD48CvM_0d02Aq8n7v6MhL"),
+  "pau-electronica": D("16WAnyJsNltX8eP4yawFs_I1y5fFqusKM"),
+  "pau-electrotecnia": D("1DCGAxfn_Lzf3qvBCpzXYf-HjhsElS9SN"),
+  "pau-empresa-y-diseno-de-modelos-de-negocio": D("1Gjcsh0wcMQzCu1fS_aKcmIqryb4Divr-"),
+  "pau-fisica": D("1xtWIr3dGuPNsmRlu8Zni-YBWhPg9Ko0u"),
+  "pau-frances": D("1f1yyRZKGvHOQuKn1BeOKmOnKXm1ACKns"),
+  "pau-fundamentos-del-arte": D("1lzH0JHMUcgSVMXEXkG5VPTAZMnQPaJQV"),
+  "pau-geografia": D("1ajbxgVqb3bp_xVDRLB_NHSWOsNeqxpoT"),
+  "pau-geologia-y-ciencias-ambientales": D("1KvL5UEGlL8Lnbrnu9sishMip2mJdtiZT"),
+  "pau-griego": D("1GVkRao6UzXh76Eg2rbDcmDGOGC5Nuna-"),
+  "pau-historia-de-espana": D("1EF1AqqPn068G9PN3x35I-lqBHVDBT8SX"),
+  "pau-historia-de-la-filosofia": D("12KlUYWJ4OuYp0Trw-a4-c74xwmhwMU3k"),
+  "pau-historia-de-la-musica-y-la-danza": D("1OXpKwUWv7r6TP96Ev5aIUgVOqv03_kr5"),
+  "pau-historia-del-arte": D("1_oJ2Paqo3OcENEYW71PnDpr0o_DT_IFk"),
+  "pau-ingles": D("12cavtm3o1sQHF0pNqkzQsk-i7inDS0d1"),
+  "pau-italiano": D("1n-JbojRGyqB_g8cKYtFHBJulh48F4oPJ"),
+  "pau-latin": D("19j2jX46A_ZXMWTle2XsIH_FzTwdpHN92"),
+  "pau-lenguaje-y-practica-musical": D("1cGbccyfUGcF0VNU3pSkxfOAVMRL611bt"),
+  "pau-literatura-universal": D("1OEN2n5IQHr-QovYc-p7muZTdPELqQ5pn"),
+  "pau-matematicas-aplicadas-a-las-ciencias-sociales": D("1j8SB4NWWjRhxgLfPHNTiFyd6d-lfpwEy"),
+  "pau-matematicas-ii": D("1F6NHIrOV7bDHqADws_NwWFJv_yHlHYfV"),
+  "pau-movimientos-culturales-y-artisticos": D("1lCiiniPe4JVLcSbq0zsphf6aBN7IznTv"),
+  "pau-portugues": D("1tV824dMTO4-5k4fK8KzcODTtz71g-CqO"),
+  "pau-quimica": D("1X2FNJKfDGpEmwrdbzOlQBMzJI0pNjwwk"),
+  "pau-tecnicas-de-expresion-grafico-plasticas": D("1BKcvTjmCmSoPV5XYSDgHMeQ0JPPrYsQs"),
+  "pau-tecnologia-e-ingenieria": D("1gpBqodrAmOKsTTBT4gN2kB7_td6vqqSp"),
+  "pau-valenciano-lengua-y-literatura": D("1zzDoGW0cqwn3LLzceyQAG6whPpecE4EC")
+};
+
+document.querySelectorAll("[data-enlace]").forEach(a => {
+  const url = ENLACES[a.dataset.enlace];
+  if (url) {
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener";
+  } else {
+    a.classList.add("pendiente");
+    a.setAttribute("aria-disabled", "true");
+    a.title = "Enlace pendiente";
+    a.addEventListener("click", e => e.preventDefault());
+  }
+});
+
+// ── Filtro PAU ───────────────────────────────────────────────────
+const normaliza = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const filtro = document.getElementById("filtro-pau");
+const filasPau = document.querySelectorAll("#pau-lista li");
+const sinResultados = document.getElementById("sin-resultados");
+
+filtro.addEventListener("input", () => {
+  const q = normaliza(filtro.value.trim());
+  let visibles = 0;
+  filasPau.forEach(li => {
+    const coincide = normaliza(li.textContent).includes(q);
+    li.classList.toggle("oculta", !coincide);
+    if (coincide) visibles++;
+  });
+  sinResultados.classList.toggle("visible", visibles === 0);
+});
+
+// ── Pestaña activa según scroll ──────────────────────────────────
+const pestanas = document.querySelectorAll(".pestana");
+const observador = new IntersectionObserver(entradas => {
+  entradas.forEach(e => {
+    if (e.isIntersecting) {
+      pestanas.forEach(p => p.classList.toggle("activa", p.getAttribute("href") === "#" + e.target.id));
+    }
+  });
+}, { rootMargin: "-40% 0px -50% 0px" });
+document.querySelectorAll(".parte").forEach(s => observador.observe(s));
+</script>
+
+</body>
+</html>
