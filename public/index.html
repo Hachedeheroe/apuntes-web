@@ -703,20 +703,41 @@ function montarHistoria() {
     raiz.style.setProperty("--story-top", top + "px");
     raiz.style.setProperty("--story-alto", alto + "px");
   }
+  /* La posición se saca de dónde está cada paso, no de una fracción de la
+     sección: así la ilustración y el texto que estás leyendo van siempre a la
+     par. Cuando el centro de un paso cruza el centro de la pantalla, su imagen
+     está entera y ese paso queda activo. */
+  function posicion() {
+    var centro = window.innerHeight * .5;
+    var centros = pasos.map(function (p) {
+      var b = p.getBoundingClientRect();
+      return b.top + b.height / 2;
+    });
+    if (centro <= centros[0]) return 0;
+    if (centro >= centros[centros.length - 1]) return centros.length - 1;
+    for (var k = 0; k < centros.length - 1; k++) {
+      if (centro <= centros[k + 1]) {
+        var tramo = centros[k + 1] - centros[k];
+        return k + (tramo ? (centro - centros[k]) / tramo : 0);
+      }
+    }
+    return centros.length - 1;
+  }
+
   function pintar() {
     frame = 0;
     if (!document.contains(raiz)) return;
-    var r = raiz.getBoundingClientRect();
-    var recorrido = Math.max(1, r.height - window.innerHeight * .78);
-    var avance = limite((window.innerHeight * .56 - r.top) / recorrido, 0, 1);
-    var punto = avance * (imagenes.length - 1);
+    var punto = posicion();
+    var avance = pasos.length > 1 ? punto / (pasos.length - 1) : 0;
     imagenes.forEach(function (img, k) {
       var rel = punto - k;
-      var entrada = limite(rel + 1, 0, 1);
-      var escala = rel < 0 ? .7 + entrada * .34 : 1.04 + limite(rel, 0, 1) * .38;
-      var y = rel < 0 ? (1 - entrada) * 72 : -limite(rel, 0, 1) * 72;
-      img.style.opacity = String(limite(1 - Math.abs(rel) * 1.04, 0, 1));
-      img.style.transform = "translate3d(-50%,-50%,0) translateY(" + y.toFixed(1) + "px) scale(" + escala.toFixed(3) + ") rotate(" + (rel * 1.4).toFixed(2) + "deg)";
+      var fuera = limite(Math.abs(rel), 0, 1);
+      /* La imagen activa se ve a tamaño natural; las vecinas se acercan o se
+         alejan sin llegar a recortarse. */
+      var escala = 1 - fuera * .16 + (rel > 0 ? fuera * .3 : 0);
+      var y = -rel * 54;
+      img.style.opacity = String(limite(1 - Math.abs(rel) * 1.15, 0, 1));
+      img.style.transform = "translate3d(-50%,-50%,0) translateY(" + y.toFixed(1) + "px) scale(" + escala.toFixed(3) + ") rotate(" + (rel * 1.1).toFixed(2) + "deg)";
     });
     var nuevo = limite(Math.round(punto), 0, pasos.length - 1);
     if (nuevo !== activo) {
