@@ -130,6 +130,7 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
   <div id="panel-host"></div>
 </div>
 
+<script src="hero.js"></script>
 <script>
 (function () {
 "use strict";
@@ -373,7 +374,9 @@ function vistaInicio() {
     '<p class="hero-k" style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sut);margin:0">Física y Química · Matemáticas · Biología</p>' +
     '<h1 class="hero-h" style="font-size:clamp(52px,11vw,116px);font-weight:800;letter-spacing:-.035em;line-height:.92;margin:14px 0 0">Apuntes</h1>' +
     '<hr class="hero-r" style="height:2px;border:0;background:var(--fuerte);margin:22px 0 0">' +
-    '<p class="hero-p" style="max-width:52ch;font-size:clamp(16px,2vw,19px);line-height:1.5;margin:22px 0 0;text-wrap:pretty">Materiales de clase y bancos de exámenes, de 2º de ESO a 2º de Bachillerato, y el archivo completo de la PAU valenciana.</p>' +
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,4vw,44px);align-items:start;margin-top:24px">' +
+    '<p class="hero-p" style="max-width:52ch;font-size:clamp(16px,2vw,19px);line-height:1.5;margin:0;text-wrap:pretty">Materiales de clase y bancos de exámenes, de 2º de ESO a 2º de Bachillerato, y el archivo completo de la PAU valenciana.</p>' +
+    '<div class="hero-p" id="hero-anim" style="border:2px solid var(--rule);padding:14px 16px 12px;min-width:0;max-width:460px;justify-self:end;width:100%"></div></div>' +
     '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;background:var(--rule);border:2px solid var(--fuerte);margin-top:36px">' + stats + "</div>" +
     '<h2 style="font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.02em;margin:56px 0 0">Secciones</h2>' +
     '<hr style="height:2px;border:0;background:var(--fuerte);margin:14px 0 0">' +
@@ -592,8 +595,21 @@ function render(opts) {
   vista.innerHTML = html();
   CLASES_PANE.forEach(function (c) { vista.classList.remove(c); });
   if (nueva) { void vista.offsetWidth; vista.classList.add(clase); }
-  if (clave === "inicio") pintarStats(opts.animarStats === true);
+  if (clave === "inicio") { pintarStats(opts.animarStats === true); montarHero(); }
+  else desmontarHero();
   reobservar();
+}
+
+/* El trazador de la portada vive en hero.js. Si el archivo no cargara, esto
+   se queda en nada y la página sigue igual. */
+var heroVivo = null;
+function montarHero() {
+  desmontarHero();
+  var caja = document.getElementById("hero-anim");
+  if (caja && window.heroApuntes) heroVivo = window.heroApuntes.montar(caja);
+}
+function desmontarHero() {
+  if (heroVivo) { heroVivo.destruir(); heroVivo = null; }
 }
 
 function pintarPestanas() {
