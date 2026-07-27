@@ -74,6 +74,26 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
 .h-sec:hover{border-color:var(--acc);box-shadow:var(--shadow-md);transform:translateY(-2px)}
 .h-fila:hover{background:color-mix(in srgb,var(--acc) 9%,transparent);padding-left:14px;text-decoration:none}
 .desplazado{box-shadow:var(--shadow-md)}
+/* Relato visual: el texto recorre la página mientras las ilustraciones
+   permanecen ancladas y cambian de escala con el scroll. */
+.story{margin-top:clamp(64px,9vw,112px);border-top:2px solid var(--fuerte);border-bottom:2px solid var(--fuerte)}
+.story-grid{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(360px,1.2fr);position:relative}
+.story-copy{grid-column:1;min-width:0}
+.story-step{min-height:72vh;padding:clamp(32px,5vw,64px) clamp(24px,4vw,48px) clamp(32px,5vw,64px) 0;display:flex;flex-direction:column;justify-content:center;opacity:.24;transition:opacity .28s ease}
+.story-step+.story-step{border-top:1px solid var(--rule)}
+.story-step.story-activo{opacity:1}
+.story-step h3{font-size:clamp(32px,5vw,62px);font-weight:800;letter-spacing:-.04em;line-height:.94;margin:12px 0 18px}
+.story-step p{max-width:36ch;margin:0;color:var(--sut);font-size:clamp(15px,1.8vw,18px);line-height:1.55;text-wrap:pretty}
+.story-link{align-self:flex-start;margin-top:26px;min-height:44px;border:2px solid var(--fuerte);background:transparent;color:var(--ink);font:600 12px/1 "Archivo",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:14px 16px;cursor:pointer;text-align:left}
+.story-link:hover{border-color:var(--acc);color:var(--acc)}
+.story-stage{grid-column:2;grid-row:1;position:sticky;top:var(--story-top,136px);align-self:start;height:var(--story-alto,calc(100vh - 168px));min-height:520px;overflow:clip;background:var(--sup);border-left:2px solid var(--fuerte)}
+.story-stage::before,.story-stage::after{content:"";position:absolute;background:var(--rule);pointer-events:none}
+.story-stage::before{top:0;bottom:0;left:50%;width:1px}
+.story-stage::after{left:0;right:0;top:50%;height:1px}
+.story-img{position:absolute;z-index:2;left:50%;top:50%;width:min(92%,680px);height:auto;opacity:0;transform:translate3d(-50%,-50%,0) scale(.7);transform-origin:center;will-change:transform,opacity;pointer-events:none;user-select:none}
+.story-meta{position:absolute;z-index:4;left:18px;right:18px;top:16px;display:flex;justify-content:space-between;gap:16px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sut);pointer-events:none}
+.story-progress{position:absolute;z-index:4;left:18px;right:18px;bottom:16px;height:2px;background:var(--rule);pointer-events:none}
+.story-progress span{display:block;width:0;height:100%;background:var(--acc);transform-origin:left center}
 /* Objetivos táctiles de 44px en móvil */
 @media (max-width:640px){
   #pestanas button{padding-top:15px!important;padding-bottom:12px!important}
@@ -81,6 +101,15 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
   #buscador,#pau-q{padding-top:13px!important;padding-bottom:13px!important}
   .h-fila{padding-top:14px!important;padding-bottom:14px!important}
   [data-cerrar]{width:44px!important;height:44px!important}
+}
+@media (max-width:760px){
+  .story-grid{display:flex;flex-direction:column}
+  .story-stage{order:-1;grid-column:auto;position:sticky;top:var(--story-top,214px);width:100%;align-self:stretch;height:var(--story-alto,46vh);min-height:330px;border-left:0;border-bottom:2px solid var(--fuerte);z-index:1}
+  .story-copy{position:relative;z-index:2}
+  .story-step{min-height:70vh;justify-content:flex-end;padding:50vh 0 28px;opacity:0}
+  .story-step>div{background:var(--pg);border-top:2px solid var(--fuerte);padding:20px 16px}
+  .story-step+.story-step{border-top:0}
+  .story-img{width:min(92%,500px)}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -90,6 +119,12 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
   button,#subrayado,#tema-icono,.h-card,.h-sec{transition:none}
   .h-fila:hover{transition:none}
   .h-card:hover,.h-sec:hover{transform:none}
+  .story-grid{display:block}
+  .story-stage{position:static;height:auto;min-height:0;border-left:0;border-bottom:2px solid var(--fuerte);display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule);padding:0;overflow:hidden}
+  .story-stage::before,.story-stage::after,.story-meta,.story-progress{display:none}
+  .story-img{position:relative;inset:auto;width:100%;opacity:1!important;transform:none!important;background:var(--sup);will-change:auto}
+  .story-step{min-height:0;padding:32px 0;opacity:1;transition:none}
+  .story-step>div{padding:0;background:transparent;border:0}
 }
 </style>
 </head>
@@ -378,6 +413,29 @@ function vistaInicio() {
     '<p class="hero-p" style="max-width:52ch;font-size:clamp(16px,2vw,19px);line-height:1.5;margin:0;text-wrap:pretty">Materiales de clase y bancos de exámenes, de 2º de ESO a 2º de Bachillerato, y el archivo completo de la PAU valenciana.</p>' +
     '<div class="hero-p" id="hero-anim" style="border:2px solid var(--rule);padding:14px 16px 12px;min-width:0;max-width:460px;justify-self:end;width:100%"></div></div>' +
     '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;background:var(--rule);border:2px solid var(--fuerte);margin-top:36px">' + stats + "</div>" +
+    '<section id="historia-visual" class="story" aria-labelledby="historia-titulo">' +
+    '<div style="padding:clamp(28px,5vw,52px) 0">' +
+    '<p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin:0 0 10px">Explora las materias</p>' +
+    '<h2 id="historia-titulo" style="font-size:clamp(34px,6vw,72px);font-weight:800;letter-spacing:-.04em;line-height:.96;margin:0;max-width:12ch">Aprender también es mirar.</h2></div>' +
+    '<div class="story-grid"><div class="story-copy">' +
+    '<article class="story-step story-activo" data-story-step="0"><div>' +
+    '<span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)">01 · Materia</span>' +
+    '<h3>La materia se mueve.</h3><p>Trayectorias, ondas, átomos y enlaces: la Física y la Química convierten lo invisible en algo que puedes observar, medir y explicar.</p>' +
+    '<button class="story-link" data-ir="fyq">Entrar en Física y Química</button></div></article>' +
+    '<article class="story-step" data-story-step="1"><div>' +
+    '<span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)">02 · Número</span>' +
+    '<h3>Las formas piensan.</h3><p>Funciones, superficies y estructuras geométricas revelan patrones. Las Matemáticas ordenan lo complejo sin quitarle profundidad.</p>' +
+    '<button class="story-link" data-ir="mat">Entrar en Matemáticas</button></div></article>' +
+    '<article class="story-step" data-story-step="2"><div>' +
+    '<span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)">03 · Vida</span>' +
+    '<h3>La vida deja huella.</h3><p>De la célula al ADN, cada escala contiene otra historia. La Biología conecta formas, procesos y evolución en un mismo sistema.</p>' +
+    '<button class="story-link" data-ir="bio">Entrar en Biología</button></div></article></div>' +
+    '<div class="story-stage" aria-hidden="true">' +
+    '<div class="story-meta"><span>Colección visual</span><span data-story-count>01 / 03</span></div>' +
+    '<img class="story-img" data-story-img="0" src="assets/visuales/fisica.webp" width="1000" height="1000" alt="" loading="lazy" decoding="async">' +
+    '<img class="story-img" data-story-img="1" src="assets/visuales/matematicas.webp" width="1000" height="1000" alt="" loading="lazy" decoding="async">' +
+    '<img class="story-img" data-story-img="2" src="assets/visuales/biologia.webp" width="1000" height="1000" alt="" loading="lazy" decoding="async">' +
+    '<div class="story-progress"><span data-story-progress></span></div></div></div></section>' +
     '<h2 style="font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.02em;margin:56px 0 0">Secciones</h2>' +
     '<hr style="height:2px;border:0;background:var(--fuerte);margin:14px 0 0">' +
     '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:22px">' + secciones + "</div>" +
@@ -519,6 +577,7 @@ var ultimaClave = null;
 var obs = null;
 var raf = 0;
 var ultimoFoco = null;
+var historiaViva = null;
 
 /* Enrutado por hash: la URL refleja la pestaña abierta. Se aceptan las anclas
    de la web anterior para que los enlaces compartidos sigan funcionando. */
@@ -595,8 +654,14 @@ function render(opts) {
   vista.innerHTML = html();
   CLASES_PANE.forEach(function (c) { vista.classList.remove(c); });
   if (nueva) { void vista.offsetWidth; vista.classList.add(clase); }
-  if (clave === "inicio") { pintarStats(opts.animarStats === true); montarHero(); }
-  else desmontarHero();
+  if (clave === "inicio") {
+    pintarStats(opts.animarStats === true);
+    montarHero();
+    montarHistoria();
+  } else {
+    desmontarHero();
+    desmontarHistoria();
+  }
   reobservar();
 }
 
@@ -610,6 +675,78 @@ function montarHero() {
 }
 function desmontarHero() {
   if (heroVivo) { heroVivo.destruir(); heroVivo = null; }
+}
+
+/* La posición se deriva siempre del scroll: al subir, la coreografía se
+   reproduce exactamente al revés. rAF agrupa los eventos sin crear inercia. */
+function montarHistoria() {
+  desmontarHistoria();
+  var raiz = document.getElementById("historia-visual");
+  if (!raiz) return;
+  if (menosMovimiento()) {
+    historiaViva = { destruir: function () {} };
+    return;
+  }
+  var imagenes = [].slice.call(raiz.querySelectorAll("[data-story-img]"));
+  var pasos = [].slice.call(raiz.querySelectorAll("[data-story-step]"));
+  var contador = raiz.querySelector("[data-story-count]");
+  var barra = raiz.querySelector("[data-story-progress]");
+  var frame = 0, activo = -1;
+  function limite(n, a, b) { return Math.max(a, Math.min(b, n)); }
+  function ajustarMarco() {
+    var altoCabecera = cabecera ? cabecera.getBoundingClientRect().height : 0;
+    var top = Math.ceil(altoCabecera + 12);
+    var movil = window.innerWidth <= 760;
+    var alto = movil
+      ? Math.max(330, Math.min(window.innerHeight * .52, window.innerHeight - top - 24))
+      : Math.max(520, window.innerHeight - top - 32);
+    raiz.style.setProperty("--story-top", top + "px");
+    raiz.style.setProperty("--story-alto", alto + "px");
+  }
+  function pintar() {
+    frame = 0;
+    if (!document.contains(raiz)) return;
+    var r = raiz.getBoundingClientRect();
+    var recorrido = Math.max(1, r.height - window.innerHeight * .78);
+    var avance = limite((window.innerHeight * .56 - r.top) / recorrido, 0, 1);
+    var punto = avance * (imagenes.length - 1);
+    imagenes.forEach(function (img, k) {
+      var rel = punto - k;
+      var entrada = limite(rel + 1, 0, 1);
+      var escala = rel < 0 ? .7 + entrada * .34 : 1.04 + limite(rel, 0, 1) * .38;
+      var y = rel < 0 ? (1 - entrada) * 72 : -limite(rel, 0, 1) * 72;
+      img.style.opacity = String(limite(1 - Math.abs(rel) * 1.04, 0, 1));
+      img.style.transform = "translate3d(-50%,-50%,0) translateY(" + y.toFixed(1) + "px) scale(" + escala.toFixed(3) + ") rotate(" + (rel * 1.4).toFixed(2) + "deg)";
+    });
+    var nuevo = limite(Math.round(punto), 0, pasos.length - 1);
+    if (nuevo !== activo) {
+      activo = nuevo;
+      pasos.forEach(function (paso, k) {
+        paso.classList.toggle("story-activo", k === activo);
+        if (k === activo) paso.setAttribute("aria-current", "true");
+        else paso.removeAttribute("aria-current");
+      });
+      if (contador) contador.textContent = "0" + (activo + 1) + " / 03";
+    }
+    if (barra) barra.style.width = (avance * 100).toFixed(2) + "%";
+  }
+  function solicitar() { if (!frame) frame = requestAnimationFrame(pintar); }
+  function alRedimensionar() { ajustarMarco(); solicitar(); }
+  window.addEventListener("scroll", solicitar, { passive: true });
+  window.addEventListener("resize", alRedimensionar, { passive: true });
+  ajustarMarco();
+  pintar();
+  historiaViva = {
+    destruir: function () {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", solicitar);
+      window.removeEventListener("resize", alRedimensionar);
+    }
+  };
+}
+
+function desmontarHistoria() {
+  if (historiaViva) { historiaViva.destruir(); historiaViva = null; }
 }
 
 function pintarPestanas() {
