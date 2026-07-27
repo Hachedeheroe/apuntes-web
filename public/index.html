@@ -33,16 +33,45 @@ a:hover{color:var(--acc);text-decoration:underline}
 @keyframes surge{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @keyframes telon{from{opacity:0}to{opacity:1}}
 @keyframes cajon{from{transform:translateX(48px);opacity:.3}to{transform:none;opacity:1}}
+/* La vista entra por el lado del que vienes: da sentido de sitio a las pestañas. */
+@keyframes pane-der{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+@keyframes pane-izq{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
+/* Cortinilla del titular y trazado de la regla. */
+@keyframes cortina{from{opacity:0;clip-path:inset(0 100% 0 0);transform:translateY(10px)}
+                   to{opacity:1;clip-path:inset(0 0 0 0);transform:none}}
+@keyframes trazo{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes fila{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .rev{opacity:0}
 .rev-on{animation:surge .55s cubic-bezier(.2,.7,.3,1) both}
 .pane{animation:surge .45s cubic-bezier(.2,.7,.3,1) both}
+.pane-der{animation:pane-der .42s cubic-bezier(.2,.7,.3,1) both}
+.pane-izq{animation:pane-izq .42s cubic-bezier(.2,.7,.3,1) both}
 .telon{animation:telon .25s ease both}
 .cajon{animation:cajon .34s cubic-bezier(.2,.7,.3,1) both}
+/* Portada: kicker, titular, regla y entradilla entran en cascada. */
+.hero-k{animation:surge .5s cubic-bezier(.2,.7,.3,1) both}
+.hero-h{animation:cortina .72s cubic-bezier(.2,.7,.3,1) .08s both}
+.hero-r{transform-origin:left center;animation:trazo .55s cubic-bezier(.2,.7,.3,1) .3s both}
+.hero-p{animation:surge .5s cubic-bezier(.2,.7,.3,1) .42s both}
+/* Entrada escalonada de listas largas, con tope para no encadenar 40 retardos. */
+.entra > *{animation:fila .34s cubic-bezier(.2,.7,.3,1) both}
+.entra > :nth-child(1){animation-delay:0ms}   .entra > :nth-child(2){animation-delay:22ms}
+.entra > :nth-child(3){animation-delay:44ms}  .entra > :nth-child(4){animation-delay:66ms}
+.entra > :nth-child(5){animation-delay:88ms}  .entra > :nth-child(6){animation-delay:110ms}
+.entra > :nth-child(7){animation-delay:132ms} .entra > :nth-child(8){animation-delay:154ms}
+.entra > :nth-child(9){animation-delay:176ms} .entra > :nth-child(n+10){animation-delay:198ms}
+/* Subrayado de la pestaña activa: una sola regla roja que se desplaza. */
+#subrayado{position:absolute;left:0;bottom:0;height:3px;background:var(--acc);width:0;
+  transform:translateX(0);opacity:0;pointer-events:none;
+  transition:transform .34s cubic-bezier(.2,.7,.3,1),width .34s cubic-bezier(.2,.7,.3,1),opacity .2s ease}
+#tema-icono{display:inline-block;transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+#tema:hover #tema-icono{transform:rotate(-25deg) scale(1.12)}
 button{transition:background .18s ease,color .18s ease,border-color .18s ease,box-shadow .2s ease}
 /* Estados hover del prototipo (style-hover) */
 .h-acc:hover{border-color:var(--acc);color:var(--acc)}
-.h-card:hover{border-color:var(--fuerte);box-shadow:var(--shadow-md)}
-.h-sec:hover{border-color:var(--acc);box-shadow:var(--shadow-md)}
+.h-card,.h-sec{transition:border-color .2s ease,box-shadow .25s ease,transform .25s cubic-bezier(.2,.7,.3,1)}
+.h-card:hover{border-color:var(--fuerte);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.h-sec:hover{border-color:var(--acc);box-shadow:var(--shadow-md);transform:translateY(-2px)}
 .h-fila:hover{background:color-mix(in srgb,var(--acc) 9%,transparent);padding-left:14px;text-decoration:none}
 .desplazado{box-shadow:var(--shadow-md)}
 /* Objetivos táctiles de 44px en móvil */
@@ -55,9 +84,12 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .rev,.rev-on,.pane,.telon,.cajon{opacity:1;animation:none;transform:none}
-  button{transition:none}
+  .rev,.rev-on,.pane,.pane-der,.pane-izq,.telon,.cajon,
+  .hero-k,.hero-h,.hero-p,.entra > *{opacity:1;animation:none;transform:none;clip-path:none}
+  .hero-r{animation:none;transform:none}
+  button,#subrayado,#tema-icono,.h-card,.h-sec{transition:none}
   .h-fila:hover{transition:none}
+  .h-card:hover,.h-sec:hover{transform:none}
 }
 </style>
 </head>
@@ -79,7 +111,7 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
       </button>
     </div>
     <nav style="border-top:1px solid var(--rule);overflow-x:auto">
-      <div id="pestanas" style="max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,32px);display:flex;gap:0;min-width:max-content"></div>
+      <div id="pestanas" style="position:relative;max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,32px);display:flex;gap:0;min-width:max-content"></div>
     </nav>
   </header>
 
@@ -233,6 +265,7 @@ function cargarIndice(despues) {
 var S = { tab: "inicio", q: "", qPau: "", orden: "pdf", nivel: "todos", tema: "claro", panel: null, desplazado: false };
 
 var PESTANAS = [["inicio", "Inicio"], ["fyq", "Física y Química"], ["mat", "Matemáticas"], ["bio", "Biología"], ["pau", "Selectivos PAU"]];
+var ORDEN_TABS = PESTANAS.map(function (t) { return t[0]; });
 var FILTROS = [["todos", "Todos"], ["eso", "ESO"], ["bach", "Bachillerato"]];
 var ORDENES = [["pdf", "Por nº PDF"], ["az", "A–Z"]];
 
@@ -256,8 +289,10 @@ function btn(activo) {
   return "border:2px solid " + (activo ? "var(--acc)" : "var(--rule)") + ";background:" + (activo ? "var(--acc)" : "transparent") +
     ";color:" + (activo ? "var(--pg)" : "var(--ink)") + ";font-family:inherit;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:9px 13px;cursor:pointer;text-align:left";
 }
+/* El subrayado ya no lo pinta cada pestaña: lo lleva una regla que se desliza
+   (#subrayado). Aquí solo se reserva su altura para que nada salte. */
 function tabEstilo(activo) {
-  return "appearance:none;border:0;border-bottom:3px solid " + (activo ? "var(--acc)" : "transparent") +
+  return "appearance:none;border:0;border-bottom:3px solid transparent" +
     ";background:transparent;color:" + (activo ? "var(--ink)" : "var(--sut)") +
     ";font-family:inherit;font-weight:" + (activo ? "800" : "600") + ";font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:13px 16px 11px;cursor:pointer;white-space:nowrap";
 }
@@ -270,7 +305,7 @@ var ICONO_EXT = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" str
 var REGLA = '<hr style="height:2px;border:0;background:var(--fuerte);margin:20px 0 0">';
 var FILA = "width:100%;display:flex;align-items:baseline;gap:10px;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--rule);color:var(--ink);font-family:inherit;font-size:15px;padding:11px 4px;cursor:pointer;transition:background .15s ease,padding-left .2s ease";
 var PUNTOS = '<span style="flex:1;border-bottom:2px dotted var(--rule);transform:translateY(-5px)"></span>';
-var TARJETA = "border:2px solid var(--rule);background:var(--sup);display:flex;flex-direction:column;transition:border-color .2s ease,box-shadow .25s ease";
+var TARJETA = "border:2px solid var(--rule);background:var(--sup);display:flex;flex-direction:column";
 
 /* ---------------------------------------------------------------- vistas -- */
 
@@ -335,10 +370,10 @@ function vistaInicio() {
   }).join("");
 
   return "<section>" +
-    '<p class="rev" style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sut);margin:0">Física y Química · Matemáticas · Biología</p>' +
-    '<h1 class="rev" style="font-size:clamp(52px,11vw,116px);font-weight:800;letter-spacing:-.035em;line-height:.92;margin:14px 0 0">Apuntes</h1>' +
-    '<hr style="height:2px;border:0;background:var(--fuerte);margin:22px 0 0">' +
-    '<p class="rev" style="max-width:52ch;font-size:clamp(16px,2vw,19px);line-height:1.5;margin:22px 0 0;text-wrap:pretty">Materiales de clase y bancos de exámenes, de 2º de ESO a 2º de Bachillerato, y el archivo completo de la PAU valenciana.</p>' +
+    '<p class="hero-k" style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sut);margin:0">Física y Química · Matemáticas · Biología</p>' +
+    '<h1 class="hero-h" style="font-size:clamp(52px,11vw,116px);font-weight:800;letter-spacing:-.035em;line-height:.92;margin:14px 0 0">Apuntes</h1>' +
+    '<hr class="hero-r" style="height:2px;border:0;background:var(--fuerte);margin:22px 0 0">' +
+    '<p class="hero-p" style="max-width:52ch;font-size:clamp(16px,2vw,19px);line-height:1.5;margin:22px 0 0;text-wrap:pretty">Materiales de clase y bancos de exámenes, de 2º de ESO a 2º de Bachillerato, y el archivo completo de la PAU valenciana.</p>' +
     '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;background:var(--rule);border:2px solid var(--fuerte);margin-top:36px">' + stats + "</div>" +
     '<h2 style="font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.02em;margin:56px 0 0">Secciones</h2>' +
     '<hr style="height:2px;border:0;background:var(--fuerte);margin:14px 0 0">' +
@@ -383,8 +418,9 @@ function listaPau() {
   return lista;
 }
 
-function cuerpoPau(lista) {
-  var filas = '<div style="margin-top:8px">' + lista.map(function (p) { return filaPau(p, false); }).join("") + "</div>";
+function cuerpoPau(lista, animar) {
+  var filas = '<div class="' + (animar ? "entra" : "") + '" style="margin-top:8px">' +
+    lista.map(function (p) { return filaPau(p, false); }).join("") + "</div>";
   var vacio = lista.length === 0
     ? '<p style="font-style:italic;color:var(--sut);padding:20px 4px">Ninguna asignatura coincide con el filtro.</p>'
     : "";
@@ -406,7 +442,7 @@ function vistaPau() {
     '<input id="pau-q" type="search" value="' + esc(S.qPau) + '" placeholder="Filtrar asignatura — p. ej. física, latín, dibujo…" aria-label="Filtrar asignatura PAU" autocomplete="off" style="flex:1;min-width:0;border:0;outline:none;background:transparent;color:var(--ink);font-family:inherit;font-size:14px;padding:10px 0"></div>' +
     '<div style="display:flex;gap:0;border:2px solid var(--rule)">' + ordenes + "</div></div>" +
     '<p id="pau-resumen" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sut);margin:16px 0 0">' + lista.length + " de 40 asignaturas · examen + criterios + modelo</p>" +
-    '<div id="pau-cuerpo">' + cuerpoPau(lista) + "</div></section>";
+    '<div id="pau-cuerpo">' + cuerpoPau(lista, true) + "</div></section>";
 }
 
 function vistaBusqueda(gq) {
@@ -529,14 +565,33 @@ function html() {
   return vistaInicio();
 }
 
+/* Dirección de la transición: si vas a una pestaña que está más a la derecha,
+   la vista entra desde la derecha. Con la búsqueda de por medio no hay
+   dirección que valga, así que se usa la entrada neutra de siempre. */
+var CLASES_PANE = ["pane", "pane-der", "pane-izq"];
+
+function tabDeClave(clave) {
+  if (!clave || clave === "busqueda") return null;
+  return clave.indexOf("materia:") === 0 ? clave.slice(8) : clave;
+}
+
+function clasePane(anterior, actual) {
+  var a = tabDeClave(anterior), b = tabDeClave(actual);
+  if (!a || !b) return "pane";
+  var ia = ORDEN_TABS.indexOf(a), ib = ORDEN_TABS.indexOf(b);
+  if (ia < 0 || ib < 0 || ia === ib) return "pane";
+  return ib > ia ? "pane-der" : "pane-izq";
+}
+
 function render(opts) {
   opts = opts || {};
   var clave = claveVista();
   var nueva = clave !== ultimaClave;
+  var clase = clasePane(ultimaClave, clave);
   ultimaClave = clave;
   vista.innerHTML = html();
-  vista.classList.remove("pane");
-  if (nueva) { void vista.offsetWidth; vista.classList.add("pane"); }
+  CLASES_PANE.forEach(function (c) { vista.classList.remove(c); });
+  if (nueva) { void vista.offsetWidth; vista.classList.add(clase); }
   if (clave === "inicio") pintarStats(opts.animarStats === true);
   reobservar();
 }
@@ -544,11 +599,30 @@ function render(opts) {
 function pintarPestanas() {
   pestanas.innerHTML = PESTANAS.map(function (t) {
     return '<button data-ir="' + t[0] + '" style="' + tabEstilo(S.tab === t[0] && !S.q) + '">' + esc(t[1]) + "</button>";
-  }).join("");
+  }).join("") + '<span id="subrayado"></span>';
+  moverSubrayado(true);
+}
+
+/* Coloca la regla roja bajo la pestaña activa. En el primer pintado salta sin
+   transición; después se desliza. */
+function moverSubrayado(instantaneo) {
+  var sub = document.getElementById("subrayado");
+  if (!sub) return;
+  var act = S.q ? null : pestanas.querySelector('[data-ir="' + S.tab + '"]');
+  if (instantaneo) sub.style.transition = "none";
+  if (!act) {
+    sub.style.opacity = "0";
+  } else {
+    sub.style.opacity = "1";
+    sub.style.width = act.offsetWidth + "px";
+    sub.style.transform = "translateX(" + act.offsetLeft + "px)";
+  }
+  if (instantaneo) requestAnimationFrame(function () { sub.style.transition = ""; });
 }
 function actualizarPestanas() {
   var b = pestanas.querySelectorAll("[data-ir]");
   for (var i = 0; i < b.length; i++) b[i].setAttribute("style", tabEstilo(S.tab === b[i].dataset.ir && !S.q));
+  moverSubrayado();
 }
 
 function pintarStats(animar) {
@@ -684,6 +758,10 @@ function pintarDocs() {
   var res = host.querySelector("#doc-resumen");
   var cont = host.querySelector("#doc-lista");
   if (res) res.textContent = lista.length + " de " + total + " documentos";
+  if (cont) {
+    cont.className = p.recienAbierto ? "entra" : "";
+    p.recienAbierto = false;
+  }
   if (cont) cont.innerHTML = lista.length
     ? lista.map(filaDoc).join("")
     : '<p style="font-style:italic;color:var(--sut);padding:20px 4px">Ningún documento coincide con el filtro.</p>';
@@ -695,7 +773,7 @@ function pintarDocs() {
 function abrirPanel(kicker, titulo, id, origen) {
   var conDocs = !!(IDX && IDX.porAsig[titulo]);
   S.panel = { kicker: kicker, titulo: titulo, id: id, cargado: false,
-              modo: conDocs ? "docs" : "carpeta", q: "", tipo: "Todos" };
+              modo: conDocs ? "docs" : "carpeta", q: "", tipo: "Todos", recienAbierto: true };
   ultimoFoco = origen || document.activeElement;
   pintarPanel();
   document.addEventListener("keydown", teclaPanel, true);
@@ -827,6 +905,13 @@ if (window.IntersectionObserver) {
 
 window.addEventListener("popstate", desdeHistorial);
 window.addEventListener("hashchange", desdeHistorial);
+
+/* La regla se mide en píxeles, así que hay que recolocarla cuando cambia el
+   ancho o cuando entra la tipografía y las pestañas cambian de tamaño. */
+window.addEventListener("resize", function () { moverSubrayado(true); });
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(function () { moverSubrayado(true); });
+}
 
 var tabInicial = tabDeHash();
 if (tabInicial) {
