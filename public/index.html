@@ -415,6 +415,38 @@ var obs = null;
 var raf = 0;
 var ultimoFoco = null;
 
+/* Enrutado por hash: la URL refleja la pestaña abierta. Se aceptan las anclas
+   de la web anterior para que los enlaces compartidos sigan funcionando. */
+var ALIAS = {
+  "": "inicio", inicio: "inicio", portada: "inicio", asignaturas: "inicio",
+  fyq: "fyq", "fisica-y-quimica": "fyq", "fisica": "fyq", "quimica": "fyq",
+  mat: "mat", matematicas: "mat",
+  bio: "bio", biologia: "bio",
+  pau: "pau", selectivos: "pau", selectividad: "pau", "pau-lista": "pau", "filtro-pau": "pau"
+};
+
+function tabDeHash() {
+  var h = "";
+  try { h = decodeURIComponent(location.hash.replace(/^#/, "")); } catch (e) { h = location.hash.replace(/^#/, ""); }
+  return ALIAS[norm(h)] || null;
+}
+
+function escribirHash(tab) {
+  var h = tab === "inicio" ? "" : "#" + tab;
+  if ((location.hash || "") === h) return;
+  try { history.pushState(null, "", location.pathname + location.search + h); } catch (e) {}
+}
+
+function desdeHistorial() {
+  var t = tabDeHash() || "inicio";
+  if (t === S.tab && !S.q) return;
+  S.tab = t;
+  S.q = "";
+  buscador.value = "";
+  actualizarPestanas();
+  render({ animarStats: t === "inicio" });
+}
+
 function claveVista() {
   if (norm(S.q.trim())) return "busqueda";
   if (MATERIAS[S.tab]) return "materia:" + S.tab;
@@ -486,6 +518,7 @@ function ir(tab) {
   S.tab = tab;
   S.q = "";
   buscador.value = "";
+  escribirHash(tab);
   actualizarPestanas();
   render({ animarStats: tab === "inicio" });
   window.scrollTo({ top: 0, behavior: menosMovimiento() ? "auto" : "smooth" });
@@ -629,6 +662,19 @@ if (window.IntersectionObserver) {
       if (e.isIntersecting) { e.target.classList.add("rev-on"); obs.unobserve(e.target); }
     });
   }, { rootMargin: "0px 0px -8% 0px" });
+}
+
+window.addEventListener("popstate", desdeHistorial);
+window.addEventListener("hashchange", desdeHistorial);
+
+var tabInicial = tabDeHash();
+if (tabInicial) {
+  S.tab = tabInicial;
+  /* Normaliza las anclas antiguas (#fisica-y-quimica → #fyq) sin añadir historial. */
+  var canonico = tabInicial === "inicio" ? "" : "#" + tabInicial;
+  if ((location.hash || "") !== canonico) {
+    try { history.replaceState(null, "", location.pathname + location.search + canonico); } catch (e) {}
+  }
 }
 
 pintarPestanas();
