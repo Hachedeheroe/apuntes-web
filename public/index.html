@@ -43,12 +43,12 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
 .h-acc:hover{border-color:var(--acc);color:var(--acc)}
 .h-card:hover{border-color:var(--fuerte);box-shadow:var(--shadow-md)}
 .h-sec:hover{border-color:var(--acc);box-shadow:var(--shadow-md)}
-.h-fila:hover{background:color-mix(in srgb,var(--acc) 9%,transparent);padding-left:14px}
+.h-fila:hover{background:color-mix(in srgb,var(--acc) 9%,transparent);padding-left:14px;text-decoration:none}
 .desplazado{box-shadow:var(--shadow-md)}
 /* Objetivos táctiles de 44px en móvil */
 @media (max-width:640px){
   #pestanas button{padding-top:15px!important;padding-bottom:12px!important}
-  #tema,.tap,#panel-host a{min-height:44px}
+  #tema,.tap,.enl,#panel-host a{min-height:44px}
   #buscador,#pau-q{padding-top:13px!important;padding-bottom:13px!important}
   .h-fila{padding-top:14px!important;padding-bottom:14px!important}
   [data-cerrar]{width:44px!important;height:44px!important}
@@ -72,7 +72,7 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
       </div>
       <div style="display:flex;align-items:center;gap:8px;border:2px solid var(--rule);padding:0 10px;background:var(--sup);min-width:min(320px,100%);flex:1 1 240px;max-width:420px">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none;color:var(--sut)" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
-        <input id="buscador" type="search" placeholder="Buscar curso, asignatura PAU…" aria-label="Buscar" autocomplete="off" style="flex:1;min-width:0;border:0;outline:none;background:transparent;color:var(--ink);font-family:inherit;font-size:14px;padding:9px 0">
+        <input id="buscador" type="search" placeholder="Buscar curso, asignatura o examen…" aria-label="Buscar" autocomplete="off" style="flex:1;min-width:0;border:0;outline:none;background:transparent;color:var(--ink);font-family:inherit;font-size:14px;padding:9px 0">
       </div>
       <button id="tema" aria-label="Cambiar tema" class="h-acc" style="display:inline-flex;align-items:center;gap:7px;border:2px solid var(--rule);background:transparent;color:var(--ink);font-family:inherit;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:9px 12px;cursor:pointer">
         <span id="tema-icono">☾</span><span id="tema-label">Oscuro</span>
@@ -91,7 +91,7 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
 
     <footer style="margin-top:80px;border-top:2px solid var(--fuerte);padding-top:16px;font-size:13px;color:var(--sut)">
       <p style="margin:0 0 6px">Material propio salvo indicación. Exámenes PAU: universitats.gva.es (GVA). Banco 1º Bach FyQ: fiquipedia.es, licencia Creative Commons.</p>
-      <p style="margin:0">© 2026 Hugo Sierra · Material educativo · Los enlaces abren carpetas de Google Drive.</p>
+      <p style="margin:0">© 2026 Hugo Sierra · Material educativo · Los archivos se abren en Google Drive.</p>
     </footer>
   </main>
 
@@ -139,45 +139,45 @@ var MATERIAS = {
 };
 
 var PAU = [
-  ["Dibujo Técnico", 83, "1OV3AdbQRNs0tZ7f2m1OtxDnHB7bw86B3", 0],
-  ["Historia del Arte", 81, "1itrLzH85qPmpnuZynmKpDLL4Ra4zlQxb", 0],
-  ["Alemán", 79, "16-IW-5genkiDS0ECtKhz-9khf-vkYlyW", 0],
-  ["Francés", 78, "1-ZFpLZqrVZefuYeWmQF2HBrzc2pSnZk4", 0],
-  ["Historia de la Filosofía", 76, "1AYzKBUfjIKtVIRFYsPFjIa_8avHs7a_M", 0],
-  ["Inglés", 76, "1QD-xV9MjXew_eCT6EDuNi81J1ZQaKIxs", 0],
-  ["Geografía", 76, "14-ahkoU8Nxm6KvEgUPc4yy_Mp-fzwrFG", 0],
-  ["Matemáticas II", 75, "1P6FhOUh3l8uULPaKCzil0AyLSDlE39pq", 1],
-  ["Italiano", 75, "1TjlcXAVKCpqdCM3ZsBBfbUZFGLFJ2M0Q", 0],
-  ["Matemáticas Aplicadas a las Ciencias Sociales", 75, "1_A8UbeKgW7o4pqhG-GeYx8jLJSRUGPW7", 1],
-  ["Física", 75, "1isMWEl_5MGJz8TRSnq049l4a_XVYvYT4", 1],
-  ["Diseño", 73, "1B0kFl5fq_F9FxfLN2F7d451IfTcOgTBL", 0],
-  ["Latín", 72, "19lbn1cauoOMrYj_xfymKoxuw4YPJ7e78", 0],
-  ["Castellano — Lengua y Literatura", 72, "1xq-0FoAcSgZlh96PdWtQdpDrp9sqq5n0", 0],
-  ["Valenciano — Lengua y Literatura", 71, "1lWLTpRLxVbwLKTdeTfHaPuieZOegThEp", 0],
-  ["Biología", 71, "1AvkDT_U6HbxSsJNhbMRc2bUQr0HdkDww", 1],
-  ["Química", 71, "1NzHKR7lyNfO2HsLwhskL1tjLahZCH_QL", 1],
-  ["Griego", 71, "1Tpz0oVpNZDql3ZynAb0TSaVqXHx5Xc97", 0],
-  ["Historia de España", 70, "1O4H8i_liIICyKcKPLrOXt5HDmFEGQpof", 0],
+  ["Dibujo Técnico", 81, "1OV3AdbQRNs0tZ7f2m1OtxDnHB7bw86B3", 0],
+  ["Historia del Arte", 79, "1itrLzH85qPmpnuZynmKpDLL4Ra4zlQxb", 0],
+  ["Alemán", 74, "16-IW-5genkiDS0ECtKhz-9khf-vkYlyW", 0],
+  ["Historia de la Filosofía", 74, "1AYzKBUfjIKtVIRFYsPFjIa_8avHs7a_M", 0],
+  ["Francés", 73, "1-ZFpLZqrVZefuYeWmQF2HBrzc2pSnZk4", 0],
+  ["Inglés", 73, "1QD-xV9MjXew_eCT6EDuNi81J1ZQaKIxs", 0],
+  ["Geografía", 73, "14-ahkoU8Nxm6KvEgUPc4yy_Mp-fzwrFG", 0],
+  ["Matemáticas II", 72, "1P6FhOUh3l8uULPaKCzil0AyLSDlE39pq", 1],
+  ["Italiano", 72, "1TjlcXAVKCpqdCM3ZsBBfbUZFGLFJ2M0Q", 0],
+  ["Matemáticas Aplicadas a las Ciencias Sociales", 71, "1_A8UbeKgW7o4pqhG-GeYx8jLJSRUGPW7", 1],
+  ["Física", 71, "1isMWEl_5MGJz8TRSnq049l4a_XVYvYT4", 1],
+  ["Diseño", 70, "1B0kFl5fq_F9FxfLN2F7d451IfTcOgTBL", 0],
+  ["Latín", 69, "19lbn1cauoOMrYj_xfymKoxuw4YPJ7e78", 0],
+  ["Valenciano — Lengua y Literatura", 69, "1lWLTpRLxVbwLKTdeTfHaPuieZOegThEp", 0],
+  ["Biología", 69, "1AvkDT_U6HbxSsJNhbMRc2bUQr0HdkDww", 1],
+  ["Química", 69, "1NzHKR7lyNfO2HsLwhskL1tjLahZCH_QL", 1],
+  ["Castellano — Lengua y Literatura", 68, "1xq-0FoAcSgZlh96PdWtQdpDrp9sqq5n0", 0],
+  ["Griego", 68, "1Tpz0oVpNZDql3ZynAb0TSaVqXHx5Xc97", 0],
+  ["Historia de España", 68, "1O4H8i_liIICyKcKPLrOXt5HDmFEGQpof", 0],
   ["Economía de la Empresa", 54, "1eqisX4C048lwfxewEPY-dRoyJAzxUlTr", 0],
-  ["Artes Escénicas", 50, "1WayHF009gfmN238BWIsuPyZBphDqBKpg", 0],
-  ["Dibujo Artístico", 50, "1DpL3ciCKH9rRSrdIp425X3IourTipwEY", 0],
-  ["Análisis Musical", 47, "1L9fQmMuOmeep7ZopXJkrOO4UFDxhQC_r", 0],
-  ["Fundamentos del Arte", 45, "16YaMY9QwPsn3reWLE1XivNdpkDImeAso", 0],
-  ["Tecnología e Ingeniería", 42, "1S5GcmyjKb19lJCyoJ35yiUjFEso31h2h", 0],
+  ["Artes Escénicas", 46, "1WayHF009gfmN238BWIsuPyZBphDqBKpg", 0],
+  ["Dibujo Artístico", 45, "1DpL3ciCKH9rRSrdIp425X3IourTipwEY", 0],
+  ["Análisis Musical", 43, "1L9fQmMuOmeep7ZopXJkrOO4UFDxhQC_r", 0],
+  ["Fundamentos del Arte", 43, "16YaMY9QwPsn3reWLE1XivNdpkDImeAso", 0],
   ["Geología y Ciencias Ambientales", 42, "1I5inszghxYygPYdan_ewS4dg8yor4b0v", 0],
-  ["Técnicas de Expresión Gráfico-Plásticas", 41, "19kxp_ihvrEL2ZaB9U3fejfHVC_3oNfCb", 0],
-  ["Literatura Universal", 39, "1uwilbtOr80-v3M3qJuHHzBt3Nxz2_8jF", 0],
-  ["Historia de la Música y la Danza", 39, "1Qsap8gRWYDP_fDXdovHA95zwFeeOKmN6", 0],
+  ["Tecnología e Ingeniería", 40, "1S5GcmyjKb19lJCyoJ35yiUjFEso31h2h", 0],
+  ["Técnicas de Expresión Gráfico-Plásticas", 39, "19kxp_ihvrEL2ZaB9U3fejfHVC_3oNfCb", 0],
+  ["Literatura Universal", 37, "1uwilbtOr80-v3M3qJuHHzBt3Nxz2_8jF", 0],
+  ["Historia de la Música y la Danza", 37, "1Qsap8gRWYDP_fDXdovHA95zwFeeOKmN6", 0],
   ["Portugués", 29, "1OUGaBfN5fcS9rzKOVKC56__e2DwDCCAB", 0],
   ["Ciencias de la Tierra y Medioambientales", 29, "1QN0tMsiZq1FF6evptJSdhXoPZCQhzvqf", 0],
   ["Cultura Audiovisual", 28, "16U6xAK6yZlCRCJz1YaLAvpMd0TJBY4Cz", 0],
   ["Lenguaje y Práctica Musical", 25, "1_nUKG1COpJ1QLGQlbujU5C4Po3hDzs4I", 0],
   ["Electrotecnia", 25, "1_-XVir3SafH9FjSR-mVm18wUBFXU4zS2", 0],
   ["Empresa y Diseño de Modelos de Negocio", 19, "1llf_WX5UmzoU0VDngR4igFqBH0pAqUKF", 0],
-  ["Ciencias Generales", 17, "1XTt7u0gUfgk89J8pSbNffoplL_gYKEOp", 0],
-  ["Dibujo Técnico Aplicado a Artes Plásticas y Diseño", 15, "14vtVV8ogVgcaHd06hZMf6XB4AGuFipuL", 0],
+  ["Ciencias Generales", 14, "1XTt7u0gUfgk89J8pSbNffoplL_gYKEOp", 0],
+  ["Dibujo Técnico Aplicado a Artes Plásticas y Diseño", 13, "14vtVV8ogVgcaHd06hZMf6XB4AGuFipuL", 0],
   ["Coreografía y Técnicas de Interpretación de la Danza", 11, "1CKe6Des7JYISBHIH5wZJRTakkcEnOOQ_", 0],
-  ["Movimientos Culturales y Artísticos", 10, "1vlogoSInzCqzTt2XiNN_ViAsoi_nOfaM", 0],
+  ["Movimientos Culturales y Artísticos", 8, "1vlogoSInzCqzTt2XiNN_ViAsoi_nOfaM", 0],
   ["Electrónica", 1, "1JUs63ACusXcTJIza5WW4IoaOTC7IjAMV", 0]
 ];
 var norm = function (s) { return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(); };
@@ -188,6 +188,45 @@ var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { ret
 var menosMovimiento = function () {
   return !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
 };
+
+/* --------------------------------------------------- índice de exámenes -- */
+/* public/pau.json trae los 1991 documentos de la PAU con año, convocatoria y
+   tipo, sacados del listado público de cada carpeta de Drive. Se carga en
+   segundo plano: si no llega, el panel sigue funcionando con el visor de Drive. */
+
+var IDX = null, idxEstado = "pendiente", idxEspera = [];
+
+function prepararIndice(j) {
+  var porAsig = {}, todos = [];
+  j.docs.forEach(function (d) {
+    var asig = j.asignaturas[d[0]];
+    var doc = { asig: asig, id: d[1], anio: d[2], conv: j.convocatorias[d[3]],
+                tipo: j.tipos[d[4]], matiz: j.matices[d[5]] };
+    doc.busca = norm(asig + " " + doc.anio + " " + doc.conv + " " + doc.tipo + " " + doc.matiz);
+    (porAsig[asig] || (porAsig[asig] = [])).push(doc);
+    todos.push(doc);
+  });
+  return { porAsig: porAsig, todos: todos, tipos: j.tipos };
+}
+
+function cargarIndice(despues) {
+  if (idxEstado === "listo") { if (despues) despues(); return; }
+  if (idxEstado === "error") { if (despues) despues(); return; }
+  if (despues) idxEspera.push(despues);
+  if (idxEstado === "cargando") return;
+  idxEstado = "cargando";
+  var fin = function () {
+    var pendientes = idxEspera;
+    idxEspera = [];
+    pendientes.forEach(function (f) { f(); });
+  };
+  if (!window.fetch) { idxEstado = "error"; fin(); return; }
+  fetch("pau.json")
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (j) { IDX = prepararIndice(j); idxEstado = "listo"; })
+    .catch(function () { idxEstado = "error"; })
+    .then(fin, fin);
+}
 
 /* ---------------------------------------------------------------- estado -- */
 
@@ -200,7 +239,7 @@ var ORDENES = [["pdf", "Por nº PDF"], ["az", "A–Z"]];
 var ESTADISTICAS = [
   { valor: 10, label: "Cursos con material" },
   { valor: 40, label: "Asignaturas PAU" },
-  { valor: 2078, label: "PDF de PAU" },
+  { valor: 1991, label: "PDF de PAU" },
   { texto: "2010–26", label: "Convocatorias" }
 ];
 
@@ -208,7 +247,7 @@ var SECCIONES = [
   { kicker: "Parte 1", titulo: "Física y Química", detalle: "2º–4º ESO · 1º Bach · 2º Bach (Física / Química)", destino: "fyq" },
   { kicker: "Parte 2", titulo: "Matemáticas", detalle: "2º y 3º ESO · 2º Bachillerato", destino: "mat" },
   { kicker: "Parte 3", titulo: "Biología", detalle: "2º Bachillerato · PAU 2010–2026", destino: "bio" },
-  { kicker: "Parte 4", titulo: "Selectivos PAU", detalle: "40 asignaturas · 2078 PDF · examen y criterios", destino: "pau" }
+  { kicker: "Parte 4", titulo: "Selectivos PAU", detalle: "40 asignaturas · 1991 PDF · examen y criterios", destino: "pau" }
 ];
 
 /* --------------------------------------------------------------- estilos -- */
@@ -227,6 +266,7 @@ function retardo(i) { return "animation-delay:" + (i * 70) + "ms"; }
 
 var CAJA_BUSCA = "display:flex;align-items:center;gap:8px;border:2px solid var(--rule);background:var(--sup);padding:0 10px;flex:1 1 260px";
 var LUPA = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none;color:var(--sut)" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>';
+var ICONO_EXT = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path></svg>';
 var REGLA = '<hr style="height:2px;border:0;background:var(--fuerte);margin:20px 0 0">';
 var FILA = "width:100%;display:flex;align-items:baseline;gap:10px;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--rule);color:var(--ink);font-family:inherit;font-size:15px;padding:11px 4px;cursor:pointer;transition:background .15s ease,padding-left .2s ease";
 var PUNTOS = '<span style="flex:1;border-bottom:2px dotted var(--rule);transform:translateY(-5px)"></span>';
@@ -238,10 +278,14 @@ function abridor(kicker, titulo, id) {
   return 'data-k="' + esc(kicker) + '" data-t="' + esc(titulo) + '" data-id="' + esc(id) + '"';
 }
 
+/* Las carpetas de material de clase están restringidas al dominio del centro:
+   embeberlas devuelve el muro de acceso de Google, así que salen a Drive. */
 function enlacesDe(curso, materia) {
   return curso.enlaces.map(function (e, i) {
-    var estilo = btn(false) + (i === 0 ? ";border-color:var(--fuerte)" : "");
-    return '<button ' + abridor(materia + " · " + curso.nombre, e[0], e[1]) + ' style="' + estilo + '">' + esc(e[0]) + "</button>";
+    var estilo = btn(false) + (i === 0 ? ";border-color:var(--fuerte)" : "") +
+      ";text-decoration:none;display:inline-flex;align-items:center;gap:7px";
+    return '<a class="enl h-acc" href="' + esc(D(e[1])) + '" target="_blank" rel="noopener" style="' + estilo + '">' +
+      esc(e[0]) + ICONO_EXT + "</a>";
   }).join("");
 }
 
@@ -283,7 +327,7 @@ function vistaInicio() {
 
   var ayuda = [
     ["Elige asignatura arriba", "Cada pestaña reúne los cursos de una materia; el buscador cubre cursos y PAU a la vez."],
-    ["Abre la carpeta sin salir", "Los apuntes y exámenes se muestran embebidos desde Google Drive: puedes verlos o descargarlos."],
+    ["Busca el examen que quieras", "Escribe la asignatura, el año o la convocatoria y ve directo al PDF, sin bucear por carpetas."],
     ["Practica con la PAU", "Convocatorias 2010–2026 de las 40 asignaturas, con examen y criterios de corrección."]
   ].map(function (a) {
     return '<div class="rev"><p style="font-weight:600;margin:0 0 6px">' + esc(a[0]) + "</p>" +
@@ -374,7 +418,15 @@ function vistaBusqueda(gq) {
     });
   });
   var resPau = PAU.filter(function (p) { return norm(p[0]).indexOf(gq) !== -1; });
-  var total = resCursos.length + resPau.length;
+  /* Los exámenes solo entran cuando la consulta no es ya el nombre pelado de
+     una asignatura: si buscas "física" quieres la asignatura, no sus 75 PDF. */
+  var resDocs = [];
+  var TOPE = 60;
+  if (IDX && !(resPau.length && norm(resPau[0][0]) === gq)) {
+    var ts = terminos(S.q);
+    resDocs = IDX.todos.filter(function (d) { return casa(d.busca, ts); });
+  }
+  var total = resCursos.length + resPau.length + resDocs.length;
 
   var tarjetas = resCursos.map(function (r) {
     return '<div class="h-card" style="' + TARJETA + ';padding:18px;gap:10px">' +
@@ -385,6 +437,23 @@ function vistaBusqueda(gq) {
   }).join("");
 
   var filas = resPau.map(function (p) { return filaPau(p, true); }).join("");
+
+  var bloqueDocs = "";
+  if (resDocs.length) {
+    var recorte = resDocs.slice(0, TOPE);
+    bloqueDocs = '<h3 style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sut);font-weight:600;margin:32px 0 0">' +
+      "Exámenes · " + resDocs.length +
+      (resDocs.length > TOPE ? " (se muestran los " + TOPE + " primeros)" : "") + "</h3>" +
+      '<div style="margin-top:10px">' + recorte.map(function (d) {
+        return '<a class="h-fila" href="https://drive.google.com/file/d/' + esc(d.id) + '/view" target="_blank" rel="noopener" style="' +
+          FILA + ';text-decoration:none">' +
+          '<span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);flex:none">PAU</span>' +
+          '<span style="font-weight:800;flex:none;font-variant-numeric:tabular-nums">' + d.anio + "</span>" +
+          "<span>" + esc(d.asig + " · " + (d.conv === d.tipo ? d.tipo : d.conv + " · " + d.tipo) + (d.matiz ? " · " + d.matiz : "")) + "</span>" +
+          PUNTOS + '<span style="font-size:12px;color:var(--sut);flex:none">PDF</span></a>';
+      }).join("") + "</div>";
+  }
+
   var vacio = total === 0
     ? '<p style="font-style:italic;color:var(--sut);padding:24px 0">Nada coincide con la búsqueda.</p>'
     : "";
@@ -395,7 +464,7 @@ function vistaBusqueda(gq) {
     '<h2 style="font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-.02em;margin:0">' + esc(resumen) + "</h2>" +
     REGLA +
     '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:24px">' + tarjetas + "</div>" +
-    '<div style="margin-top:28px">' + filas + "</div>" + vacio + "</section>";
+    '<div style="margin-top:28px">' + filas + "</div>" + bloqueDocs + vacio + "</section>";
 }
 
 /* ------------------------------------------------------------ renderizado -- */
@@ -556,29 +625,111 @@ function htmlPanel(p) {
     '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path></svg><span>Drive</span></a>' +
     '<button class="h-acc" data-cerrar aria-label="Cerrar" style="border:2px solid var(--rule);background:transparent;color:var(--ink);width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none">' +
     '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div>' +
-    '<div style="flex:1;position:relative;background:var(--sup)">' +
-    '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--sut);font-size:12px;letter-spacing:.16em;text-transform:uppercase">Cargando carpeta…</div>' +
-    '<iframe src="' + esc(EMB(p.id)) + '" title="Carpeta de Google Drive" style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;transition:opacity .4s ease;opacity:0"></iframe>' +
-    "</div></div></div>";
+    cuerpoPanel(p) + "</div></div>";
+}
+
+/* Con el índice cargado, el panel lista los exámenes de la asignatura y deja
+   filtrarlos. Sin él, cae al visor de carpeta de Drive de siempre. */
+function cuerpoPanel(p) {
+  if (p.modo !== "docs") {
+    return '<div style="flex:1;position:relative;background:var(--sup)">' +
+      '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--sut);font-size:12px;letter-spacing:.16em;text-transform:uppercase">Cargando carpeta…</div>' +
+      '<iframe src="' + esc(EMB(p.id)) + '" title="Carpeta de Google Drive" style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;transition:opacity .4s ease;opacity:0"></iframe></div>';
+  }
+  var chips = ["Todos"].concat(IDX.tipos).map(function (t) {
+    return '<button class="tap" data-tipo="' + esc(t) + '" style="' + btn(p.tipo === t) + '">' + esc(t) + "</button>";
+  }).join("");
+  return '<div style="padding:14px clamp(14px,3vw,22px) 0;display:flex;gap:10px;flex-wrap:wrap;align-items:center">' +
+    '<div style="' + CAJA_BUSCA + '">' + LUPA +
+    '<input id="doc-q" type="search" placeholder="Filtrar — p. ej. 2023, extraordinaria…" aria-label="Filtrar exámenes" autocomplete="off" style="flex:1;min-width:0;border:0;outline:none;background:transparent;color:var(--ink);font-family:inherit;font-size:14px;padding:10px 0"></div>' +
+    '<div style="display:flex;gap:6px;flex-wrap:wrap">' + chips + "</div></div>" +
+    '<div id="doc-resumen" style="padding:12px clamp(14px,3vw,22px) 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sut)"></div>' +
+    '<div id="doc-lista" style="flex:1;overflow:auto;padding:8px clamp(14px,3vw,22px) 24px"></div>';
+}
+
+/* Todas las palabras de la consulta deben aparecer, en cualquier orden:
+   "latín extraordinaria 2019" y "2019 latín extraordinaria" dan lo mismo. */
+function terminos(q) {
+  return norm(String(q || "").trim()).split(/\s+/).filter(Boolean);
+}
+function casa(texto, ts) {
+  for (var i = 0; i < ts.length; i++) if (texto.indexOf(ts[i]) === -1) return false;
+  return true;
+}
+
+function docsFiltrados(p) {
+  var lista = (IDX.porAsig[p.titulo] || []);
+  var ts = terminos(p.q);
+  return lista.filter(function (d) {
+    if (p.tipo !== "Todos" && d.tipo !== p.tipo) return false;
+    return !ts.length || casa(d.busca, ts);
+  });
+}
+
+function filaDoc(d) {
+  /* "Modelo · Modelo" sobra: cuando convocatoria y tipo coinciden, basta uno. */
+  var detalle = (d.conv === d.tipo ? d.tipo : d.conv + " · " + d.tipo) + (d.matiz ? " · " + d.matiz : "");
+  return '<a class="h-fila" href="https://drive.google.com/file/d/' + esc(d.id) + '/view" target="_blank" rel="noopener" style="' +
+    FILA + ';text-decoration:none">' +
+    '<span style="font-weight:800;flex:none;font-variant-numeric:tabular-nums">' + d.anio + "</span>" +
+    "<span>" + esc(detalle) + "</span>" + PUNTOS +
+    '<span style="font-size:12px;color:var(--sut);flex:none">PDF</span></a>';
+}
+
+function pintarDocs() {
+  var p = S.panel;
+  if (!p || p.modo !== "docs") return;
+  var lista = docsFiltrados(p);
+  var total = (IDX.porAsig[p.titulo] || []).length;
+  var res = host.querySelector("#doc-resumen");
+  var cont = host.querySelector("#doc-lista");
+  if (res) res.textContent = lista.length + " de " + total + " documentos";
+  if (cont) cont.innerHTML = lista.length
+    ? lista.map(filaDoc).join("")
+    : '<p style="font-style:italic;color:var(--sut);padding:20px 4px">Ningún documento coincide con el filtro.</p>';
+  [].forEach.call(host.querySelectorAll("[data-tipo]"), function (b) {
+    b.setAttribute("style", btn(p.tipo === b.dataset.tipo));
+  });
 }
 
 function abrirPanel(kicker, titulo, id, origen) {
-  S.panel = { kicker: kicker, titulo: titulo, id: id, cargado: false };
+  var conDocs = !!(IDX && IDX.porAsig[titulo]);
+  S.panel = { kicker: kicker, titulo: titulo, id: id, cargado: false,
+              modo: conDocs ? "docs" : "carpeta", q: "", tipo: "Todos" };
   ultimoFoco = origen || document.activeElement;
-  host.innerHTML = htmlPanel(S.panel);
+  pintarPanel();
+  document.addEventListener("keydown", teclaPanel, true);
 
-  host.querySelector("[data-telon]").addEventListener("click", cerrarPanel);
-  host.querySelector(".cajon").addEventListener("click", function (ev) { ev.stopPropagation(); });
+  /* Si el índice aún venía de camino, al llegar se cambia a la lista. */
+  if (!conDocs && idxEstado !== "error") {
+    cargarIndice(function () {
+      if (!S.panel || S.panel.titulo !== titulo || S.panel.modo === "docs") return;
+      if (!(IDX && IDX.porAsig[titulo])) return;
+      S.panel.modo = "docs";
+      pintarPanel();
+    });
+  }
+}
+
+function pintarPanel() {
+  var p = S.panel;
+  host.innerHTML = htmlPanel(p);
+  /* Cierra solo si el clic cae en el telón. Comparar el objetivo en vez de
+     cortar la propagación deja pasar los eventos delegados del cajón. */
+  host.querySelector("[data-telon]").addEventListener("click", function (ev) {
+    if (ev.target === ev.currentTarget) cerrarPanel();
+  });
   host.querySelector("[data-cerrar]").addEventListener("click", cerrarPanel);
 
   var marco = host.querySelector("iframe");
-  marco.addEventListener("load", function () {
-    if (!S.panel) return;
-    S.panel.cargado = true;
-    marco.style.opacity = "1";
-  });
-
-  document.addEventListener("keydown", teclaPanel, true);
+  if (marco) {
+    marco.addEventListener("load", function () {
+      if (!S.panel) return;
+      S.panel.cargado = true;
+      marco.style.opacity = "1";
+    });
+  }
+  if (p.modo === "docs") pintarDocs();
   host.querySelector("[data-cerrar]").focus();
 }
 
@@ -616,6 +767,19 @@ vista.addEventListener("click", function (ev) {
 
 vista.addEventListener("input", function (ev) {
   if (ev.target.id === "pau-q") { S.qPau = ev.target.value; renderPau(); }
+});
+
+host.addEventListener("input", function (ev) {
+  if (ev.target.id !== "doc-q" || !S.panel) return;
+  S.panel.q = ev.target.value;
+  pintarDocs();
+});
+
+host.addEventListener("click", function (ev) {
+  var b = ev.target.closest ? ev.target.closest("[data-tipo]") : null;
+  if (!b || !S.panel) return;
+  S.panel.tipo = b.dataset.tipo;
+  pintarDocs();
 });
 
 pestanas.addEventListener("click", function (ev) {
@@ -676,6 +840,12 @@ if (tabInicial) {
 
 pintarPestanas();
 render({ animarStats: true });
+
+/* El índice llega en segundo plano; si al aterrizar hay una búsqueda abierta,
+   se repinta para que aparezcan también los exámenes. */
+cargarIndice(function () {
+  if (idxEstado === "listo" && norm(S.q.trim())) render();
+});
 })();
 </script>
 </body>
