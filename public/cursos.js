@@ -424,8 +424,8 @@ window.APUNTES_CURSOS = (function () {
   A.push({
     id: "mat-2bach", materia: "mat", nivel: "bach",
     nombre: "Matemáticas II", curso: "2º Bachillerato",
-    nota: "Simulacros de las tres evaluaciones y el archivo oficial de la PAU de Matemáticas II.",
-    aviso: "Segunda fase: faltan por subir criterios, presentaciones, libro y ejercicios.",
+    nota: "Archivo oficial de la PAU de Matemáticas II: cada convocatoria con su examen y sus criterios de corrección.",
+    aviso: "Segunda fase: faltan por subir criterios, presentaciones, libro, ejercicios y los simulacros propios del curso.",
     pau: "Matemáticas II",
     doc: {
       curriculo: [["Currículo LOMLOE · Matemáticas I y II (Bachillerato)", "1ZoDkTyRES4FQcg-IkZ3thHZSIDdn3U0n", "PDF", 0]],
@@ -433,37 +433,7 @@ window.APUNTES_CURSOS = (function () {
       presentaciones: [],
       libro: [],
       ejercicios: [],
-      simulacros: [
-        ["1ª evaluación · 1er parcial — simulacro 1", "1zU74u9QRY8cMYQoww17jrOcYEndEKOU7", "PDF", 1],
-        ["1ª evaluación · 1er parcial — simulacro 2", "143_5YUdwzPMPObz3CcpUByNDHL6gytBM", "PDF", 1],
-        ["1ª evaluación · 1er parcial — simulacro 3", "1-hQfliDMISW8YGae7Hjqh8ZjXxM_UKPI", "PDF", 1],
-        ["1ª evaluación · 2º parcial — simulacro 1", "1ryrORW92dIpOR4oqDlWqOtE0gpxI5-MY", "PDF", 1],
-        ["1ª evaluación · 2º parcial — simulacro 2", "1GKDY9mTc1tdwmrS2YnPJdPZ6VJ9q8CXh", "PDF", 1],
-        ["1ª evaluación · 2º parcial — simulacro 3", "1gEVRhvlHCQM-hAzIbFZ4kyQaZiTlNNgY", "PDF", 1],
-        ["1ª evaluación · 3er parcial — simulacro 1", "1rYX4Iptpziveg_Rv2sRzFimaYRMf8nW5", "PDF", 1],
-        ["1ª evaluación · 3er parcial — simulacro 2", "1-E_OpLf97pVKo0lIwqcSaWD2bMhdkY6y", "PDF", 1],
-        ["1ª evaluación · 3er parcial — simulacro 3", "1uUyZT1a1SWLLmikeOla_185yMxZA_QzV", "PDF", 1],
-        ["1ª evaluación · 3er parcial — simulacro 4", "1MMTxT8TN6PTEM3UoBpnirtlpmBACuayT", "PDF", 1],
-        ["2ª evaluación · 1er parcial — simulacro 1", "1YTHKPnnanwppBpVuZOcO-czjqVD-c79G", "PDF", 1],
-        ["2ª evaluación · 1er parcial — simulacro 2", "132zAXFvLJquepPv8tpoJt15K3Fp0bQ8a", "PDF", 1],
-        ["2ª evaluación · 1er parcial — simulacro 3", "1YH06Dog5NtGeKQk_q1FvR9MJaVo9Owd9", "PDF", 1],
-        ["2ª evaluación · 2º parcial — simulacro 1", "1vcDq-6c4tqe-rId0Km1z6sPwzZIW4Ziq", "PDF", 1],
-        ["2ª evaluación · 2º parcial — simulacro 2", "1-Js64xqaGnY7p8L513LTvqgxDSaPLQSX", "PDF", 1],
-        ["2ª evaluación · 2º parcial — simulacro 3", "1_eObZPI3HRxpi8Pea2sXPYUIL5pvVksb", "PDF", 1],
-        ["2ª evaluación · 3er parcial — simulacro 1", "1bBoBMRz9TcvIEEEtEXYFXXIHm9QQGIB0", "PDF", 1],
-        ["2ª evaluación · 3er parcial — simulacro 2", "16RBJ9H94xuZa2tEBXhVpQbfuHx6u2mmY", "PDF", 1],
-        ["2ª evaluación · 3er parcial — simulacro 3", "1m--VqCTfjFWVkor9q_yI_8isXPTUhD5P", "PDF", 1],
-        ["3ª evaluación · 1er parcial — simulacro 1", "19p1IrMr9Zr1dFNNbyz51aivAO-3ESg9M", "PDF", 1],
-        ["3ª evaluación · 1er parcial — simulacro 2", "1HFyuzCdIi_B_gk8yulqkx-VSibmeBAgF", "PDF", 1],
-        ["3ª evaluación · 1er parcial — simulacro 3", "1-aaXM4T7IwQL1wdWxRLQYGOqMxH70TE9", "PDF", 1],
-        ["3ª evaluación · 2º parcial — simulacro 1", "1HNVxG0EaDQ-k54N2iWUsVku_rqsNJAkE", "PDF", 1],
-        ["3ª evaluación · 2º parcial — simulacro 2", "1N6Pve5GoiYh9rO1wBEmzJfgJiD_HZufR", "PDF", 1],
-        ["3ª evaluación · 2º parcial — simulacro 3", "13Kt1NCHaQU_HEulX7zyvJlWYVw1EXl8w", "PDF", 1],
-        ["3ª evaluación · 3er parcial — simulacro 1", "1JqpDtMYDyAgxkk-XCnCRG8Kz7YNlzrCr", "PDF", 1],
-        ["3ª evaluación · 3er parcial — simulacro 2", "1cS6Vr6p0TXbou5P2vWueXY57Amp7-cfi", "PDF", 1],
-        ["3ª evaluación · 3er parcial — simulacro 3", "13ajGAj9w_vKJXLGzNsnUzKQEJmLDDw_A", "PDF", 1],
-        ["3ª evaluación · 3er parcial — simulacro 4", "1TbmRWIj96g-V5IpA7932-6zB5wLpXk-V", "PDF", 1]
-      ]
+      simulacros: []
     }
   });
 
