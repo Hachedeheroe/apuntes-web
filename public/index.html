@@ -94,6 +94,17 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
 .story-meta{position:absolute;z-index:4;left:18px;right:18px;top:16px;display:flex;justify-content:space-between;gap:16px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sut);pointer-events:none}
 .story-progress{position:absolute;z-index:4;left:18px;right:18px;bottom:16px;height:2px;background:var(--rule);pointer-events:none}
 .story-progress span{display:block;width:0;height:100%;background:var(--acc);transform-origin:left center}
+/* Asignatura desplegable: la cabecera es un botón de ancho completo y el
+   cuerpo solo existe en el DOM cuando está abierto. */
+.asig-abrir{width:100%;display:flex;align-items:center;gap:16px;text-align:left;background:transparent;border:0;
+  color:var(--ink);font-family:inherit;padding:18px clamp(14px,3vw,22px);cursor:pointer}
+.asig-abrir:hover{background:color-mix(in srgb,var(--acc) 8%,transparent)}
+.chev{transition:transform .25s cubic-bezier(.2,.7,.3,1)}
+[aria-expanded="true"] .chev{transform:rotate(180deg);color:var(--acc)}
+@keyframes desplegar{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.asig-cuerpo{border-top:2px solid var(--fuerte);padding:0 clamp(14px,3vw,22px) 22px;
+  animation:desplegar .3s cubic-bezier(.2,.7,.3,1) both}
+@media (prefers-reduced-motion:reduce){.chev{transition:none}.asig-cuerpo{animation:none}}
 /* Objetivos táctiles de 44px en móvil */
 @media (max-width:640px){
   #pestanas button{padding-top:15px!important;padding-bottom:12px!important}
@@ -166,6 +177,7 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
 </div>
 
 <script src="hero.js"></script>
+<script src="cursos.js"></script>
 <script>
 (function () {
 "use strict";
@@ -175,36 +187,22 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
 var D = function (id) { return "https://drive.google.com/drive/folders/" + id; };
 var EMB = function (id) { return "https://drive.google.com/embeddedfolderview?id=" + id + "#list"; };
 
+/* Las asignaturas viven en cursos.js con una estructura idéntica para todas:
+   seis secciones fijas, se llenen o no. Aquí solo queda la cabecera de cada
+   materia. */
 var MATERIAS = {
-  fyq: {
-    titulo: "Física y Química", kicker: "Parte 1",
-    cursos: [
-      { nombre: "2º ESO", nivel: "eso", datos: "9 apuntes · 39 exámenes", nota: "Presentaciones T1–T7 «para el 10» y criterios de calificación.", enlaces: [["Apuntes", "1Rtuwwu-qqPffycQf4tIIuAzNOzOcNKtE"], ["Exámenes", "1pz0STKR4GagVSMM5vC85kfeWFwLjGWrs"]] },
-      { nombre: "3º ESO", nivel: "eso", datos: "18 apuntes · 4 exámenes", nota: "Presentaciones T1–T8, boletines de ejercicios con soluciones y criterios.", enlaces: [["Apuntes", "13n4BWZQnOu4QcI3YN-OBm1dvk77X_7Yg"], ["Exámenes", "1yprLcYpwWwURKfJYNe7dur60rjUkKLXw"]] },
-      { nombre: "4º ESO", nivel: "eso", datos: "11 apuntes · 10 exámenes", nota: "Presentaciones T1–T9 de nivel exigente y criterios de calificación.", enlaces: [["Apuntes", "1kCCLdPIVzOEMHKPuofVYaZVYZ9Pjx7QV"], ["Exámenes", "1JC95YE8nKGdq-vUgHGueluPWBnvimlqu"]] },
-      { nombre: "1º Bachillerato", nivel: "bach", datos: "currículo · 22 exámenes", nota: "Banco de exámenes 2024-25 con solución (autoría fiquipedia.es, licencia CC).", enlaces: [["Currículo", "15GRorpElFr40vIvAja6dkBYDrmyCnAW4"], ["Exámenes", "16Q0DWuayNAU7h0CbrknVqg1y2u26gW14"]] },
-      { nombre: "2º Bachillerato · Física", nivel: "bach", datos: "23 apuntes · 111 exámenes", nota: "Presentaciones T1–T11, teoría por bloques, formulario y selectivos resueltos 2000–2025.", enlaces: [["Apuntes", "1rtIWTIlBCIsecDSobVFrQMLSQJqfSVr1"], ["Exámenes", "17i_AA2HXiUoik0pzs_wiVNqCX6NR4_jB"]] },
-      { nombre: "2º Bachillerato · Química", nivel: "bach", datos: "currículo · 88 exámenes", nota: "Archivo PAU: exámenes sueltos 2001–09 y serie oficial completa 2010–2026.", enlaces: [["Currículo", "1XYcyXyBBTL1qxjIIRAuXwv-d3S0BOZPu"], ["Exámenes", "1IMNeXk5XHx--CH3wi9EJes97T_3JCoc2"]] }
-    ],
-    preparacion: ""
-  },
-  mat: {
-    titulo: "Matemáticas", kicker: "Parte 2",
-    cursos: [
-      { nombre: "2º ESO", nivel: "eso", datos: "16 apuntes · 20 exámenes", nota: "Presentaciones T1–T8, ejercicios estandarizados con solucionario y exámenes reales 24-25.", enlaces: [["Apuntes", "1udnsgdVm-xKNhKyN__imQej8ybX7O1WC"], ["Exámenes", "1NocuwiGG6X7R_fdMGVAsL6Wo94SCUigA"]] },
-      { nombre: "3º ESO", nivel: "eso", datos: "10 apuntes · 15 exámenes", nota: "Presentaciones T1–T8, exámenes reales 24-25 con solución oficial y simulacros.", enlaces: [["Apuntes", "1WjpkQpREho-Y22vPim2a1NkDbWXjxFnQ"], ["Exámenes", "14d1uHQ-tDwmwb9pVS27leGpwwKI_Kx5m"]] },
-      { nombre: "2º Bachillerato", nivel: "bach", datos: "99 exámenes", nota: "Simulacros por evaluación con solucionario completo y archivo PAU de Matemáticas II 2010–2026.", enlaces: [["Exámenes", "1LU1LnJkyortlsWAHLcR93UJ9bDj2exh0"]] }
-    ],
-    preparacion: "En preparación: 1º ESO, 4º ESO y 1º de Bachillerato — de momento, currículo oficial."
-  },
-  bio: {
-    titulo: "Biología", kicker: "Parte 3",
-    cursos: [
-      { nombre: "2º Bachillerato", nivel: "bach", datos: "2 apuntes · 67 exámenes", nota: "Libro de Biología PAU (enunciados) y archivo oficial PAU 2010–2026 con criterios.", enlaces: [["Apuntes", "1MXWsnf-749mLYpnD1N2OJD6MR9ACIUlM"], ["Exámenes", "14NsO0XivbyHSPsqIUNoofkvCMV2IIuWF"]] }
-    ],
-    preparacion: "En preparación: 1º ESO, 3º ESO, 4º ESO y 1º de Bachillerato — de momento, currículo oficial."
-  }
+  fyq: { titulo: "Física y Química", kicker: "Parte 1" },
+  mat: { titulo: "Matemáticas", kicker: "Parte 2" },
+  bio: { titulo: "Biología", kicker: "Parte 3" }
 };
+
+var CATALOGO = window.APUNTES_CURSOS || { secciones: [], asignaturas: [] };
+var SECCIONES_DOC = CATALOGO.secciones;
+var ASIGNATURAS = CATALOGO.asignaturas;
+
+/* Índice plano de todo el material de clase, para que el buscador de la
+   cabecera encuentre un PDF suelto y no solo la asignatura que lo contiene. */
+var DOC_INDICE = [];
 
 var PAU = [
   ["Dibujo Técnico", 81, "1OV3AdbQRNs0tZ7f2m1OtxDnHB7bw86B3", 0],
@@ -298,24 +296,28 @@ function cargarIndice(despues) {
 
 /* ---------------------------------------------------------------- estado -- */
 
-var S = { tab: "inicio", q: "", qPau: "", orden: "pdf", nivel: "todos", tema: "claro", panel: null, desplazado: false };
+var S = { tab: "inicio", q: "", qPau: "", orden: "pdf", nivel: "todos", tema: "claro",
+          panel: null, desplazado: false, abiertas: {} };
 
 var PESTANAS = [["inicio", "Inicio"], ["fyq", "Física y Química"], ["mat", "Matemáticas"], ["bio", "Biología"], ["pau", "Selectivos PAU"]];
 var ORDEN_TABS = PESTANAS.map(function (t) { return t[0]; });
 var FILTROS = [["todos", "Todos"], ["eso", "ESO"], ["bach", "Bachillerato"]];
 var ORDENES = [["pdf", "Por nº PDF"], ["az", "A–Z"]];
 
+var N_ASIGS = ASIGNATURAS.filter(function (a) { return !a.proximamente; }).length;
+var N_DOCS = ASIGNATURAS.reduce(function (n, a) { return n + totalDocs(a); }, 0);
+
 var ESTADISTICAS = [
-  { valor: 10, label: "Cursos con material" },
-  { valor: 40, label: "Asignaturas PAU" },
+  { valor: N_ASIGS, label: "Asignaturas con material" },
+  { valor: N_DOCS, label: "Documentos de clase" },
   { valor: 1991, label: "PDF de PAU" },
   { texto: "2010–26", label: "Convocatorias" }
 ];
 
 var SECCIONES = [
-  { kicker: "Parte 1", titulo: "Física y Química", detalle: "2º–4º ESO · 1º Bach · 2º Bach (Física / Química)", destino: "fyq" },
-  { kicker: "Parte 2", titulo: "Matemáticas", detalle: "2º y 3º ESO · 2º Bachillerato", destino: "mat" },
-  { kicker: "Parte 3", titulo: "Biología", detalle: "2º Bachillerato · PAU 2010–2026", destino: "bio" },
+  { kicker: "Parte 1", titulo: "Física y Química", detalle: "2º–4º ESO · 1º Bach · Física y Química de 2º Bach", destino: "fyq" },
+  { kicker: "Parte 2", titulo: "Matemáticas", detalle: "2º y 3º ESO · Matemáticas II de 2º Bachillerato", destino: "mat" },
+  { kicker: "Parte 3", titulo: "Biología", detalle: "2º Bachillerato · 19 temas y PAU 2010–2026", destino: "bio" },
   { kicker: "Parte 4", titulo: "Selectivos PAU", detalle: "40 asignaturas · 1991 PDF · examen y criterios", destino: "pau" }
 ];
 
@@ -337,7 +339,8 @@ function retardo(i) { return "animation-delay:" + (i * 70) + "ms"; }
 
 var CAJA_BUSCA = "display:flex;align-items:center;gap:8px;border:2px solid var(--rule);background:var(--sup);padding:0 10px;flex:1 1 260px";
 var LUPA = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none;color:var(--sut)" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>';
-var ICONO_EXT = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path></svg>';
+var ICONO_LLAVE = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>';
+var AVISO_RESTRINGIDO = "Carpeta restringida: requiere iniciar sesión con una cuenta autorizada del profesorado.";
 var REGLA = '<hr style="height:2px;border:0;background:var(--fuerte);margin:20px 0 0">';
 var FILA = "width:100%;display:flex;align-items:baseline;gap:10px;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--rule);color:var(--ink);font-family:inherit;font-size:15px;padding:11px 4px;cursor:pointer;transition:background .15s ease,padding-left .2s ease";
 var PUNTOS = '<span style="flex:1;border-bottom:2px dotted var(--rule);transform:translateY(-5px)"></span>';
@@ -349,24 +352,119 @@ function abridor(kicker, titulo, id) {
   return 'data-k="' + esc(kicker) + '" data-t="' + esc(titulo) + '" data-id="' + esc(id) + '"';
 }
 
-/* Las carpetas de material de clase están restringidas al dominio del centro:
-   embeberlas devuelve el muro de acceso de Google, así que salen a Drive. */
-function enlacesDe(curso, materia) {
-  return curso.enlaces.map(function (e, i) {
-    var estilo = btn(false) + (i === 0 ? ";border-color:var(--fuerte)" : "") +
-      ";text-decoration:none;display:inline-flex;align-items:center;gap:7px";
-    return '<a class="enl h-acc" href="' + esc(D(e[1])) + '" target="_blank" rel="noopener" style="' + estilo + '">' +
-      esc(e[0]) + ICONO_EXT + "</a>";
-  }).join("");
+/* Un documento es [título, idDrive, etiqueta, restringido]. La marca 1 dice
+   que el archivo vive fuera del árbol público: Drive pedirá cuenta autorizada.
+   Aquí solo se señala con una llave — la web no protege nada, el muro es Drive. */
+function esRestringido(d) { return d[3] === 1; }
+
+var VER = function (id) { return "https://drive.google.com/file/d/" + id + "/view"; };
+
+function docsDe(a, clave) { return (a.doc && a.doc[clave]) || []; }
+function totalDocs(a) {
+  var n = 0;
+  SECCIONES_DOC.forEach(function (s) { n += docsDe(a, s[0]).length; });
+  return n;
+}
+/* Los exámenes de la PAU llenan la sección de simulacros aunque no haya
+   ningún documento propio: por eso se cuentan aparte. */
+function seccionesLlenas(a) {
+  var n = 0;
+  SECCIONES_DOC.forEach(function (s) {
+    if (docsDe(a, s[0]).length || (s[0] === "simulacros" && docsPau(a))) n++;
+  });
+  return n;
+}
+function tieneRestringidos(a) {
+  return SECCIONES_DOC.some(function (s) { return docsDe(a, s[0]).some(esRestringido); });
+}
+/* Los exámenes de la PAU no se duplican aquí: se leen del archivo público
+   (public/pau.json), que es el mismo que alimenta la pestaña de Selectivos. */
+function docsPau(a) { return (a.pau && IDX && IDX.porAsig[a.pau]) || null; }
+function carpetaPau(nombre) {
+  for (var i = 0; i < PAU.length; i++) if (PAU[i][0] === nombre) return PAU[i][2];
+  return "";
 }
 
-function tarjetaCurso(curso, materia, i) {
-  return '<div class="rev h-card" style="' + TARJETA + ';padding:20px;gap:10px;' + retardo(i) + '">' +
-    '<span style="font-weight:800;font-size:21px;letter-spacing:-.015em">' + esc(curso.nombre) + "</span>" +
-    '<span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--sut)">' + esc(curso.datos) + "</span>" +
-    '<span style="font-size:14px;line-height:1.5;flex:1;text-wrap:pretty">' + esc(curso.nota) + "</span>" +
-    '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">' + enlacesDe(curso, materia) + "</div>" +
-    "</div>";
+function filaDocumento(d) {
+  var cerrado = esRestringido(d);
+  return '<a class="h-fila" href="' + esc(VER(d[1])) + '" target="_blank" rel="noopener" style="' + FILA +
+    ";text-decoration:none" + (cerrado ? ";color:var(--sut)" : "") + '"' +
+    (cerrado ? ' title="' + esc(AVISO_RESTRINGIDO) + '"' : "") + ">" +
+    (cerrado ? ICONO_LLAVE : "") + "<span>" + esc(d[0]) + "</span>" + PUNTOS +
+    '<span style="font-size:12px;color:var(--sut);flex:none">' + esc(d[2] || "PDF") + "</span></a>";
+}
+
+var VACIO_SECCION = '<p style="font-style:italic;color:var(--sut);margin:6px 0 0;padding:8px 4px 12px">Pendiente de subir.</p>';
+
+/* Las seis secciones se pintan siempre, en el mismo orden y con el mismo
+   aspecto. Una asignatura sin ejercicios enseña la sección vacía: así se ve
+   de un vistazo qué falta y todas las asignaturas se leen igual. */
+function bloqueSeccion(a, sec, i) {
+  var lista = docsDe(a, sec[0]);
+  var extra = "", pie = "";
+  if (sec[0] === "simulacros") {
+    var pau = docsPau(a);
+    if (pau && pau.length) {
+      var anios = [];
+      pau.forEach(function (d) { if (anios.indexOf(d.anio) === -1) anios.push(d.anio); });
+      anios.sort(function (x, y) { return y - x; });
+      var recientes = anios.slice(0, 3);
+      var muestra = pau.filter(function (d) { return recientes.indexOf(d.anio) !== -1; })
+        .sort(function (x, y) { return y.anio - x.anio; });
+      extra = muestra.map(filaDoc).join("");
+      pie = '<button class="tap h-acc" ' + abridor("PAU · Comunitat Valenciana", a.pau, carpetaPau(a.pau)) +
+        ' style="' + btn(false) + ';margin-top:12px">Ver las ' + pau.length + " convocatorias de " + esc(a.pau) + "</button>";
+    } else if (a.pau) {
+      pie = '<button class="tap h-acc" data-ir="pau" style="' + btn(false) + ';margin-top:12px">Abrir el archivo de la PAU</button>';
+    }
+  }
+  var cuerpo = lista.map(filaDocumento).join("") + extra;
+  var cuenta = lista.length + (extra ? " + PAU" : "");
+  return '<section style="margin-top:' + (i ? "26px" : "18px") + '">' +
+    '<div style="display:flex;align-items:baseline;gap:10px;border-bottom:2px solid var(--fuerte);padding-bottom:6px">' +
+    '<h4 style="margin:0;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase">' + esc(sec[1]) + "</h4>" +
+    '<span style="margin-left:auto;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sut);flex:none">' +
+    (cuerpo ? cuenta : "—") + "</span></div>" +
+    '<p style="margin:8px 0 2px;font-size:13px;color:var(--sut)">' + esc(sec[2]) + "</p>" +
+    (cuerpo ? '<div>' + cuerpo + "</div>" : VACIO_SECCION) + pie + "</section>";
+}
+
+function cuerpoAsignatura(a) {
+  var aviso = a.aviso
+    ? '<p style="margin:0 0 14px;border-left:3px solid var(--acc);padding:8px 12px;background:color-mix(in srgb,var(--acc) 8%,transparent);font-size:13px">' + esc(a.aviso) + "</p>"
+    : "";
+  var leyenda = tieneRestringidos(a)
+    ? '<p style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sut);margin:18px 0 0;border-top:1px solid var(--rule);padding-top:12px">' +
+      ICONO_LLAVE + "<span>" + esc(AVISO_RESTRINGIDO) + "</span></p>"
+    : "";
+  return aviso + SECCIONES_DOC.map(function (s, i) { return bloqueSeccion(a, s, i); }).join("") + leyenda;
+}
+
+function tarjetaAsignatura(a, i) {
+  var abierta = !!S.abiertas[a.id];
+  var n = totalDocs(a);
+  var pau = docsPau(a);
+  var meta = a.proximamente
+    ? "Próximamente"
+    : n + (n === 1 ? " documento" : " documentos") + (pau ? " · " + pau.length + " PAU" : "") +
+      " · " + seccionesLlenas(a) + "/6 secciones";
+  var chevron = '<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none;color:var(--sut)" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>';
+  return '<article class="rev" id="asig-' + esc(a.id) + '" style="border:2px solid ' + (abierta ? "var(--fuerte)" : "var(--rule)") +
+    ";background:var(--sup);" + retardo(i) + '">' +
+    '<h3 style="margin:0">' +
+    '<button class="asig-abrir" data-asig="' + esc(a.id) + '" aria-expanded="' + (abierta ? "true" : "false") +
+    '" aria-controls="cuerpo-' + esc(a.id) + '">' +
+    '<span style="display:flex;flex-direction:column;gap:3px;min-width:0;flex:1">' +
+    '<span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc)">' + esc(a.curso) + "</span>" +
+    '<span style="font-weight:800;font-size:clamp(19px,2.4vw,23px);letter-spacing:-.015em">' + esc(a.nombre) + "</span>" +
+    '<span style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--sut)">' + esc(meta) + "</span>" +
+    "</span>" + chevron + "</button></h3>" +
+    (abierta
+      ? '<div class="asig-cuerpo" id="cuerpo-' + esc(a.id) + '" role="region" aria-label="' + esc(a.nombre + " " + a.curso) + '">' +
+        '<p style="margin:14px 0 0;font-size:14px;line-height:1.55;text-wrap:pretty">' + esc(a.nota) + "</p>" +
+        cuerpoAsignatura(a) + "</div>"
+      : "") +
+    "</article>";
 }
 
 function filaPau(p, conEtiqueta) {
@@ -397,7 +495,7 @@ function vistaInicio() {
   }).join("");
 
   var ayuda = [
-    ["Elige asignatura arriba", "Cada pestaña reúne los cursos de una materia; el buscador cubre cursos y PAU a la vez."],
+    ["Elige asignatura arriba", "Cada pestaña reúne las asignaturas de una materia; al pulsar una se despliega su curso entero con la misma estructura."],
     ["Busca el examen que quieras", "Escribe la asignatura, el año o la convocatoria y ve directo al PDF, sin bucear por carpetas."],
     ["Practica con la PAU", "Convocatorias 2010–2026 de las 40 asignaturas, con examen y criterios de corrección."]
   ].map(function (a) {
@@ -448,28 +546,38 @@ function vistaInicio() {
     "</section>";
 }
 
-function cursosVisibles(m) {
-  return m.cursos.filter(function (c) { return S.nivel === "todos" || c.nivel === S.nivel; });
+function asignaturasDe(clave) {
+  return ASIGNATURAS.filter(function (a) {
+    if (a.materia !== clave) return false;
+    return S.nivel === "todos" || a.nivel === S.nivel;
+  });
 }
 
-function gridCursos(m) {
-  return cursosVisibles(m).map(function (c, i) { return tarjetaCurso(c, m.titulo, i); }).join("");
+function listaAsignaturas(clave) {
+  var lista = asignaturasDe(clave);
+  if (!lista.length) {
+    return '<p style="font-style:italic;color:var(--sut);padding:24px 0">No hay asignaturas de ese nivel en esta materia.</p>';
+  }
+  return lista.map(function (a, i) { return tarjetaAsignatura(a, i); }).join("");
 }
 
-function vistaMateria(m) {
+function vistaMateria(clave) {
+  var m = MATERIAS[clave];
   var filtros = FILTROS.map(function (f) {
     return '<button class="tap" data-nivel="' + f[0] + '" style="' + btn(S.nivel === f[0]) + '">' + esc(f[1]) + "</button>";
   }).join("");
-  var nota = m.preparacion
-    ? '<p style="font-style:italic;color:var(--sut);border-top:1px solid var(--rule);margin-top:28px;padding-top:16px">' + esc(m.preparacion) + "</p>"
-    : "";
+  var conMaterial = ASIGNATURAS.filter(function (a) { return a.materia === clave && !a.proximamente; }).length;
+  var total = ASIGNATURAS.filter(function (a) { return a.materia === clave; }).length;
   return "<section>" +
     '<p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sut);margin:0">' + esc(m.kicker) + "</p>" +
     '<h2 style="font-size:clamp(34px,7vw,64px);font-weight:800;letter-spacing:-.03em;line-height:1;margin:10px 0 0">' + esc(m.titulo) + "</h2>" +
     REGLA +
+    '<p style="max-width:60ch;margin:20px 0 0;text-wrap:pretty">Elige una asignatura y se despliega su curso completo, siempre con las mismas seis secciones: currículo, criterios, presentaciones, libro, ejercicios por temas y simulacros de examen.</p>' +
     '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:20px">' + filtros + "</div>" +
-    '<div id="cursos-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:24px">' + gridCursos(m) + "</div>" +
-    nota + "</section>";
+    '<p style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sut);margin:16px 0 0">' +
+    conMaterial + " de " + total + " asignaturas con material</p>" +
+    '<div id="cursos-grid" style="display:grid;gap:12px;margin-top:16px">' + listaAsignaturas(clave) + "</div>" +
+    "</section>";
 }
 
 function listaPau() {
@@ -507,13 +615,11 @@ function vistaPau() {
 }
 
 function vistaBusqueda(gq) {
-  var resCursos = [];
-  Object.keys(MATERIAS).forEach(function (k) {
-    var mat = MATERIAS[k];
-    mat.cursos.forEach(function (c) {
-      if (norm(mat.titulo + " " + c.nombre + " " + c.nota).indexOf(gq) !== -1) resCursos.push({ materia: mat.titulo, curso: c });
-    });
+  var tsg = terminos(S.q);
+  var resCursos = ASIGNATURAS.filter(function (a) {
+    return casa(norm(MATERIAS[a.materia].titulo + " " + a.nombre + " " + a.curso + " " + a.nota), tsg);
   });
+  var resMaterial = DOC_INDICE.filter(function (r) { return casa(r.busca, tsg); });
   var resPau = PAU.filter(function (p) { return norm(p[0]).indexOf(gq) !== -1; });
   /* Los exámenes solo entran cuando la consulta no es ya el nombre pelado de
      una asignatura: si buscas "física" quieres la asignatura, no sus 75 PDF. */
@@ -523,15 +629,36 @@ function vistaBusqueda(gq) {
     var ts = terminos(S.q);
     resDocs = IDX.todos.filter(function (d) { return casa(d.busca, ts); });
   }
-  var total = resCursos.length + resPau.length + resDocs.length;
+  var total = resCursos.length + resMaterial.length + resPau.length + resDocs.length;
 
-  var tarjetas = resCursos.map(function (r) {
-    return '<div class="h-card" style="' + TARJETA + ';padding:18px;gap:10px">' +
-      '<span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc)">' + esc(r.materia) + "</span>" +
-      '<span style="font-weight:800;font-size:19px;letter-spacing:-.01em">' + esc(r.curso.nombre) + "</span>" +
-      '<span style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--sut)">' + esc(r.curso.datos) + "</span>" +
-      '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:2px">' + enlacesDe(r.curso, r.materia) + "</div></div>";
+  var tarjetas = resCursos.map(function (a) {
+    var n = totalDocs(a);
+    return '<button class="h-card" data-abrir="' + esc(a.id) + '" style="' + TARJETA +
+      ';padding:18px;gap:8px;text-align:left;color:var(--ink);font-family:inherit;cursor:pointer">' +
+      '<span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc)">' +
+      esc(MATERIAS[a.materia].titulo + " · " + a.curso) + "</span>" +
+      '<span style="font-weight:800;font-size:19px;letter-spacing:-.01em">' + esc(a.nombre) + "</span>" +
+      '<span style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--sut)">' +
+      (a.proximamente ? "Próximamente" : n + " documentos") + "</span>" +
+      '<span style="font-size:13px;color:var(--sut);line-height:1.5">' + esc(a.nota) + "</span></button>";
   }).join("");
+
+  var TOPE_MAT = 40;
+  var bloqueMaterial = "";
+  if (resMaterial.length) {
+    bloqueMaterial = '<h3 style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sut);font-weight:600;margin:32px 0 0">' +
+      "Material de clase · " + resMaterial.length +
+      (resMaterial.length > TOPE_MAT ? " (se muestran los " + TOPE_MAT + " primeros)" : "") + "</h3>" +
+      '<div style="margin-top:10px">' + resMaterial.slice(0, TOPE_MAT).map(function (r) {
+        var cerrado = esRestringido(r.d);
+        return '<a class="h-fila" href="' + esc(VER(r.d[1])) + '" target="_blank" rel="noopener" style="' +
+          FILA + ";text-decoration:none" + (cerrado ? ";color:var(--sut)" : "") + '">' +
+          (cerrado ? ICONO_LLAVE : "") +
+          '<span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);flex:none">' +
+          esc(r.a.curso) + "</span><span>" + esc(r.a.nombre + " · " + r.sec + " · " + r.d[0]) + "</span>" + PUNTOS +
+          '<span style="font-size:12px;color:var(--sut);flex:none">' + esc(r.d[2] || "PDF") + "</span></a>";
+      }).join("") + "</div>";
+  }
 
   var filas = resPau.map(function (p) { return filaPau(p, true); }).join("");
 
@@ -561,6 +688,7 @@ function vistaBusqueda(gq) {
     '<h2 style="font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-.02em;margin:0">' + esc(resumen) + "</h2>" +
     REGLA +
     '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:24px">' + tarjetas + "</div>" +
+    bloqueMaterial +
     '<div style="margin-top:28px">' + filas + "</div>" + bloqueDocs + vacio + "</section>";
 }
 
@@ -589,21 +717,34 @@ var ALIAS = {
   pau: "pau", selectivos: "pau", selectividad: "pau", "pau-lista": "pau", "filtro-pau": "pau"
 };
 
-function tabDeHash() {
+/* El hash lleva pestaña y, si hay una asignatura desplegada, su identificador:
+   #fyq/fyq-4eso. Así se puede compartir el enlace de una asignatura concreta. */
+function rutaDeHash() {
   var h = "";
   try { h = decodeURIComponent(location.hash.replace(/^#/, "")); } catch (e) { h = location.hash.replace(/^#/, ""); }
-  return ALIAS[norm(h)] || null;
+  var partes = h.split("/");
+  var tab = ALIAS[norm(partes[0])] || null;
+  var asig = partes[1] ? norm(partes[1]) : null;
+  if (asig && !ASIGNATURAS.some(function (a) { return a.id === asig; })) asig = null;
+  return { tab: tab, asig: asig };
 }
 
-function escribirHash(tab) {
-  var h = tab === "inicio" ? "" : "#" + tab;
+function hashDe(tab, asig) {
+  if (tab === "inicio") return "";
+  return "#" + tab + (asig ? "/" + asig : "");
+}
+
+function escribirHash(tab, asig) {
+  var h = hashDe(tab, asig);
   if ((location.hash || "") === h) return;
   try { history.pushState(null, "", location.pathname + location.search + h); } catch (e) {}
 }
 
 function desdeHistorial() {
-  var t = tabDeHash() || "inicio";
-  if (t === S.tab && !S.q) return;
+  var r = rutaDeHash();
+  var t = r.tab || "inicio";
+  if (r.asig) S.abiertas[r.asig] = 1;
+  if (t === S.tab && !S.q) { if (r.asig) renderCursos(); return; }
   S.tab = t;
   S.q = "";
   buscador.value = "";
@@ -621,8 +762,7 @@ function claveVista() {
 function html() {
   var gq = norm(S.q.trim());
   if (gq) return vistaBusqueda(gq);
-  var m = MATERIAS[S.tab];
-  if (m) return vistaMateria(m);
+  if (MATERIAS[S.tab]) return vistaMateria(S.tab);
   if (S.tab === "pau") return vistaPau();
   return vistaInicio();
 }
@@ -832,21 +972,52 @@ function ir(tab) {
   S.tab = tab;
   S.q = "";
   buscador.value = "";
-  escribirHash(tab);
+  escribirHash(tab, null);
   actualizarPestanas();
   render({ animarStats: tab === "inicio" });
   window.scrollTo({ top: 0, behavior: menosMovimiento() ? "auto" : "smooth" });
 }
 
+/* Desde la búsqueda: salta a la materia de la asignatura, la despliega y la
+   deja a la vista. El filtro de nivel se levanta para que no la esconda. */
+function irAAsignatura(id) {
+  var a = null;
+  for (var i = 0; i < ASIGNATURAS.length; i++) if (ASIGNATURAS[i].id === id) a = ASIGNATURAS[i];
+  if (!a) return;
+  S.tab = a.materia;
+  S.nivel = "todos";
+  S.abiertas[id] = 1;
+  S.q = "";
+  buscador.value = "";
+  escribirHash(a.materia, id);
+  actualizarPestanas();
+  render();
+  var caja = document.getElementById("asig-" + id);
+  if (caja) caja.scrollIntoView({ behavior: menosMovimiento() ? "auto" : "smooth", block: "start" });
+}
+
 function renderCursos() {
-  var m = MATERIAS[S.tab];
-  if (!m) return;
+  if (!MATERIAS[S.tab]) return;
   var grid = document.getElementById("cursos-grid");
-  if (grid) grid.innerHTML = gridCursos(m);
+  if (grid) grid.innerHTML = listaAsignaturas(S.tab);
   [].forEach.call(vista.querySelectorAll("[data-nivel]"), function (b) {
     b.setAttribute("style", btn(S.nivel === b.dataset.nivel));
   });
   reobservar();
+}
+
+/* Al plegar o desplegar solo se repinta la lista de asignaturas: la cabecera
+   de la materia y la posición de scroll se quedan donde estaban. */
+function alternarAsignatura(id) {
+  var a = null;
+  for (var i = 0; i < ASIGNATURAS.length; i++) if (ASIGNATURAS[i].id === id) a = ASIGNATURAS[i];
+  if (!a) return;
+  if (S.abiertas[id]) delete S.abiertas[id];
+  else S.abiertas[id] = 1;
+  escribirHash(S.tab, S.abiertas[id] ? id : null);
+  renderCursos();
+  var boton = document.querySelector('[data-asig="' + id + '"]');
+  if (boton) boton.focus({ preventScroll: true });
 }
 
 function renderPau() {
@@ -1012,6 +1183,8 @@ vista.addEventListener("click", function (ev) {
   var b = ev.target.closest ? ev.target.closest("button") : null;
   if (!b || !vista.contains(b)) return;
   if (b.dataset.id !== undefined) { abrirPanel(b.dataset.k, b.dataset.t, b.dataset.id, b); return; }
+  if (b.dataset.asig) { alternarAsignatura(b.dataset.asig); return; }
+  if (b.dataset.abrir) { irAAsignatura(b.dataset.abrir); return; }
   if (b.dataset.ir) { ir(b.dataset.ir); return; }
   if (b.dataset.nivel) { S.nivel = b.dataset.nivel; renderCursos(); return; }
   if (b.dataset.orden) { S.orden = b.dataset.orden; renderPau(); return; }
@@ -1069,6 +1242,15 @@ window.addEventListener("scroll", function () {
 S.tema = document.documentElement.getAttribute("data-tema") === "oscuro" ? "oscuro" : "claro";
 aplicarTema();
 
+ASIGNATURAS.forEach(function (a) {
+  SECCIONES_DOC.forEach(function (s) {
+    docsDe(a, s[0]).forEach(function (d) {
+      DOC_INDICE.push({ a: a, sec: s[1], d: d,
+                        busca: norm(a.nombre + " " + a.curso + " " + s[1] + " " + d[0]) });
+    });
+  });
+});
+
 if (window.IntersectionObserver) {
   obs = new IntersectionObserver(function (entradas) {
     entradas.forEach(function (e) {
@@ -1087,11 +1269,12 @@ if (document.fonts && document.fonts.ready) {
   document.fonts.ready.then(function () { moverSubrayado(true); });
 }
 
-var tabInicial = tabDeHash();
-if (tabInicial) {
-  S.tab = tabInicial;
+var rutaInicial = rutaDeHash();
+if (rutaInicial.tab) {
+  S.tab = rutaInicial.tab;
+  if (rutaInicial.asig) S.abiertas[rutaInicial.asig] = 1;
   /* Normaliza las anclas antiguas (#fisica-y-quimica → #fyq) sin añadir historial. */
-  var canonico = tabInicial === "inicio" ? "" : "#" + tabInicial;
+  var canonico = hashDe(rutaInicial.tab, rutaInicial.asig);
   if ((location.hash || "") !== canonico) {
     try { history.replaceState(null, "", location.pathname + location.search + canonico); } catch (e) {}
   }
@@ -1100,10 +1283,13 @@ if (tabInicial) {
 pintarPestanas();
 render({ animarStats: true });
 
-/* El índice llega en segundo plano; si al aterrizar hay una búsqueda abierta,
-   se repinta para que aparezcan también los exámenes. */
+/* El índice llega en segundo plano. Si al aterrizar hay una búsqueda abierta o
+   una asignatura de 2º de Bachillerato desplegada, se repinta para que
+   aparezcan también los exámenes de la PAU. */
 cargarIndice(function () {
-  if (idxEstado === "listo" && norm(S.q.trim())) render();
+  if (idxEstado !== "listo") return;
+  if (norm(S.q.trim())) { render(); return; }
+  if (MATERIAS[S.tab]) renderCursos();
 });
 })();
 </script>
