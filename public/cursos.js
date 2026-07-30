@@ -1,36 +1,27 @@
 /* Catálogo de asignaturas — Apuntes (H. Sierra)
    ------------------------------------------------------------------
-   Cada asignatura tiene SIEMPRE las mismas seis secciones, en el mismo
-   orden. Si una está vacía se pinta igualmente, marcada como pendiente:
-   la estructura es la misma en toda la web, cambia solo lo que hay dentro.
+   GENERADO por 8-SISTEMA/volcar_catalogo.py a partir de la carpeta
+   1-MATERIA/. No se edita a mano: la ruta de cada fichero es la que
+   fija su asignatura, su sección y su orden.
 
-   Documento = [ título, idDrive, etiqueta, restringido ]
-     · idDrive     abre https://drive.google.com/file/d/<id>/view
-     · etiqueta    lo que se lee a la derecha de la fila (PDF, VÍDEO, DOCX…)
-     · restringido 1 = vive fuera del árbol público (1-ALUMNADO); Drive pedirá
-                   cuenta autorizada. La web no protege nada: el muro es Drive.
+   Documento = [ título, idDrive, etiqueta, 0 ]
 
-   `pau` enlaza la asignatura con el archivo público de la PAU (public/pau.json),
-   del que se listan los exámenes de otros años sin duplicar IDs aquí.
-
-   Mapeado desde Drive el 30 de julio de 2026 sobre el árbol 1-ALUMNADO
-   (y 2-SIMULACROS para los simulacros de ESO, que son material del centro). */
+   Las notas y avisos de cada asignatura sí se escriben a mano y se
+   conservan de una versión a otra. */
 
 window.APUNTES_CURSOS = (function () {
   "use strict";
 
   var SECCIONES = [
-    ["curriculo",      "Currículo LOMLOE",       "La norma oficial que fija qué entra en el curso."],
-    ["criterios",      "Criterios de evaluación", "Cómo se califica: instrumentos y pesos."],
-    ["presentaciones", "Presentaciones",          "Las diapositivas de clase, tema a tema."],
-    ["libro",          "Libro de la asignatura",  "El manual completo del curso."],
-    ["ejercicios",     "Ejercicios por temas",    "Boletines de problemas para practicar."],
-    ["simulacros",     "Simulacros de examen",    "Exámenes de otros años para prepararte."]
+    ["curriculo", "Currículo LOMLOE", "La norma oficial que fija qué entra en el curso."],
+    ["criterios", "Criterios de evaluación", "Cómo se califica: instrumentos y pesos."],
+    ["presentaciones", "Presentaciones", "Las diapositivas de clase, tema a tema."],
+    ["libro", "Libro de la asignatura", "El manual completo del curso."],
+    ["ejercicios", "Ejercicios por temas", "Boletines de problemas para practicar."],
+    ["simulacros", "Simulacros de examen", "Exámenes de otros años para prepararte."]
   ];
 
   var A = [];
-
-  /* ============================================================ FÍSICA Y QUÍMICA */
 
   A.push({
     id: "fyq-2eso", materia: "fyq", nivel: "eso",
@@ -38,41 +29,45 @@ window.APUNTES_CURSOS = (function () {
     nota: "Presentaciones «para el 10» de los siete temas y batería de simulacros por tema.",
     pau: null,
     doc: {
-      curriculo: [["Currículo LOMLOE · Física y Química 2º y 3º ESO", "1oIR5n_31Jp5r0piQd_1wPp3wR1lg1uEx", "PDF", 0]],
-      criterios: [["Criterios de evaluación", "1Z_HGFL85di5x-6itE_7M2Ec0rOVy0Hbx", "PDF", 0]],
+      curriculo: [
+        ["Currículo LOMLOE · Física y Química 2º y 3º ESO", "18sLPcgiXNirmSVCEcBYHcEeZIW_KVuq6", "PDF", 0]
+      ],
+      criterios: [
+        ["Criterios de evaluación", "1vySwAFgjnSAwik6ocJbuoQtPVFXzf4dR", "PDF", 0]
+      ],
       presentaciones: [
-        ["Tema 1 · La materia y su medida", "1R_9T74pt6EcTKisSf5B_4Yya_FV-_a3Q", "PDF", 0],
-        ["Tema 2 · Estados de la materia y gases", "1HBnIq1QZ9kQlI_G2VsrbQIyE1cvz21q4", "PDF", 0],
-        ["Tema 3 · Disoluciones", "1cn2kzNIa4SkA0hAO2oElcEw0Lp7Axjkw", "PDF", 0],
-        ["Tema 4 · Tabla periódica", "1EXBvS1qyyEZCnz5LeJMDwpGCi7HMCSGs", "PDF", 0],
-        ["Tema 5 · Reacciones químicas", "1RnxBItKnEn1q0ELLGUYIW-x0grOdUsMh", "PDF", 0],
-        ["Tema 6 · Movimiento", "15Yhc757c3bL4j0Tyw16669NyfoadjNjN", "PDF", 0],
-        ["Tema 7 · Fuerzas e interacciones", "1OiMZGVBiim7820B73nEt5Hck6nWfH16p", "PDF", 0]
+        ["Tema 1 · La materia y su medida", "1YCnjW3D6ByPLs0uFutj2pEPTdlcpRTI5", "PDF", 0],
+        ["Tema 2 · Estados de la materia y gases", "16G2KLAC-MYQ45IiJ46td7YcbeYpZBIA1", "PDF", 0],
+        ["Tema 3 · Disoluciones", "1-VTqDO0A36frnphacFS6nvKKWYScY4s6", "PDF", 0],
+        ["Tema 4 · Tabla periódica", "13JXR_pzCSh1Xrnmkr2XxRZdMPhWN7xnV", "PDF", 0],
+        ["Tema 5 · Reacciones químicas", "19hb-OhclsZw-W29i8Xy9fFpif20JPgKp", "PDF", 0],
+        ["Tema 6 · Movimiento", "1CON0ryTz3khb8JBl7TLWknujL_vAvbhZ", "PDF", 0],
+        ["Tema 7 · Fuerzas e interacciones", "1yZg_FDz0UX9fpbEsqG7YNZMepF8YUTlo", "PDF", 0]
       ],
       libro: [],
       ejercicios: [],
       simulacros: [
-        ["Tema 2 · Estados de la materia — simulacro 1", "1MJ6fyUPaqQb2XmuP9PRpJoGSwW5Q0DXn", "PDF", 1],
-        ["Tema 2 · Estados de la materia — simulacro 2", "1-6cRIwJhL9SpmbY1IiN5czowPt_N1bhl", "PDF", 1],
-        ["Tema 2 · Estados de la materia — simulacro 3", "1itfAzvPOitVkG4Ai1VHsJD_K5a8GwlwH", "PDF", 1],
-        ["Tema 3 · Disoluciones — simulacro 1", "1l0HPE_YvgFCYXEdrMyxU3zokzlxyC8G-", "PDF", 1],
-        ["Tema 3 · Disoluciones — simulacro 2", "1UngfR3sXG1mxeMNL9aXyufYlCYThLagg", "PDF", 1],
-        ["Tema 3 · Disoluciones — simulacro 3", "1pFi8_bxS2EckXQNdw8wd7TFyOB7ltaTw", "PDF", 1],
-        ["Tema 4 · Tabla periódica — simulacro 1", "1QdyE63GehX5d4ygr-uv-ail_LyV9Zr-7", "PDF", 1],
-        ["Tema 4 · Tabla periódica — simulacro 2", "17q0LOJA7Jmh_r5zP7S3qvjIT9KC3wIoo", "PDF", 1],
-        ["Tema 4 · Tabla periódica — simulacro 3", "1_P_RdirMjw1FrXEN4u2T7x47M59F5CRN", "PDF", 1],
-        ["Tema 5 · Reacciones químicas — simulacro 1", "1AdNqFA2NfuXPNpc0cN6cTmDFIMm4u5x6", "PDF", 1],
-        ["Tema 5 · Reacciones químicas — simulacro 2", "1sA25Rcn96zkXJhJR5KOc-zKa50kuAsvY", "PDF", 1],
-        ["Tema 5 · Reacciones químicas — simulacro 3", "141j97CsIxiFzeRRIP3WJ7QREsCMm9kjZ", "PDF", 1],
-        ["Tema 6 · Movimiento — simulacro 1", "15E2RPP8ty-cmgU7vjF9RFmXSWxEXl1Go", "PDF", 1],
-        ["Tema 6 · Movimiento — simulacro 2", "1OCJgtgBzJOEp5g2vDZrsopuU1neulYs_", "PDF", 1],
-        ["Tema 6 · Movimiento — simulacro 3", "1NTjPedwqfHNvWqeDwU5Fc-0Q5iOjVIOb", "PDF", 1],
-        ["Tema 7 · Fuerzas e interacciones — simulacro 1", "1ZrHfCJo6DJ5lmjTtDHg8FyiqYBqq24A1", "PDF", 1],
-        ["Tema 7 · Fuerzas e interacciones — simulacro 2", "1vc6ew3snfd9ItBGFcBRzsxguCFJbkh0B", "PDF", 1],
-        ["Tema 7 · Fuerzas e interacciones — simulacro 3", "1G9NDqntaYA7ovDciCyV_APSRhY-wxREl", "PDF", 1],
-        ["Propiedades de la materia — simulacro 1", "1O5iEdL5aVdLO4utlSJKOJvzT3aIJ-9hM", "PDF", 1],
-        ["Propiedades de la materia — simulacro 2", "14GndGn9nHZxpB04Udw1NnQoqQIn4ryQf", "PDF", 1],
-        ["Propiedades de la materia — simulacro 3", "1n5T5-6I7m95xz_d_yuGwpjg4I8x8HPqd", "PDF", 1]
+        ["Tema 2 · Estados de la materia — simulacro 1", "1c_4MHLapadiKi3qSSr9yhwdRzGHSnjvu", "PDF", 0],
+        ["Tema 2 · Estados de la materia — simulacro 2", "1vaM0-vBT42x2ERmhBWUDxXrwoShNnDhw", "PDF", 0],
+        ["Tema 2 · Estados de la materia — simulacro 3", "10bLbntDOMxWG4BzJyE5OPhJKtowugprA", "PDF", 0],
+        ["Tema 3 · Disoluciones — simulacro 1", "134a9Hh5wZJ-3BpIFPtzqZJXklDpihPks", "PDF", 0],
+        ["Tema 3 · Disoluciones — simulacro 2", "1xHfBmoWZ5-ao-UWAdaf7u6-H64VEdd5L", "PDF", 0],
+        ["Tema 3 · Disoluciones — simulacro 3", "1MQKQniiR5RQWKaj8S-2DExwcS5-UYUhC", "PDF", 0],
+        ["Tema 4 · Tabla periódica — simulacro 1", "15cjYhAHPO_Kw9y6R4hdWX3aK6FIynHbA", "PDF", 0],
+        ["Tema 4 · Tabla periódica — simulacro 2", "1Awr8kvqKAxhv-LTgHf1vLA9guh3ZTR5u", "PDF", 0],
+        ["Tema 4 · Tabla periódica — simulacro 3", "12MhK8k3VkcVyLZCCbTaOIBKiL9NCg_Vg", "PDF", 0],
+        ["Tema 5 · Reacciones químicas — simulacro 1", "1sJKwWXv9TzLKRh2_zSYtcixC5x1Vrbt3", "PDF", 0],
+        ["Tema 5 · Reacciones químicas — simulacro 2", "1kJJfeniK00lVZ-QH0n0q2wpcNxsJFxnO", "PDF", 0],
+        ["Tema 5 · Reacciones químicas — simulacro 3", "1DdUp2tXM7v17xXINvUE-L0U1Wnz9noQX", "PDF", 0],
+        ["Tema 6 · Movimiento — simulacro 1", "1ML7EkDR3WnHwq4Hdd1pXHaDh4OastWdJ", "PDF", 0],
+        ["Tema 6 · Movimiento — simulacro 2", "13uv4oH8ar7kp846ej7T0czrZ-7S2ZVGP", "PDF", 0],
+        ["Tema 6 · Movimiento — simulacro 3", "1poiCZzseXdgw4duoKAFuLzPwNCkCeaNU", "PDF", 0],
+        ["Tema 7 · Fuerzas e interacciones — simulacro 1", "166ZraV3PL55nu7a45wxhJ90Jsz2cVgap", "PDF", 0],
+        ["Tema 7 · Fuerzas e interacciones — simulacro 2", "1e2QO-Kfzy2Fr50e4LSt1MNUhOP6pPYTo", "PDF", 0],
+        ["Tema 7 · Fuerzas e interacciones — simulacro 3", "1mNY34pDrVOXpj4YhU-fSMd6Ebld8ZKDN", "PDF", 0],
+        ["Propiedades de la materia — simulacro 1", "1RMxAM4XnEW6uyx-Zqgq84sjEG2nj8ocj", "PDF", 0],
+        ["Propiedades de la materia — simulacro 2", "1NbTX4NuAIJMrH-Y1-W1JNj-W3T1mWTRh", "PDF", 0],
+        ["Propiedades de la materia — simulacro 3", "1FpJ8xhlJD7mkHUdD4oYBVmO6IKZ_ZrFs", "PDF", 0]
       ]
     }
   });
@@ -83,28 +78,32 @@ window.APUNTES_CURSOS = (function () {
     nota: "Ocho temas con presentación y boletín de ejercicios emparejados.",
     pau: null,
     doc: {
-      curriculo: [["Currículo LOMLOE · Física y Química 2º y 3º ESO", "1SNZBv46vDckOrVrFmMAOXIqstgcSvcO_", "PDF", 0]],
-      criterios: [["Criterios de evaluación", "1Q2mYY6e4iy8-Uk-JODxntgH8tTVi3gON", "PDF", 0]],
+      curriculo: [
+        ["Currículo LOMLOE · Física y Química 2º y 3º ESO", "1pAZreUcy6f0fuQEMNT33L3LBeW45Cz0c", "PDF", 0]
+      ],
+      criterios: [
+        ["Criterios de evaluación", "18Uk4C9rClvylRmFJHvJjuTWo8AtdDg4U", "PDF", 0]
+      ],
       presentaciones: [
-        ["Tema 1 · Método científico y medida", "1h27bu2ivztg7_tDaSu_rIVp1NPmVvC-b", "PDF", 0],
-        ["Tema 2 · El átomo", "1EJ04Z7DSXioyxg6sGJ_d3EosKdDdu6ly", "PDF", 0],
-        ["Tema 3 · Tabla periódica", "13m4C1c_pRzyXvTiHqRiWuFMhYbfTNdox", "PDF", 0],
-        ["Tema 4 · Formulación inorgánica", "16sDmgaN5LiSk7CejFOdZCs2sQpC2HhXP", "PDF", 0],
-        ["Tema 5 · Reacciones químicas", "1p5zgr-xFFsmQWDMium6Si4-VsdtRU_ye", "PDF", 0],
-        ["Tema 6 · Energía y calor", "1qllmwCULLn3KPfNrI3Q9XPTWBWbni--J", "PDF", 0],
-        ["Tema 7 · Circuitos eléctricos", "1QVsVDewI5DuOtVWrDoq_4lX8YlR901hU", "PDF", 0],
-        ["Tema 8 · Electricidad y magnetismo", "18ZnbPWjTFHmlWfbomgB5U1eEsMVwpQI5", "PDF", 0]
+        ["Tema 1 · Método científico y medida", "1ImUf1-W_Q_KKCDdQ5Cm_3sY8qEXp2NUH", "PDF", 0],
+        ["Tema 2 · El átomo", "1bcXauzNAC1r8LfciYnRpb4b16DXWpI8H", "PDF", 0],
+        ["Tema 3 · Tabla periódica", "1XaYm7MrhkQFDP6lzdx38PfAov2S4888V", "PDF", 0],
+        ["Tema 4 · Formulación inorgánica", "1px31938lzBd3BZYhjJb3sJm1CtzN6JKR", "PDF", 0],
+        ["Tema 5 · Reacciones químicas", "11W7ZDy8946h9tQXJ9BLoQXWBhx5Ma_yv", "PDF", 0],
+        ["Tema 6 · Energía y calor", "1jHK-6uQ79qiPoutk9ZImT2EIxF3DAdsC", "PDF", 0],
+        ["Tema 7 · Circuitos eléctricos", "1B4J-gR_zBCynKuq6XbopdWopEHYGOZCI", "PDF", 0],
+        ["Tema 8 · Electricidad y magnetismo", "1Vfv1k1UyFA14b-LtElE9qV5NsERTBmfy", "PDF", 0]
       ],
       libro: [],
       ejercicios: [
-        ["Tema 1 · Método científico y medida", "1zhxEVRTHudrtYsRU2eGJmwG8pIs4Iev5", "PDF", 0],
-        ["Tema 2 · El átomo", "15N94Jbrvbpn5-ssxWf5I_2XPwWCDM-J_", "PDF", 0],
-        ["Tema 3 · Tabla periódica", "1jNRyG8bIVLwilS2VPN__7JtQFMU0go1g", "PDF", 0],
-        ["Tema 4 · Formulación inorgánica", "1kIYB2KoN30x5I2YCjyXFj9NWpaIL_ySh", "PDF", 0],
-        ["Tema 5 · Reacciones químicas", "1H-tE0xcHSom8ZgyBjhcYZdpBrl_2SiPS", "PDF", 0],
-        ["Tema 6 · Energía y calor", "1mXFEHMXnuKLjMefw3PT9LaDl-Qqa1uqm", "PDF", 0],
-        ["Tema 7 · Circuitos eléctricos", "1YUEJFfSuEexMA8efx9j3KDXRCZgT4mNk", "PDF", 0],
-        ["Tema 8 · Electricidad y magnetismo", "1dULHguCa_2ETZIlLEaYRbN-OBXExNp7O", "PDF", 0]
+        ["Tema 1 · Método científico y medida", "1H5g7JQIJKf_5FEwO3Z3RzU66Ce-fyhG6", "PDF", 0],
+        ["Tema 2 · El átomo", "18_OoiwdPDFMOjwLWcZXIxjKCfaVKwe5F", "PDF", 0],
+        ["Tema 3 · Tabla periódica", "1jJSxDcFgbiehV7SXwJ1izHvNBngln-_y", "PDF", 0],
+        ["Tema 4 · Formulación inorgánica", "1Ui7lciyr4tVDgL78qmAzfiAz00v0ElmR", "PDF", 0],
+        ["Tema 5 · Reacciones químicas", "1wuEX18qTaNubmf1GivKw0Ijvb506Z5sB", "PDF", 0],
+        ["Tema 6 · Energía y calor", "12IxkLeyk_NmNcWn7HInbs22WhE7SI9vb", "PDF", 0],
+        ["Tema 7 · Circuitos eléctricos", "1Hi16Zo6GOeRu51ViHiJI1KhNNmilpOJR", "PDF", 0],
+        ["Tema 8 · Electricidad y magnetismo", "1FJRbwOpw-7xrDFEvdcp3LPW9ds4nsVj5", "PDF", 0]
       ],
       simulacros: []
     }
@@ -116,66 +115,70 @@ window.APUNTES_CURSOS = (function () {
     nota: "Curso 2026-27 completo: libro del alumno, diez temas con presentación y boletín, y los exámenes del curso pasado.",
     pau: null,
     doc: {
-      curriculo: [["Currículo LOMLOE · Física y Química 4º ESO", "1YiX0QAvfddOzK67cDWZFmGTtlO5qgYx7", "PDF", 0]],
+      curriculo: [
+        ["Currículo LOMLOE · Física y Química 4º ESO", "1FRRxZnHNQYD4iMkoWwdsF5Gctg0kXfCX", "PDF", 0]
+      ],
       criterios: [
-        ["Criterios de evaluación 2026-27", "1cOl2mAp8njGpgH1peFxubdU4Fos40LJx", "DOCX", 0],
-        ["Criterios de evaluación 2025-26", "1iZAK7pRnNJ6mRDbwuaabIzsgCuGtvtEB", "PDF", 0],
-        ["Criterios de calificación (resumen)", "1sk-AHkHccVP1txeXgCjjiUF47Oi5RbgH", "PDF", 0]
+        ["Criterios de evaluación 2026-27", "1kNLqhYni9TBHBPs6zID3lr8e9LYIDqNm", "DOCX", 0],
+        ["Criterios de evaluación 2025-26", "1RJzJtmIZutZcwy6a9RgJrFCrCwfpWPJe", "PDF", 0],
+        ["Criterios de calificación (resumen)", "1LObUsnk0GeKM7-S_Vuo1NOUMMKLezwLx", "PDF", 0]
       ],
       presentaciones: [
-        ["Tema 0 · Materia, laboratorio y disoluciones", "1TJOQs_StEL2fkHsYuBZ-0H_U0vhVuiMb", "PDF", 0],
-        ["Tema 1 · Estructura atómica", "1Yrg_zOwNrV2etTvx9El4joRhM49bLgzq", "PDF", 0],
-        ["Tema 2 · Enlace químico", "193Jbu797fer6pvVAev7mjcfkR84_wrCZ", "PDF", 0],
-        ["Tema 3 · Formulación inorgánica", "1sQiy9HmOQeNBkz47KBaXeBsT0Jd5VXrc", "PDF", 0],
-        ["Tema 4 · Reacción química y estequiometría", "1g8SFMlEwN6Sygtj6nHKAQiIyhaL2xl66", "PDF", 0],
-        ["Tema 5 · Química orgánica", "1WtroffnAjWXPxRhM2DDu9pkhrJI8oyAh", "PDF", 0],
-        ["Tema 6 · Cinemática", "1CB9nxzVG-1i_xgT2NZw2XnG34Edi_qta", "PDF", 0],
-        ["Tema 7 · Dinámica", "1p71N6GPzYh3sO0Un7CJNmNXhcJ7PYAr0", "PDF", 0],
-        ["Tema 8 · Fuerzas y fluidos", "1GbkJYAev4Ss-L-RXa29xRC631o1J_bh0", "PDF", 0],
-        ["Tema 9 · Trabajo, energía y ondas", "1hc1vwAGBoIJgh4xHavBPrswGkEE2Qyxa", "PDF", 0]
+        ["Tema 0 · Materia, laboratorio y disoluciones", "1Txv5q3KCPb2mzG7kXiCssyevLnG7Pr9J", "PDF", 0],
+        ["Tema 1 · Estructura atómica", "1qQUAZga7v3UEl_uY0zsJkrPChax0_7Ux", "PDF", 0],
+        ["Tema 2 · Enlace químico", "1Ww0lr2Xd8iWOeTlJWhZhXQZ-kRSgs48k", "PDF", 0],
+        ["Tema 3 · Formulación inorgánica", "1wCAIFYP66pBO-ph9MhIDh3lLwaBla9aB", "PDF", 0],
+        ["Tema 4 · Reacción química y estequiometría", "1hk8lm2Y1oAjsrG-1sGutguAkA1Ex-9NL", "PDF", 0],
+        ["Tema 5 · Química orgánica", "1FyPL_GYm0RLgHUc4mrdMNOynMPoC-iTG", "PDF", 0],
+        ["Tema 6 · Cinemática", "16HnuiCLhK3MGa1UxxalSIS1tDcC0x7HO", "PDF", 0],
+        ["Tema 7 · Dinámica", "1JsFHI8FF6tMebUSCbT-slLRZUaptLhJX", "PDF", 0],
+        ["Tema 8 · Fuerzas y fluidos", "1PEjG_CtNVFehDCKkIbNnK42nUBOXRe7z", "PDF", 0],
+        ["Tema 9 · Trabajo, energía y ondas", "1VnQiy9xcZzwPt0l2HAXy7qnAOIfq7eUX", "PDF", 0]
       ],
-      libro: [["Libro del alumno · Física y Química 4º ESO 2026-27", "1nr8OS9YMXVadfiJXW9hiPI5CFv37S5NV", "PDF", 0]],
+      libro: [
+        ["Libro del alumno · Física y Química 4º ESO 2026-27", "1BDWmGqdbULGq0iwbYMOYFKQNqeMKHZSh", "PDF", 0]
+      ],
       ejercicios: [
-        ["Tema 0 · Materia, laboratorio y disoluciones", "1tm-KXxfULIdc-tNyLnK4XEbdl3nLaLS8", "PDF", 0],
-        ["Tema 1 · Estructura atómica", "15FvH8fU9tX6KR0hPs9M1MxGRU_wNihM2", "PDF", 0],
-        ["Tema 2 · Enlace químico", "1a5BdBbX-dt_McCwNClko0WY_ubX7BsBN", "PDF", 0],
-        ["Tema 3 · Formulación inorgánica", "1hJW_BqTgtJeEiFYZguXm1eY0d3LI8pGM", "PDF", 0],
-        ["Tema 4 · Reacción química y estequiometría", "1MW_gSeHeelo7BZv-dewYm-pw97Kx095H", "PDF", 0],
-        ["Tema 5 · Química orgánica", "1TpQd4fmeNnQOuBRUU6QZaSDIEssNOetV", "PDF", 0],
-        ["Tema 6 · Cinemática", "1dV0PHBJONbiXdZ0tSSmXMp1oApDISgZw", "PDF", 0],
-        ["Tema 6 · Movimiento circular (MCU)", "1oGf6zGDPe7u8Tm3pjm8niK4QMEHIBFv5", "PDF", 0],
-        ["Tema 7 · Dinámica", "1tnUboir9uqUSghWBtl3iLDnXddodTw3k", "PDF", 0],
-        ["Tema 8 · Fuerzas y fluidos", "1LGwx__b2XVNXaRtgxv-w31nwYYg-cwGR", "PDF", 0],
-        ["Tema 9 · Trabajo, energía y ondas", "1bOLx2_HcYfBtxoeTiN07Icd-36zZK-xF", "PDF", 0]
+        ["Tema 0 · Materia, laboratorio y disoluciones", "1fuquVgK37_CAF5U5DxGZ2wa66y1BAPOY", "PDF", 0],
+        ["Tema 1 · Estructura atómica", "1eUxErb_baB053zqtoco3p5tuZVaSgQA_", "PDF", 0],
+        ["Tema 2 · Enlace químico", "1KFB96eTHnQ05HVa3VD6jwoQ--zohVLPt", "PDF", 0],
+        ["Tema 3 · Formulación inorgánica", "119-XRGuzrnBVhjsj66LVkK69SNoHgtE2", "PDF", 0],
+        ["Tema 4 · Reacción química y estequiometría", "1rt8EuS8NlNfNruVnZu7aEKg5GxccWUZp", "PDF", 0],
+        ["Tema 5 · Química orgánica", "1KEYAXaDbDj6bZBlSf1xYeLlRBqp_GDNc", "PDF", 0],
+        ["Tema 6 · Cinemática", "1Zd2mz6ZUyNEMwNe9CYQoVbbp11yB4AJJ", "PDF", 0],
+        ["Tema 6 · Movimiento circular (MCU)", "1T9Lj99UvI5wNy4dQ-VcI46Cts7ChaKBi", "PDF", 0],
+        ["Tema 7 · Dinámica", "1lpuuXHnvAffxWs5xEpotUurbCC7z9awo", "PDF", 0],
+        ["Tema 8 · Fuerzas y fluidos", "1wZ7pY0ADKlcfrGXfuRkZKCmsgfNK4QVp", "PDF", 0],
+        ["Tema 9 · Trabajo, energía y ondas", "1vO6vYaV3SwLghTgAHOw8plC4AsLs6OmE", "PDF", 0]
       ],
       simulacros: [
-        ["Tema 1 · Estructura atómica — examen 2024-25", "1pPYMJcySQuA7EgEc3L3xS4-wQgKbjMwK", "PDF", 0],
-        ["Tema 1 · Estructura atómica — examen 1 (2025-26)", "1_9T0a25N6aZbYKQct3LFuDo5YhYxB1tW", "PDF", 0],
-        ["Tema 1 · Estructura atómica — examen 2 (2025-26)", "17FFLLV5LCYqDgSbGoejDAuwhTeCDWR0r", "PDF", 0],
-        ["Tema 1 · Estructura atómica — simulacro 1", "1_znxzTqYQDwRw8ms7skBoI-xRIk3G_F2", "PDF", 0],
-        ["Tema 1 · Estructura atómica — simulacro 2", "1nYgT7-q-dbToIZSPJKoMCgw6qDNy9OYp", "PDF", 0],
-        ["Tema 1 · Estructura atómica — simulacro 3", "1q_dHer3x0kVrAnvMkRjQ12suu3KVUlwV", "PDF", 0],
-        ["Tema 2 · Enlace químico — examen 2025-26", "1DyjszAXmGmXF51fvdUGw52dfj9sm_EwE", "PDF", 0],
-        ["Tema 2 · Enlace químico — simulacro 1", "1rfBlSG7zA1o96A_i1r7PzfyRNwq4sP-M", "PDF", 0],
-        ["Tema 2 · Enlace químico — simulacro 2", "1CwLr0XuKPCpwUgpoxg4DMndQK9Ohk_mp", "PDF", 0],
-        ["Tema 2 · Enlace químico — simulacro 3", "18JRO56axOp06UZePtnKiUX_QI7Zu7Ljp", "PDF", 0],
-        ["Tema 3 · Formulación inorgánica — examen 2025-26", "1TLMFKrah0wgqulqGk2MmvnFCFiFEm8P2", "PDF", 0],
-        ["Tema 3 · Formulación inorgánica — simulacro 1", "1WKfdP5bvg3UDFcIozAlwpZLkv2SLUaqF", "PDF", 0],
-        ["Tema 3 · Formulación inorgánica — simulacro 2", "1yHkDYwUuuwx6YAFjaq-hTQkjyShwhKSN", "PDF", 0],
-        ["Tema 3 · Formulación inorgánica — simulacro 3", "1Agt6ustbMVrqgA6hOzAPNhjnnUlOQlQI", "PDF", 0],
-        ["Tema 4 · Estequiometría — simulacro", "1TQYlpzRTNs6DP446zqqUSBBDwS7RaIsZ", "PDF", 0],
-        ["Tema 5 · Química orgánica — examen 2025-26", "190_VgId0bit2JdyYKSonuznO19Xzvg8q", "PDF", 0],
-        ["Tema 6 · Cinemática MRU — examen 2025-26", "1BG-IwsR-ScRVSn0krLuB0RUwU0uPP2fM", "PDF", 0],
-        ["Tema 6 · Cinemática MRUA — examen 1 (2025-26)", "1n5SbO4k9wyBcMMgHPruRyPksJckPyMR1", "PDF", 0],
-        ["Tema 6 · Cinemática MRUA — examen 2 (2025-26)", "1rk3EnvRoZLfK1P-RtB49Bid3gTq6o3tA", "PDF", 0],
-        ["Tema 6 · Cinemática MRUA — simulacro 1", "16uqDYNJaYfLeFyevfKPc7CGMa7uNm_5u", "PDF", 0],
-        ["Tema 6 · Cinemática MRUA — simulacro 2", "1sdNhxsVt3NAVtbbnVRX1mu70no-_6K51", "PDF", 0],
-        ["Tema 6 · Cinemática MRUA — simulacro 3", "1OuThEoZvHMOaRqyHE10e86ZGlRzLujmS", "PDF", 0],
-        ["Tema 7 · Dinámica — examen 2025-26", "1rZ6cJTRRITt292b64tZRukboa0jKkI2F", "PDF", 0],
-        ["Tema 7 · Dinámica — simulacro 1", "1yeWHvCTFYykoiVbiw11fDUsSM23CAODg", "PDF", 0],
-        ["Tema 7 · Dinámica — simulacro 2", "1MSR1EV_Qh5gmL34KqiKXPDBXZ6LtA59B", "PDF", 0],
-        ["Tema 7 · Dinámica — simulacro 3", "1ZLUaAT4n_glrBGpkWjeXDj3RqO64U_HG", "PDF", 0],
-        ["Tema 7 · Dinámica — simulacro 4", "1QofeFIwmbVMVepB-BTqwQbXO0HGfkRwn", "PDF", 0]
+        ["Tema 1 · Estructura atómica — examen 2024-25", "1wTrfRS2CxjXblr8ujpOxxIgc5LMf6rfD", "PDF", 0],
+        ["Tema 1 · Estructura atómica — examen 1 (2025-26)", "1Km6bLUl6HEHqPQynFdFIZh5Y7xmGjEx0", "PDF", 0],
+        ["Tema 1 · Estructura atómica — examen 2 (2025-26)", "1L-7Hpw3AlYV6wb8tR1nKXU1yxzJCR5Cj", "PDF", 0],
+        ["Tema 1 · Estructura atómica — simulacro 1", "1gB4krNXMBs2c9TUyDEcwLYWa2ZG8zGVJ", "PDF", 0],
+        ["Tema 1 · Estructura atómica — simulacro 2", "1R1eN3-NcxLrqyddlJwWRRD6OU6XR-LSk", "PDF", 0],
+        ["Tema 1 · Estructura atómica — simulacro 3", "1PrnsUzKDZu12JWxFVtahqZxQ2Mw6sxgn", "PDF", 0],
+        ["Tema 2 · Enlace químico — examen 2025-26", "15Jw4I072YNC0q3c4fcd7LMtL1Tcf69if", "PDF", 0],
+        ["Tema 2 · Enlace químico — simulacro 1", "15EyRBlfYEExxxW6W7VuERlbjVWotismo", "PDF", 0],
+        ["Tema 2 · Enlace químico — simulacro 2", "13HckbF1kPzOpKNcjwHhmyFPD1t71paOk", "PDF", 0],
+        ["Tema 2 · Enlace químico — simulacro 3", "1rxjPYmoG1t_4gAKXnNrQeNlvuv_qmLuW", "PDF", 0],
+        ["Tema 3 · Formulación inorgánica — examen 2025-26", "1b2vG-VVKB1Q0om7y3yWBL8jKgHRbqsuq", "PDF", 0],
+        ["Tema 3 · Formulación inorgánica — simulacro 1", "1cEYCs5n_b4ZseGxtR-6iACFlVQTEpxH6", "PDF", 0],
+        ["Tema 3 · Formulación inorgánica — simulacro 2", "1okKZRBwqZB5YN-CVf0rGXxrG4Kse7iml", "PDF", 0],
+        ["Tema 3 · Formulación inorgánica — simulacro 3", "1PFeFYVzJeDUTCrbIT3-rP3cYiz5dNFiM", "PDF", 0],
+        ["Tema 4 · Estequiometría — simulacro", "1hwF7TgQkhHWkTJtruYxgnQorJW_0t2ZZ", "PDF", 0],
+        ["Tema 5 · Química orgánica — examen 2025-26", "1TG7hETfOWI-OEAuH1IjEqgsmmnp0e5tb", "PDF", 0],
+        ["Tema 6 · Cinemática MRU — examen 2025-26", "1QCWkFlXi_BdilDV3TBxSYSZirfunG-XO", "PDF", 0],
+        ["Tema 6 · Cinemática MRUA — examen 1 (2025-26)", "1A7YhxpsTRtFGCAjUY3lavQp77jsnUCl6", "PDF", 0],
+        ["Tema 6 · Cinemática MRUA — examen 2 (2025-26)", "15L8JtXkZKTXJft8LspUyFoSiy3BCp1UD", "PDF", 0],
+        ["Tema 6 · Cinemática MRUA — simulacro 1", "13gdiBhp67inxMv0xao0PV9tMYVLQ_jZz", "PDF", 0],
+        ["Tema 6 · Cinemática MRUA — simulacro 2", "1_DPcwGwDA-ycmsw5tGALrPUUmZpogoQF", "PDF", 0],
+        ["Tema 6 · Cinemática MRUA — simulacro 3", "1dhxcZ1N1eq6RcN6S0p7XpEQoljz23s1Q", "PDF", 0],
+        ["Tema 7 · Dinámica — examen 2025-26", "1koIKqnf312RyZ2fbKf5k5b8J2bsFExAo", "PDF", 0],
+        ["Tema 7 · Dinámica — simulacro 1", "1L1JMgvrnL2PnOcBMidgtE6zxjJrTk6h6", "PDF", 0],
+        ["Tema 7 · Dinámica — simulacro 2", "1_D67w6SK7x3jBOcN57umVfto5Er5TI-_", "PDF", 0],
+        ["Tema 7 · Dinámica — simulacro 3", "11rnO95dXbR5nEUUtjh5N6MvKr7lDXtOy", "PDF", 0],
+        ["Tema 7 · Dinámica — simulacro 4", "1uGAMvxdlYaXAppS1FqvsBC5n802yIynA", "PDF", 0]
       ]
     }
   });
@@ -186,50 +189,56 @@ window.APUNTES_CURSOS = (function () {
     nota: "Curso 2026-27: métodos paso a paso, banco de ejercicios y los diez exámenes del año. Sin presentaciones todavía.",
     pau: null,
     doc: {
-      curriculo: [["Currículo LOMLOE · Física y Química 1º Bachillerato", "16QT6lq9jt5b6KjoNX-fxjR0OxxRWOeLM", "PDF", 0]],
-      criterios: [["Criterios de evaluación 2026-27", "1fKClDIkGuh4V-KEpIRKm1tX2BZc3evet", "PDF", 0]],
+      curriculo: [
+        ["Currículo LOMLOE · Física y Química 1º Bachillerato", "1Q-BNBKuDVPQR8tlUvIyuBran-GQnbkmz", "PDF", 0]
+      ],
+      criterios: [
+        ["Criterios de evaluación 2026-27", "1cqeF9haorYz0dOLYaJHraSx3VPMDUXFs", "PDF", 0]
+      ],
       presentaciones: [],
-      libro: [["Métodos paso a paso · Física y Química 1º Bachillerato", "1KqciIhoP2MfcMmRMxwZQFUc0xnwE0QUy", "PDF", 0]],
+      libro: [
+        ["Métodos paso a paso · Física y Química 1º Bachillerato", "1uIZbdTFUMMvRB9iPKLZk2miHcgBRclBA", "PDF", 0]
+      ],
       ejercicios: [
-        ["Banco de ejercicios del curso", "16gNFxeHkfmP_RSHCCVenHCCnjfNDKL8e", "PDF", 0],
-        ["Formulación orgánica · cuaderno completo", "1jVQ5Fzwa6gEDv2SpC5h3g9KAVAMRmeJP", "PDF", 0]
+        ["Banco de ejercicios del curso", "1ck9hHQFoP5rXKRFwu3R_yUdc4asQPHL-", "PDF", 0],
+        ["Formulación orgánica · cuaderno completo", "1gmJmYqo6sN-23vvoKKhq77i_dGciWfmd", "PDF", 0]
       ],
       simulacros: [
-        ["1ª evaluación · Prueba 1 — Cinemática", "1PsmcbLqirhBm-K8gR1_5snWqTuCYnl7I", "PDF", 0],
-        ["1ª evaluación · Prueba 2 — Dinámica y energía", "15fJ26qP1A3HPqYuJEksoFb9HamWT9kze", "PDF", 0],
-        ["1ª evaluación · Global", "1GpFvLekWXenx0M3rwr9iotL_r-0H9pr9", "PDF", 0],
-        ["2ª evaluación · Prueba 1 — Formulación", "1cffNxFUUdorZ6lR7XGzi4mWnDkJ7-W0C", "PDF", 0],
-        ["2ª evaluación · Prueba 2 — Átomo y sistema periódico", "1EGQWKIpCIDgQ732SmzjNvg5hKgtqkd74", "PDF", 0],
-        ["2ª evaluación · Global", "1mgogyZSAkTFERBKwzz7ZhqSMdt32SdI4", "PDF", 0],
-        ["3ª evaluación · Prueba 1 — Estequiometría", "1CgUkg106V5I9p62jFeaea_s20fXYir9B", "PDF", 0],
-        ["3ª evaluación · Prueba 2 — Enlace químico", "1EMBnj-zkGhmQ8ADoqs6JXtMOZ2G4zF5j", "PDF", 0],
-        ["3ª evaluación · Global", "1v0SNi9aIsHbcnBngtrZuU_Q6JqUH8lR8", "PDF", 0],
-        ["Final de curso", "1ByWkZF4fW3q4FXvG9FfrTk-EzdCFwR54", "PDF", 0],
-        ["Modelo · Formulación orgánica 1", "1rv8KCJIJjJg8lrPr-WLlN5o3rQ0T3HYE", "PDF", 0],
-        ["Modelo · Formulación orgánica 2", "1qx7BXlV8dAqJhm4EHPIPb3QcBdcUfqW0", "PDF", 0],
-        ["Modelo · Formulación orgánica 3", "1lcIZfzzh_Ctftgv6qZtMz6EqjEnI-5sy", "PDF", 0],
-        ["Banco fiquipedia · Cinemática — Roberloko16", "1LGlmhDjNaYGMXj0rkyMyiSdgWFzAwsgR", "CC", 0],
-        ["Banco fiquipedia · Cinemática — Rumanía", "1Hel5lsTM9VjpNpVzwLoEWTJObSlDZcWn", "CC", 0],
-        ["Banco fiquipedia · Cinemática — Mickey Mouse", "13Zsd6zHZqMZOBLPBkuQisTNSr1E3jRXY", "CC", 0],
-        ["Banco fiquipedia · Cinemática — Xavi Hernández", "1TA7GqbflJNA15n-H7xuUg0Ufk8kEkWn_", "CC", 0],
-        ["Banco fiquipedia · Dinámica — Jujutsu Kaisen", "1WfeRJna5-VGejoD4cL313nRylVTIhk2C", "CC", 0],
-        ["Banco fiquipedia · Dinámica — Hazbin Hotel", "1da4e7P38ODQg9hndtDpZJVq2WkzsIHCD", "CC", 0],
-        ["Banco fiquipedia · Dinámica — Gossip Girl", "1NgGiEJPQbeEqdtNuvPipkvYva63_ligC", "CC", 0],
-        ["Banco fiquipedia · Termoquímica y cinemática — La sociedad de la nieve", "1ZH51ThWuglKHHZu0Dt50TpMgvhuby4kO", "CC", 0],
-        ["Banco fiquipedia · Termoquímica y dinámica — Brawl Stars", "1KqED1n4EQG79L77Gh7DJWr2hliGeONfj", "CC", 0],
-        ["Banco fiquipedia · Estática — OT 2023", "1YgkqpKjArC3KgJT00Bv2BDDdwhHwkr1o", "CC", 0],
-        ["Banco fiquipedia · Estática — Outlander", "1fUQlj2BsyuNCqAn7J26ZBQz4esWWRA7F", "CC", 0],
-        ["Banco fiquipedia · Estática — Voleyball", "1Oph53GtCHvZKadaOiwBAKISTDsG5pDwA", "CC", 0],
-        ["Banco fiquipedia · Energía — Baloncesto", "1xeAFKdJUHYL5Li8N-8SCZx1yKqPo54ok", "CC", 0],
-        ["Banco fiquipedia · Energía — Jordi Wild", "1RhyFst_1kdh1tBzKt940NyZrTQWGunD0", "CC", 0],
-        ["Banco fiquipedia · Energía — South Park", "1mE3iX21ya8gtcRYUk3f3oDhaxLHKXy3r", "CC", 0],
-        ["Banco fiquipedia · Energía — Jessie", "1JZ2xWfbbV5pnmt5ROBe2037RPLBOQ4VZ", "CC", 0],
-        ["Banco fiquipedia · Termodinámica — Van Gogh", "1wUP4od_iD3FhnA8WIomEhF0FJG5XDhjl", "CC", 0],
-        ["Banco fiquipedia · Termodinámica — Tom and Jerry", "1MKYk94F0BPYNw4rG_fAQM9IMdnchZcQY", "CC", 0],
-        ["Banco fiquipedia · Termodinámica — Outer Wilds", "1ns7o-Zlw3sGlbfiw9GdGvBcuYUSJjC13", "CC", 0],
-        ["Banco fiquipedia · Termodinámica — Bebés de plástico", "1SODfY88TJjlNdgRS1sH3a2sMg65_nOlj", "CC", 0],
-        ["Banco fiquipedia · Final — Croquetas", "1rOLaibELTIJPTrU04_0bD85VY1PEZl8t", "CC", 0],
-        ["Banco fiquipedia · Estática, energía y termodinámica — Croquetas", "1V8IoYMbkWjFi3M21yM5Af-Kgttq7jzRA", "CC", 0]
+        ["1ª evaluación · Prueba 1 — Cinemática", "1d1FGD7wGPgHU2AZf-G5rPJb1G3-XRYm5", "PDF", 0],
+        ["1ª evaluación · Prueba 2 — Dinámica y energía", "1AmGqwtxnlp80EmH84Y3mLNCzr3COedS9", "PDF", 0],
+        ["1ª evaluación · Global", "1iKONpH8MX0RhGTKtz6JmYE0X5VXHAyC1", "PDF", 0],
+        ["2ª evaluación · Prueba 1 — Formulación", "1PdLFzNJP_HImjB9ypSluVT-YWNZXKOAu", "PDF", 0],
+        ["2ª evaluación · Prueba 2 — Átomo y sistema periódico", "1Y-RXLLU71jRDQxgN42Fxozg9xrca5381", "PDF", 0],
+        ["2ª evaluación · Global", "1NgTmjyCh0TiZ_ubv6697F2dXY7a4dOOg", "PDF", 0],
+        ["3ª evaluación · Prueba 1 — Estequiometría", "1j5mX4kq_II1EV42-8ADs2763bEPMtr1a", "PDF", 0],
+        ["3ª evaluación · Prueba 2 — Enlace químico", "15F_JE3rgbBojqommkZFrlbm92N-0em4P", "PDF", 0],
+        ["3ª evaluación · Global", "1KdcQsqy4vm51y-klXv-rZhXa1tEHk6VI", "PDF", 0],
+        ["Final de curso", "1PInttyG_wWiS3YyvIngC21KFjGTiNhFJ", "PDF", 0],
+        ["Modelo · Formulación orgánica 1", "1wKIWx6ZAGekmmiFYdR4UFrOcOoKk7oTX", "PDF", 0],
+        ["Modelo · Formulación orgánica 2", "192lgjiYOzGyZhjSk4TqbYCE9luMFaNC4", "PDF", 0],
+        ["Modelo · Formulación orgánica 3", "1iQ66vXlICG9tCyD22sdIP7-6BN7tbNjE", "PDF", 0],
+        ["Banco fiquipedia · Cinemática — Roberloko16", "1Tqvi0sZW7cg04Thj_NsJVC76muRTn3PQ", "PDF", 0],
+        ["Banco fiquipedia · Cinemática — Rumanía", "1u1qmBu5OaxpX0MKINVQBr2Comy-cJqUi", "PDF", 0],
+        ["Banco fiquipedia · Cinemática — Mickey Mouse", "1kaOMCdVRl8yuaaPvXYZbH5yH90nwzP6L", "PDF", 0],
+        ["Banco fiquipedia · Cinemática — Xavi Hernández", "190SUbymO75Yr-jY7BDMaVGEdoK2pURSw", "PDF", 0],
+        ["Banco fiquipedia · Dinámica — Jujutsu Kaisen", "1TuYWutB-HKLu6_n2Ou-QFjo-tje92eHA", "PDF", 0],
+        ["Banco fiquipedia · Dinámica — Hazbin Hotel", "1d2U6Cu9GrFQAgNOqd9VPeDYCxZ2M6Ma8", "PDF", 0],
+        ["Banco fiquipedia · Dinámica — Gossip Girl", "1Y8718M0sagMD9vJ4h1VISikV3-2_eMWN", "PDF", 0],
+        ["Banco fiquipedia · Termoquímica y cinemática — La sociedad de la nieve", "14dsYAnbsxVVXtYsK0t5HjKmx09HLu1Wm", "PDF", 0],
+        ["Banco fiquipedia · Termoquímica y dinámica — Brawl Stars", "1Bb2iU3cTV0l_U-0jkQS03U5-wVXAy3fa", "PDF", 0],
+        ["Banco fiquipedia · Estática — OT 2023", "1i1YpdzuQIAbf_zLvptjsi0EzoNZPFlZF", "PDF", 0],
+        ["Banco fiquipedia · Estática — Outlander", "1IRQP-NY1Izxb4B998ST-5bhSbwO0qvuz", "PDF", 0],
+        ["Banco fiquipedia · Estática — Voleyball", "1WPFev4UIUyQ7p2G5IxsgozIx-Rh_oj7g", "PDF", 0],
+        ["Banco fiquipedia · Energía — Baloncesto", "1xacTsINbwIIE1DUCOga-yj54m9enXsJ9", "PDF", 0],
+        ["Banco fiquipedia · Energía — Jordi Wild", "163jHtQRR6Q_9V-2wrn8hrXfDG_bCVLEZ", "PDF", 0],
+        ["Banco fiquipedia · Energía — South Park", "1vg81nm3NtUtIcONK4oJgEt1VwKS8uDxb", "PDF", 0],
+        ["Banco fiquipedia · Energía — Jessie", "1Tr9ECIdsRBs0Am8g6pdNWBhHCOxHWAsc", "PDF", 0],
+        ["Banco fiquipedia · Termodinámica — Van Gogh", "1akV0_7kHDqNOr-zzuJaj-i3fy_g8ntAL", "PDF", 0],
+        ["Banco fiquipedia · Termodinámica — Tom and Jerry", "1SuUMFdr9knL-Z0FT6fURTtSd8GXwTIR9", "PDF", 0],
+        ["Banco fiquipedia · Termodinámica — Outer Wilds", "1tau7RRTnUh5v9SV5URakG5wwmEJof3tp", "PDF", 0],
+        ["Banco fiquipedia · Termodinámica — Bebés de plástico", "12zj8Vg-9DwBsmOFLi27p1IXvBT7ocHu6", "PDF", 0],
+        ["Banco fiquipedia · Final — Croquetas", "1RUspemkphna4jyEqrIkeXKbCp7eockuu", "PDF", 0],
+        ["Banco fiquipedia · Estática, energía y termodinámica — Croquetas", "1jW2zFxnkOOAfQ-SBCp_Gv0BySf_tdMNX", "PDF", 0]
       ]
     }
   });
@@ -240,31 +249,35 @@ window.APUNTES_CURSOS = (function () {
     nota: "Once temas de teoría, el libro completo y el archivo oficial de la PAU valenciana.",
     pau: "Física",
     doc: {
-      curriculo: [["Currículo LOMLOE · Física 2º Bachillerato", "1DC2Bkhu3A0BbqJfwSS-HSGwLcwnT9cVj", "PDF", 0]],
-      criterios: [["Criterios de evaluación", "1ufUS74QSb4jhxbILNGb1dGX2idLrscCq", "PDF", 0]],
+      curriculo: [
+        ["Currículo LOMLOE · Física 2º Bachillerato", "1zJNQFhZlXWmj5tkgAZDMx3_kVK1esYbH", "PDF", 0]
+      ],
+      criterios: [
+        ["Criterios de evaluación", "1jC1yc-igFHXW5xoHezpggwYq3ZrAXVPt", "PDF", 0]
+      ],
       presentaciones: [
-        ["Tema 1 · Las matemáticas de la física", "1I3DIfAdK-WOfp_syA2RWCuZODnmL5LDN", "PDF", 0],
-        ["Tema 2 · Gravitación universal", "1JCQEjUh8GPPB5i29dTvnPzKG5M95g4Kp", "PDF", 0],
-        ["Tema 3 · Movimiento armónico simple y energía", "13fJaSxPewSxkajjxNmGQXo2SkqhyRVJ-", "PDF", 0],
-        ["Temas 4-5 · Ondas y fenómenos ondulatorios", "1oDns4Z3vQCTyeO6zhMJenr0Ypfm6B5th", "PDF", 0],
-        ["Tema 6a · Óptica geométrica", "1_WaNYrni8IqTvSvc9aNINreQkzPiBUL_", "PDF", 0],
-        ["Tema 6b · Óptica física", "1HdiH3uk7Z1nIf0et02lenaBs4mJUbFTt", "PDF", 0],
-        ["Tema 7 · Campo eléctrico", "1mNUZzAi3DsoPCk3QutCD6xPkwIzGqiQj", "PDF", 0],
-        ["Tema 8 · Electromagnetismo", "1Dvi56oGOH-WfgQAweUZIQPfqdtMbwFLx", "PDF", 0],
-        ["Tema 9 · Relatividad", "1orSXE0y8ZJFhasp2skH9M94FThiMC2NU", "PDF", 0],
-        ["Tema 10 · Física cuántica", "11kUJYDR8yFs-XhGzkBEMcUvjatis78Hf", "PDF", 0],
-        ["Tema 11 · Física nuclear", "1ps9qi3yFhlow0_ZkMDX3jkBvjlgJ8inO", "PDF", 0]
+        ["Tema 1 · Las matemáticas de la física", "1a0X9yckt7NNx5tNXErNTPY-7IeehW67W", "PDF", 0],
+        ["Tema 2 · Gravitación universal", "1k7tPlB-wGGzW66ahblWneLsEzW3FD3qq", "PDF", 0],
+        ["Tema 3 · Movimiento armónico simple y energía", "1OXBEDPojUWRcLdwGA8PD2BsjIVyf6uCK", "PDF", 0],
+        ["Temas 4-5 · Ondas y fenómenos ondulatorios", "1zOS8SwIs10wCXfULstNelQp9tmArcXIR", "PDF", 0],
+        ["Tema 6a · Óptica geométrica", "1XleHw2g5edQpPlsu4UThYrNget__THbY", "PDF", 0],
+        ["Tema 6b · Óptica física", "1lRFHoXHbMTcsppCcdORPS_pQLajMcVD4", "PDF", 0],
+        ["Tema 7 · Campo eléctrico", "1Vb2uCa8lpahKcGgWGijmG0-JEaV9LWW6", "PDF", 0],
+        ["Tema 8 · Electromagnetismo", "1S3Ntj0bAEI5t9miABCfX8ld68I4KkGhE", "PDF", 0],
+        ["Tema 9 · Relatividad", "1srQRblrvvmc2suNk-DaQ6ZAk9W2KzxOO", "PDF", 0],
+        ["Tema 10 · Física cuántica", "1DUabDrRmzd2Sa85YnqYFQHkIRB6iTs26", "PDF", 0],
+        ["Tema 11 · Física nuclear", "1qail75dKT6yF2pn1D8Qw-cFHQr3LgtU1", "PDF", 0]
       ],
       libro: [
-        ["Libro de Física 2º Bachillerato", "1rVr8b8ZmFx0aeHIC4YGCROU3wfG1CXbG", "PDF", 0],
-        ["Selectivos PAU resueltos 2000-2025", "1eUv_jiR2OtFjNYav6658Eo59FwqZBpC2", "PDF", 0]
+        ["Libro de Física 2º Bachillerato", "1X1mGOhb_aLWxaLZpZtuSLrgBya7kX5d3", "PDF", 0],
+        ["Selectivos PAU resueltos 2000-2025", "18NG7GAbOU51YSqZ2mP-sXukZIACFB9ac", "PDF", 0]
       ],
       ejercicios: [],
       simulacros: [
-        ["Recopilatorio PAU València 2000-2026", "1PKTlln3lLj4e2yUOsuw_vWcYfuqvYFBn", "PDF", 0],
-        ["Modelo de examen PAU 2026", "1HovysFGHN50ILDaP1wlqTC1ZkwfahK4a", "PDF", 0],
-        ["Guía PAU València 2010", "141-iOIAFq4z7l-ZTzthrepOxI8o4f6Sn", "PDF", 0],
-        ["Orientaciones y programa 2012", "1X-glyc1KTNlSW_nj5pR4J_gqOAsr41Ww", "PDF", 0]
+        ["Recopilatorio PAU València 2000-2026", "14KkK6MEQ3ltggDO4N5LObDogRgVqO5ym", "PDF", 0],
+        ["Modelo de examen PAU 2026", "1DIhPYlGd8qdBQbY9KkZ6oJJ3u_1VKTxM", "PDF", 0],
+        ["Guía PAU València 2010", "1EBlYpofxa4KHaAsBJG3qjZcAiVwE_pk0", "PDF", 0],
+        ["Orientaciones y programa 2012", "1CFMcgpaRL49y5j3siESD_FTQPXfm7aVJ", "PDF", 0]
       ]
     }
   });
@@ -276,16 +289,18 @@ window.APUNTES_CURSOS = (function () {
     aviso: "Segunda fase: faltan por subir criterios, presentaciones y ejercicios.",
     pau: "Química",
     doc: {
-      curriculo: [["Currículo LOMLOE · Química 2º Bachillerato", "1belPKCII3ESwPzWN4emRcxhSPK0BTWJ6", "PDF", 0]],
+      curriculo: [
+        ["Currículo LOMLOE · Química 2º Bachillerato", "1vi4IlyNXwAwMCMzd2YLq0dAXBUiqtwaC", "PDF", 0]
+      ],
       criterios: [],
       presentaciones: [],
-      libro: [["Selectivos PAU de Química resueltos 2010-2026", "1ew1LqNL_---_NdwimSqrpDXEMKTGY-bm", "PDF", 0]],
+      libro: [
+        ["Selectivos PAU de Química resueltos 2010-2026", "11IpOU9E5tMCfKHEz_et4FDFpsniNk7te", "PDF", 0]
+      ],
       ejercicios: [],
       simulacros: []
     }
   });
-
-  /* ==================================================================== MATEMÁTICAS */
 
   A.push({
     id: "mat-2eso", materia: "mat", nivel: "eso",
@@ -293,72 +308,87 @@ window.APUNTES_CURSOS = (function () {
     nota: "Presentaciones y vídeos por tema, listados de ejercicios por evaluación y simulacros de las tres evaluaciones.",
     pau: null,
     doc: {
-      curriculo: [["Currículo LOMLOE · Matemáticas ESO", "12DbOzVEagwGMPicAYzo7WdCeOZ-YwCC_", "PDF", 0]],
-      criterios: [["Criterios de evaluación", "17TGAIJkLby3rLsAyEb838Q83y5cCcyeH", "PDF", 0]],
+      curriculo: [
+        ["Currículo LOMLOE · Matemáticas ESO", "15-jZfJqZAJ5pmOORPs47Fm2Xfx5JVApF", "PDF", 0]
+      ],
+      criterios: [
+        ["Criterios de evaluación", "1u0sbOvtmiqUtSCK-w2M63oNn03WITimZ", "PDF", 0]
+      ],
       presentaciones: [
-        ["Tema 1 · Enteros y divisibilidad", "1de_ApqNHEScGY9vPxnN7lDpbBBn8Jj20", "PDF", 0],
-        ["Tema 3 · Potencias y raíces", "19tIM1-7bLJfinMiDZDF-dDz9j1PmxU9o", "PDF", 0],
-        ["Tema 4 · Monomios y polinomios", "1ksjX8IWisyz5yPUaK5TTixX1dB5v9L-X", "PDF", 0],
-        ["Tema 5 · Ecuaciones y sistemas", "10fwVXDqMeuqb57OmRt1l-NWcaXGD0jv4", "PDF", 0],
-        ["Tema 6 · Proporcionalidad y porcentajes", "1-HSERBKOmdpEwjJxYQGjwnar9hyWo2mP", "PDF", 0],
-        ["Tema 7 · Funciones y gráficas", "10izEqJJvF5XNg2CRap16EG5DFl8G45J3", "PDF", 0],
-        ["Tema 8 · Geometría", "12OaoGgaXTyuUEuOoMs2gg8HXsd3G0Mx2", "PDF", 0],
-        ["Tema 9 · Estadística y probabilidad", "1f4zLp1XCwNSk0nffnmGAVvrPKln6EYKQ", "PDF", 0],
-        ["Vídeo 1 · Tema 1 — La recta de los enteros", "1FWJLzAuulmr0YyR1sF-I6IpYbaEqtDZI", "VÍDEO", 0],
-        ["Vídeo 2 · Tema 5 — La balanza de las ecuaciones", "1Y-_tzc6h5zv-l6YkaNarYqU1wkADP5Sf", "VÍDEO", 0],
-        ["Vídeo 3 · Tema 8 — Pitágoras", "1q-_tfYLix1DDgTyMc1w-hSaWXfRKuSMm", "VÍDEO", 0],
-        ["Vídeo 4 · Tema 2 — Fracciones a la vista", "1LDYhW1XGm1UD6yZLPYUVFFEaqLCuJr43", "VÍDEO", 0],
-        ["Vídeo 5 · Tema 3 — Potencias a la vista", "1247UjS76ZNUOJ77_VeP5hYTd_V6UJzUE", "VÍDEO", 0],
-        ["Vídeo 6 · Tema 4 — Monomios con fichas", "1VG3zLo055oEJ1goupIxcps15wRIEkVug", "VÍDEO", 0],
-        ["Vídeo 7 · Tema 6 — Regla de tres", "1Iq1PDy0Yw79vWvY4CJaFSuH6LE1bfSth", "VÍDEO", 0],
-        ["Vídeo 8 · Tema 7 — De la máquina a la gráfica", "1DKHgxstcikl4ujQKj-Av4_pPRMZBmhlt", "VÍDEO", 0],
-        ["Vídeo 9 · Tema 9 — La bolsa de la probabilidad", "1BW7JBOiP79rWD9HIbc1wIKD2J-7GPLXs", "VÍDEO", 0]
+        ["Tema 1 · Enteros y divisibilidad", "18qgyLetfnSaZChYlBMNs9E8d13IVEOtu", "PDF", 0],
+        ["Tema 3 · Potencias y raíces", "1CmEv_gnSXOh6WSP0v4meghLad5a9_AtP", "PDF", 0],
+        ["Tema 4 · Monomios y polinomios", "119VXpwYX4bQs32213lDAV40huH658iKF", "PDF", 0],
+        ["Tema 5 · Ecuaciones y sistemas", "16_V-V7xYBjFPux372sZmrkMJ4VLaSssa", "PDF", 0],
+        ["Tema 6 · Proporcionalidad y porcentajes", "1-gmZxCdSlwuDZlVUg29FBwyWYqfExwpd", "PDF", 0],
+        ["Tema 7 · Funciones y gráficas", "12NrCRM9X0YbZP8dEKjjT3lE1gUG4Qvjv", "PDF", 0],
+        ["Tema 8 · Geometría", "1tSZyPVI9weLoCen9v4L05786G_W2sdoP", "PDF", 0],
+        ["Tema 9 · Estadística y probabilidad", "1jgyfHTv-dPK3x18t2Z2W2R8wuBvkHITM", "PDF", 0],
+        ["Vídeo 1 · Tema 1 — La recta de los enteros", "1zw1en4npkR1wzwHap_042vLOF2eSdc1H", "VÍDEO", 0],
+        ["Vídeo 2 · Tema 5 — La balanza de las ecuaciones", "1YoQzoqznXaoAR-WeLaeYGQBv5FmcqXhb", "VÍDEO", 0],
+        ["Vídeo 3 · Tema 8 — Pitágoras", "1QtjNsrwHprgpMXs1bryRB5unZfDzrkmK", "VÍDEO", 0],
+        ["Vídeo 4 · Tema 2 — Fracciones a la vista", "1QTGhKQ8Myk9AkA6Vn5H79hwxbb6TYahf", "VÍDEO", 0],
+        ["Vídeo 5 · Tema 3 — Potencias a la vista", "1udJPTGgR4d0NRWNWlEnbPQ0k6Ppkn3da", "VÍDEO", 0],
+        ["Vídeo 6 · Tema 4 — Monomios con fichas", "1HlHhmVjp9f6UBqOSZEJz29tVYdoHNdKj", "VÍDEO", 0],
+        ["Vídeo 7 · Tema 6 — Regla de tres", "1c5syUqRBbAzS9Bfkx-KHR4I6jQ182fs8", "VÍDEO", 0],
+        ["Vídeo 8 · Tema 7 — De la máquina a la gráfica", "1adW6MZCM3BwE3O_87O2KBsEVPHW4mfWQ", "VÍDEO", 0],
+        ["Vídeo 9 · Tema 9 — La bolsa de la probabilidad", "1KE2q2dsZeNzJWL3i1G42YARU3522eSLS", "VÍDEO", 0]
       ],
       libro: [],
       ejercicios: [
-        ["1ª evaluación · Listado 1", "1dfr8-UYyyYMEEslfGPVvVA81Usuicdfg", "PDF", 0],
-        ["1ª evaluación · Listado 2", "1nl-B00dCNqQomUwdS6Urep1VN9MxmGiX", "PDF", 0],
-        ["1ª evaluación · Listado 3", "1zfgKGZ32g7q4Dlt0R-bduNTCJfThvXrK", "PDF", 0],
-        ["2ª evaluación · Listado 1", "12ALAQPllE8YuizdzsbyoU59Ka6fHxCv-", "PDF", 0],
-        ["2ª evaluación · Listado 2", "11JYIdILijAdDX-6Gv1AxcC7bUiBxTwmQ", "PDF", 0],
-        ["2ª evaluación · Listado 3", "1HFGPR5hJNt9U4tVW9TDuIKem1QdmfegH", "PDF", 0],
-        ["3ª evaluación · Listado 1", "16ofQ18k75ifR0-cpFc8m0oLGPdJwLRpX", "PDF", 0],
-        ["3ª evaluación · Listado 2", "1XbrU71Thq3uTNAgg3swGVWHHiLhz_bU0", "PDF", 0],
-        ["3ª evaluación · Listado 3", "1kAFwYdzwbFpsZ1I3oUPoGt0_TfRO9gpG", "PDF", 0],
-        ["3ª evaluación · Tema 9 — Estadística y probabilidad", "1wbSABK-XPw_RTlAXi7W_OEQbzBeIi2t6", "PDF", 0],
-        ["Ejercicios de m.c.d. y m.c.m.", "1uIcdVpnrNYoSht6Olg8S160-pd4RF_2Z", "PDF", 0],
-        ["Ejercicios de repaso · 2ª evaluación", "1IIBCq3oC0dApyRzkNx1S4shJQgBOEHiF", "PDF", 0],
-        ["Actividad · Decimales y presupuesto", "1ynrL7QwQ0l-OEjmPcO6X5ybyPeOam2Ct", "PDF", 0]
+        ["1ª evaluación · Listado 1", "1dAbVD_dllAYGkGXZGUF9Ur-tixl6hd8j", "PDF", 0],
+        ["1ª evaluación · Listado 2", "1zqaqoImypD5csEvho9i1NYrMZvJIRYoL", "PDF", 0],
+        ["1ª evaluación · Listado 3", "1ObU8TrNYIB-TIMv70O_3yThrzGngNBnC", "PDF", 0],
+        ["2ª evaluación · Listado 1", "1JgFtWxFzlUVreU2OdAR0hOPrBjBhys6F", "PDF", 0],
+        ["2ª evaluación · Listado 2", "1s9sbzK5L1oUkjtK8SpTCyQOUjvvjfjeh", "PDF", 0],
+        ["2ª evaluación · Listado 3", "1poLiuFNAY3l8sn7re0_-5wJr00a8KAA0", "PDF", 0],
+        ["3ª evaluación · Listado 1", "1eCrfXDVEwL7ytgbgo0PbKdGmV1eXgFWU", "PDF", 0],
+        ["3ª evaluación · Listado 2", "1NmbrDNTaGSR6jUkWlpR2nPU2ryRGDkX6", "PDF", 0],
+        ["3ª evaluación · Listado 3", "1iMgN3skPB6xjdhfmVEcQK1q2CD908C6l", "PDF", 0],
+        ["3ª evaluación · Tema 9 — Estadística y probabilidad", "1k0-i4hbqm5sXBX79MIbwzVp3PW-cNoj8", "PDF", 0],
+        ["Ejercicios de m.c.d. y m.c.m.", "1oYz2soWymZFKdTKehes7Zlt2CVTW9vZr", "PDF", 0],
+        ["Ejercicios de repaso · 2ª evaluación", "1-Q47mwe-cWkKZYLcJe5Smmv4k3DBzchA", "PDF", 0],
+        ["Actividad · Decimales y presupuesto", "1YRJrCF5-u5-HmY2cssyXiLWg5q4udAxv", "PDF", 0]
       ],
       simulacros: [
-        ["1ª evaluación · 1er parcial — simulacro 1", "15-57YocHGGbWUZHfuQkKFbIG-ntxbbMY", "PDF", 1],
-        ["1ª evaluación · 1er parcial — simulacro 2", "1B8N8Fy8hT0Js2CGgrZieXu0_1WOlfdvX", "PDF", 1],
-        ["1ª evaluación · 1er parcial — simulacro 3", "1xNooP-VzJOp98xdDSgkJzoKRUcEKftQ9", "PDF", 1],
-        ["1ª evaluación · 2º parcial — simulacro 1", "1ip8DPUefjao-q6nZ7izFtysj1ANpDjJY", "PDF", 1],
-        ["1ª evaluación · 2º parcial — simulacro 3", "16hB-MvqlRDkIsKYyh9hkiO1lZaQlLVhq", "PDF", 1],
-        ["1ª evaluación · 3er parcial — simulacro 1", "1uHbgo5-Mqw4KbaH68HP-zIF8e8uae-kj", "PDF", 1],
-        ["1ª evaluación · 3er parcial — simulacro 2", "1-fpaZ9_Mvfzi6Nz2dp7Ud86GNJqYqCAP", "PDF", 1],
-        ["1ª evaluación · 3er parcial — simulacro 3", "1R9YuroHnmolvlvc01-zY7PUjIIYc4fW3", "PDF", 1],
-        ["1ª evaluación · 3er parcial — simulacro 4", "1nweasqIUCo0ekl5L5NoA2Alxzfd4Y1z1", "PDF", 1],
-        ["2ª evaluación · 1er parcial — simulacro 1", "18SbBIG4OdTxAUYcQHGLkRP_94SlFtkds", "PDF", 1],
-        ["2ª evaluación · 1er parcial — simulacro 2", "1MfWTCtC9ND9cqrTcciJhsF6LprPXHLpk", "PDF", 1],
-        ["2ª evaluación · 1er parcial — simulacro 3", "1wpsxWAKe65RgPdGkpHevszlhevbL3DgG", "PDF", 1],
-        ["2ª evaluación · 2º parcial — simulacro 1", "1ze-XWpjCwRJ6miKs0sr1NHKflU_o2va0", "PDF", 1],
-        ["2ª evaluación · 2º parcial — simulacro 2", "1I90x3saIaJP1udZknM8NuDgHyFCTnUhJ", "PDF", 1],
-        ["2ª evaluación · 2º parcial — simulacro 3", "1_FVxgPNsTNaS4U9v4WUP2PdjQD6vqCH3", "PDF", 1],
-        ["2ª evaluación · 3er parcial — simulacro 1", "1ovvka7USmtFcoPov739WZBhbdeOLMnGC", "PDF", 1],
-        ["2ª evaluación · 3er parcial — simulacro 2", "1Bjt26zIhm2T5T7LcbW1MhbtmnGNjI9JG", "PDF", 1],
-        ["2ª evaluación · 3er parcial — simulacro 3", "1QQUCsd8iYw51fnRLcXokxH9Iih5TTwd4", "PDF", 1],
-        ["3ª evaluación · 1er parcial — simulacro 1", "125fEN0BrddWtWdM-BIrPriI_FJPC8xPy", "PDF", 1],
-        ["3ª evaluación · 1er parcial — simulacro 2", "1RvdmpPq33GEMPt1AbhddFLvJq21C0X3_", "PDF", 1],
-        ["3ª evaluación · 1er parcial — simulacro 3", "1iyXVM0-O8PILxdaahvSo6UDIod63Ifj_", "PDF", 1],
-        ["3ª evaluación · 2º parcial — simulacro 1", "1o6tcWrB1MQOaW6vRhLchcNBA4pq5b5Sy", "PDF", 1],
-        ["3ª evaluación · 2º parcial — simulacro 2", "1A-ZCaOtp_wLiv9RQP1VzvU7yPq2qWfsO", "PDF", 1],
-        ["3ª evaluación · 2º parcial — simulacro 3", "1GQeWR2e_y0jCM2z4Uuacv0zOtGHzsSg-", "PDF", 1],
-        ["3ª evaluación · 3er parcial — simulacro 1", "1njTnpXnqKfzZSSxOaElEiXcMsfR_aNKc", "PDF", 1],
-        ["3ª evaluación · 3er parcial — simulacro 2", "18n9qEn-fj-5yCXTwCK9XHDvkfUa5aQBP", "PDF", 1],
-        ["3ª evaluación · 3er parcial — simulacro 3", "1J6Pp-H_8lTIy1DSqwVlNUU9B4ocYnEE3", "PDF", 1],
-        ["3ª evaluación · 3er parcial — simulacro 4", "1rZeYOLIeME3zSbaBKqx2Seyi7UJi2_4A", "PDF", 1]
+        ["1ª evaluación · Examen 1 — simulacro A", "1HX-HD5P8MoQchMRDismZoNgwVKUJWBS4", "PDF", 0],
+        ["1ª evaluación · Examen 1 — simulacro B", "1X9UGdkVgh3acjEbp8y2OHdXYER6Ud784", "PDF", 0],
+        ["1ª evaluación · Examen 1 — simulacro C", "1hJD-IyHDTJaKFGPWPGBKHfJwsq4kBw9f", "PDF", 0],
+        ["1ª evaluación · Examen 2 — simulacro A", "1eTz4Qu8n6TtZcNnrZrnTNycGyw7wcpI3", "PDF", 0],
+        ["1ª evaluación · Examen 2 — simulacro B", "1cmMz9DqjYueUAoSZsPxWTKUw5KmcM6Yc", "PDF", 0],
+        ["1ª evaluación · Examen 2 — simulacro C", "1ChZGVIrVuHJcfv2UMn2flutLWGzU3vjZ", "PDF", 0],
+        ["1ª evaluación · Examen 3 — simulacro A", "1lfopn_SybbYhkTqIwV7xSkZ0U_eRlj0v", "PDF", 0],
+        ["1ª evaluación · Examen 3 — simulacro B", "1Q93eR4Qf9kfREyKVVN0gW-MmRfuSlvX1", "PDF", 0],
+        ["1ª evaluación · Examen 3 — simulacro C", "1hB5AI7s48F92uT2uhczD6rkoNjsS_ZoA", "PDF", 0],
+        ["1ª evaluación · Repesca — simulacro A", "1sETrdHIbq4Mi5InSmB_G12E2rayle6X0", "PDF", 0],
+        ["1ª evaluación · Repesca — simulacro B", "1dLfrwNYWM9ztgXwbGmpKW8lcDuvDGXKl", "PDF", 0],
+        ["1ª evaluación · Repesca — simulacro C", "1YqXh8m3waRydL1iVDNBpznvnc6n6dHAq", "PDF", 0],
+        ["2ª evaluación · Examen 1 — simulacro A", "1sytEh1bv_6g5adSNx61IeQSkO6uDMOOw", "PDF", 0],
+        ["2ª evaluación · Examen 1 — simulacro B", "1JLg-FhM6_TmCafjx02aMf6gKh8TOMHpn", "PDF", 0],
+        ["2ª evaluación · Examen 1 — simulacro C", "1sh7YH4yW37enDqyClsyLZ_shjU5KFqa7", "PDF", 0],
+        ["2ª evaluación · Examen 2 — simulacro A", "1qjwh6tqhDxCLrvTaDsTeKAJq5VPekVQG", "PDF", 0],
+        ["2ª evaluación · Examen 2 — simulacro B", "1VTs1cmdbp2RpqAionJX5lbsyYBSkVLBM", "PDF", 0],
+        ["2ª evaluación · Examen 2 — simulacro C", "1usdoIf_AEQCurcZU-3-CFXOFHewZcCD_", "PDF", 0],
+        ["2ª evaluación · Examen 3 — simulacro A", "1-_xs1DJUjcs4SMAHhaG1mzuVH6tDHhHr", "PDF", 0],
+        ["2ª evaluación · Examen 3 — simulacro B", "17PfnyR8XBWWvrugB7bGud7SneaR_uQS-", "PDF", 0],
+        ["2ª evaluación · Examen 3 — simulacro C", "1xIElYGewSLKbaGEMmiMOVcIZTY2pUfpR", "PDF", 0],
+        ["2ª evaluación · Repesca — simulacro A", "1EWbclxdFitEquh5EsgEsXQTJBVJBrKf-", "PDF", 0],
+        ["2ª evaluación · Repesca — simulacro B", "1PSJQXy0zV4aMZfJTtN6Mkg5u2zlA2kd_", "PDF", 0],
+        ["2ª evaluación · Repesca — simulacro C", "1QRdWbVdDKd9l2F2coLzHwryi-lbufzLZ", "PDF", 0],
+        ["3ª evaluación · Examen 1 — simulacro A", "1-G4PSA0yikXSGm7IFAniPmwOnpg1VyeN", "PDF", 0],
+        ["3ª evaluación · Examen 1 — simulacro B", "1l9F-YTr8rC1c1bZwnnBblNMUlTsQepdZ", "PDF", 0],
+        ["3ª evaluación · Examen 1 — simulacro C", "1VBdzFOzJ4AXwP673OdLzNtk3xcEhE6Sf", "PDF", 0],
+        ["3ª evaluación · Examen 2 — simulacro A", "1OZzGpkY3esy1YVBY9DQztMyh0KFpdDWI", "PDF", 0],
+        ["3ª evaluación · Examen 2 — simulacro B", "1t0-7To87XZh5oD3BuUwJdjdb090F_tDH", "PDF", 0],
+        ["3ª evaluación · Examen 2 — simulacro C", "1DQUr3AZwSmpz11T6atf7Qx8wa91EnMZZ", "PDF", 0],
+        ["3ª evaluación · Examen 3 — simulacro A", "1aUtncDs3qtOpc6JGXKtdRg58axjy8PNV", "PDF", 0],
+        ["3ª evaluación · Examen 3 — simulacro B", "1SEih7iq7QVhwOR2irC_yT7Pq3Lh8yJzL", "PDF", 0],
+        ["3ª evaluación · Examen 3 — simulacro C", "1pBJVIxJnjqjZ4DqMa5Yp01J7bRPSvCuV", "PDF", 0],
+        ["3ª evaluación · Prueba corta — simulacro A", "1vJ8XZaSyOq4XBueq6npoG4lGX_HSbpVF", "PDF", 0],
+        ["3ª evaluación · Prueba corta — simulacro B", "1NsM3GKzrtz4Q14mE55yQAkYkHkl4ANUa", "PDF", 0],
+        ["3ª evaluación · Prueba corta — simulacro C", "1dLJ_6z4xAV8ScH25nvUKNrNG3FSKAa7u", "PDF", 0],
+        ["3ª evaluación · Repesca — simulacro A", "17dqXHL_ORgYk5u9lmKY4cHmoKR3nRLcN", "PDF", 0],
+        ["3ª evaluación · Repesca — simulacro B", "1fmsyMuPhqyqre8fycTrxZdA0FDsCUugs", "PDF", 0],
+        ["3ª evaluación · Repesca — simulacro C", "1IlumIMYlNdB8AMwFyHdK0voceXax9FXA", "PDF", 0]
       ]
     }
   });
@@ -369,54 +399,143 @@ window.APUNTES_CURSOS = (function () {
     nota: "Ocho unidades con ruta, presentación y práctica por niveles, más proyectos y simulacros por evaluación.",
     pau: null,
     doc: {
-      curriculo: [["Currículo LOMLOE · Matemáticas ESO", "19YOYdPsEA_7EQ0TdVwhDFlQ23R9r9-bJ", "PDF", 0]],
-      criterios: [["Criterios de evaluación", "1BTUeighs7gxZL3y44N3epENuUtdPhkb4", "PDF", 0]],
+      curriculo: [
+        ["Currículo LOMLOE · Matemáticas ESO", "11aCQ3VWH7d06fLbWsdv4Eqq-kISrJZSo", "PDF", 0]
+      ],
+      criterios: [
+        ["Criterios de evaluación", "1wUbcNeT54KL95QxuRwiBeZ_ELWIKoCAl", "PDF", 0]
+      ],
       presentaciones: [
-        ["Tema 1 · Números racionales", "1MAEd2h87WX6KGgsSQjVKPZvJpFYUqxO2", "PDF", 0],
-        ["Tema 2 · Potencias, raíces y notación científica", "1cZHV7twn7ytM3ek2TKMTdnsM2LxSJ4fN", "PDF", 0],
-        ["Tema 3 · Sucesiones y progresiones", "1sIAu2qutJmNREAGo9_dDaGrk7kzUrq_L", "PDF", 0],
-        ["Tema 4 · Polinomios", "1j_Mb2e7hJBDwZflGOo-QoG79JoYjfR7b", "PDF", 0],
-        ["Tema 5 · Ecuaciones y sistemas", "1J80_m0coM3NF6iI6FG6doGYQJ5VP10vw", "PDF", 0],
-        ["Tema 6 · Funciones y rectas", "14IY4HoQIm5M5QOGs5LmR54qk78exrCio", "PDF", 0],
-        ["Tema 7 · Estadística y probabilidad", "1O26I3i--DfKPOuYAsAOsJDVQZ9gzLwGM", "PDF", 0],
-        ["Tema 8 · Geometría", "10cpwpSxN_ZFhBSvRAuNuTd8I19vScaOQ", "PDF", 0]
+        ["Tema 1 · Números racionales", "1GbCh8uDSxIrMAGhvO1BP50npDfTEJyyw", "PDF", 0],
+        ["Tema 2 · Potencias, raíces y notación científica", "1w1zuFWXlZZ0bSA8V_iD1iK5UuOgKtz9l", "PDF", 0],
+        ["Tema 3 · Sucesiones y progresiones", "1pAAraiKkifl-1bbzsoav3Jds8waQytIy", "PDF", 0],
+        ["Tema 4 · Polinomios", "1tz-Mau8lxRz3iqZT6cBP5ZasZMSevP5T", "PDF", 0],
+        ["Tema 5 · Ecuaciones y sistemas", "1YDK4BHKT1-gTy6qjwflnUIC-AsRE_S5W", "PDF", 0],
+        ["Tema 6 · Funciones y rectas", "1ugEEJiteGUS9bUu-7Saae5BaAIQVhk99", "PDF", 0],
+        ["Tema 7 · Estadística y probabilidad", "1JM6u6CtU8P0fKPUSjYar6Y8zarZL2EjT", "PDF", 0],
+        ["Tema 8 · Geometría", "10qZWSe_lwSinych_UgHoGBWsEL8LVzxZ", "PDF", 0]
       ],
       libro: [],
       ejercicios: [
-        ["Guía del curso", "16xuevkKZxu329cXlNovJedz10vDXKWZ8", "PDF", 0],
-        ["Diagnóstico inicial", "1hVw9MMDaHvSuuPMCZ5BA_0Qvhq2apsbw", "PDF", 0],
-        ["Tema 1 · Ruta de la unidad", "15Tmt9sK_fTSjwKnNUrTMF25fQzR20ScD", "PDF", 0],
-        ["Tema 1 · Práctica por niveles", "1wVVikI3mSWDLoQbAVdLbvU62bIyDvoe0", "PDF", 0],
-        ["Tema 2 · Ruta de la unidad", "1FE5eYUhIU0zG3Yr1keEh5gMfkzEzxxs1", "PDF", 0],
-        ["Tema 2 · Práctica por niveles", "16RMyxrdNqEVBpgXE21xbq8JdDAKOdjep", "PDF", 0],
-        ["Tema 3 · Ruta de la unidad", "1eXKcMRvb9v0E0pS04yALewmE7N10OoM6", "PDF", 0],
-        ["Tema 3 · Práctica por niveles", "1r_DgrUT_G-M9gUAhMuix_FtWqfcKFleF", "PDF", 0],
-        ["Tema 3 · Proyecto — Modelo de crecimiento y rúbrica", "1aa6DtOncB0aO5PaeIrCn6uEYt0rD5glY", "PDF", 0],
-        ["Repaso · 1ª evaluación", "1_OaqZAx2NbSHfKXvV8-LTBUiA7ov36Jy", "PDF", 0],
-        ["Tema 4 · Ruta de la unidad", "1LxSiXxBX92AWWDXLAs0pnJI5-AWYbMGq", "PDF", 0],
-        ["Tema 4 · Práctica por niveles", "1fPQaCGerdYmmCzxyZszCAOl3-s8WImvp", "PDF", 0],
-        ["Tema 5 · Ruta de la unidad", "18KG36JTucBZOZMPR3bPRmCTc6rBP884w", "PDF", 0],
-        ["Tema 5 · Práctica por niveles", "1lh7rNnJfsHjk8_NdUDtC11uwT5KI86fB", "PDF", 0],
-        ["Repaso · 2ª evaluación", "1vtP1gzxicBemDjaTti-oianLSiS3rbTB", "PDF", 0],
-        ["Tema 6 · Ruta de la unidad", "1-n0W2SDcTOyIFI3ePVgcnZZJNiS_33Fx", "PDF", 0],
-        ["Tema 6 · Práctica por niveles", "1-nEa_8pEtUA3rvWu-I6HZCTbylAhkONQ", "PDF", 0],
-        ["Tema 7 · Ruta de la unidad", "1fMe2ioKW4Xh6Q-UEmnFhitQdKXn5J38V", "PDF", 0],
-        ["Tema 7 · Práctica por niveles", "1t5B_tsm77BGmsoDAWCflrsNNLh7QTVH9", "PDF", 0],
-        ["Tema 7 · Proyecto — Investigación de datos y rúbrica", "1J7ie054YwwQvYv2oN0o_qNtbz_hfufbk", "PDF", 0],
-        ["Tema 8 · Ruta de la unidad", "1PLwEWNYqbnVN6-qR48ftz_KJ3ZCv5FTR", "PDF", 0],
-        ["Tema 8 · Práctica por niveles", "1mcc_cz2U7EyDPuZXydhXe-f43iBYUMs9", "PDF", 0],
-        ["Tema 8 · Reto de geometría y rúbrica", "1SJAAXZH3FXhpexxa2Mo9lLrDNKwb_71N", "PDF", 0],
-        ["Repaso · 3ª evaluación", "1d9Oz06unEc43THJf6jRf8AVYDv_iRlVk", "PDF", 0]
+        ["Guía del curso", "1XtSaOmjehghOCE2ORFbVbfrirEgrXM8L", "PDF", 0],
+        ["Diagnóstico inicial", "13zFHDvuBFAG7QeNc54o7wHOPF1mUtaha", "PDF", 0],
+        ["Tema 1 · Ruta de la unidad", "1GMQrF0K8TAWLOGsrjfaDDAIfCb4EW-xl", "PDF", 0],
+        ["Tema 1 · Práctica por niveles", "1AZCCQ2Tu31Rzy08An4MhZ2VlUJ4Px5rM", "PDF", 0],
+        ["Tema 2 · Ruta de la unidad", "1LoyytqNL90q_g9HhkmBL_ThITnUOH8pa", "PDF", 0],
+        ["Tema 2 · Práctica por niveles", "1_phWGioV7R7K8ngdp50i75XtuLCkxZ2l", "PDF", 0],
+        ["Tema 3 · Ruta de la unidad", "1ghsJiTqF7l95mj6juCuJ2aVMCWkIFhTI", "PDF", 0],
+        ["Tema 3 · Práctica por niveles", "14kslyL4V0fEKflmDwoY4OKWwhfrzBL_y", "PDF", 0],
+        ["Tema 3 · Proyecto — Modelo de crecimiento y rúbrica", "1Oi0WMFDp8t4ayPg3-66Ls8pGwmIsyKmC", "PDF", 0],
+        ["Repaso · 1ª evaluación", "1yU-RCo3aVZm-Vj9EhF5Q4PCjVTuTEwiG", "PDF", 0],
+        ["Tema 4 · Ruta de la unidad", "1t60GUaXQuBY_flErp0h2VfoNbo-O-hRF", "PDF", 0],
+        ["Tema 4 · Práctica por niveles", "1kRkR9-z6TFbbazZWHQdrEvnnJ4Gi6Sl0", "PDF", 0],
+        ["Tema 5 · Ruta de la unidad", "1rO86I9xyVb7Igx65TbCskN9MqZH5iivJ", "PDF", 0],
+        ["Tema 5 · Práctica por niveles", "1Ip13Pyd0_MfKbsKAra5MKQS6gxrjqqwf", "PDF", 0],
+        ["Repaso · 2ª evaluación", "1amjtOdTyocUaXcNu2ZMMV7QENbjih588", "PDF", 0],
+        ["Tema 6 · Ruta de la unidad", "1AaC75ZazvLJFSTHNr0vLeWijgG0Z_Io5", "PDF", 0],
+        ["Tema 6 · Práctica por niveles", "1MKHivEBKiVsWwnIpeqJgAjvY7F7umKXd", "PDF", 0],
+        ["Tema 7 · Ruta de la unidad", "1jXAIZD0riZ93WeyECcHKCtf8kQQEGozU", "PDF", 0],
+        ["Tema 7 · Práctica por niveles", "1Er3Zz_o73Yr9j9Lkg92MyGmgm8I5v-bB", "PDF", 0],
+        ["Tema 7 · Proyecto — Investigación de datos y rúbrica", "189RM9_F-hy5EMZvQbwaQlKng6nKpAcMW", "PDF", 0],
+        ["Tema 8 · Ruta de la unidad", "1LKQfk1Ej_aWMJi-y_qnc7CVSpOvqdcz1", "PDF", 0],
+        ["Tema 8 · Práctica por niveles", "1BNDmAk4k19GPDMszX44IkMIdUMr4gORP", "PDF", 0],
+        ["Tema 8 · Reto de geometría y rúbrica", "1nCYPY-pCqKGjH8LWTFdAIILkePF_VKKs", "PDF", 0],
+        ["Repaso · 3ª evaluación", "1xcRjtTTyTkuBnwJ3XsX_KHj2t4rQOcJy", "PDF", 0]
       ],
       simulacros: [
-        ["1ª evaluación · Práctica de números", "1sIARvNzFFmKrZJdAXKHu7uXtSCo8LSdf", "PDF", 1],
-        ["1ª evaluación · Práctica de proporcionalidad", "1Lu6tpskSFmbB161i6uvl6X3g-SBFTq8E", "PDF", 1],
-        ["1ª evaluación · Práctica de sucesiones", "1cUHnwcIXtZ2sp4OJclFL32ZfPGcIEFyK", "PDF", 1],
-        ["2ª evaluación · Práctica de polinomios", "1l7fyFgbQ_BwlwBbCDJSSXnx06WY5lxM2", "PDF", 1],
-        ["2ª evaluación · Práctica de ecuaciones", "1DrlnBI-IqMYXSsdxr8K2tt06YSnGTovm", "PDF", 1],
-        ["3ª evaluación · Práctica de probabilidad", "1QtPNXrCodcI7J0tXItXYwTTe9DLU20PR", "PDF", 1],
-        ["3ª evaluación · Práctica de funciones y rectas", "1NsUAPWPm0FIMfgB7xVveQMHLWl74RiVq", "PDF", 1],
-        ["3ª evaluación · Práctica global", "1LSkXVWr3Dttum30NqOVegHsWITWBzElx", "PDF", 1]
+        ["1ª evaluación · Primer test (3.º D) — simulacro A", "1Tv_cUVqfKwxdPQZAXf_fiOglreZ0ImRq", "PDF", 0],
+        ["1ª evaluación · Primer test (3.º D) — simulacro B", "1dGeru00d7i04i5QvO2UquDzNYF1ZWHtl", "PDF", 0],
+        ["1ª evaluación · Primer test (3.º D) — simulacro C", "1WWQDANTfVX0_RdXQ7OY3BmmVx3-Msu5w", "PDF", 0],
+        ["1ª evaluación · Primer test (adaptado) — simulacro A", "1e_CIv0FQhV7kzye1dXQulW0iVRlnntwc", "PDF", 0],
+        ["1ª evaluación · Primer test (adaptado) — simulacro B", "1iv5LVEcwg5gjboBDnYZUwM4CKTWLeAqG", "PDF", 0],
+        ["1ª evaluación · Primer test (adaptado) — simulacro C", "1_5rJvANa7EzRoQ9f8o-x_k0Ka-mxvIRK", "PDF", 0],
+        ["1ª evaluación · Primer test — simulacro A", "1V49W42Fkn4ZGwsFm5QTZ_niNvZZowW5c", "PDF", 0],
+        ["1ª evaluación · Primer test — simulacro B", "1yWD2o4a6SrGFTrhj56MbveNKDq63HU8Z", "PDF", 0],
+        ["1ª evaluación · Primer test — simulacro C", "1kZhB2vLLkbAo6yLm8ECLIQIc5du9qHlH", "PDF", 0],
+        ["1ª evaluación · Segundo test (3.º D) — simulacro A", "1--Vf9NRiEmzIoeIkzuElRcfQ9sKKCOT5", "PDF", 0],
+        ["1ª evaluación · Segundo test (3.º D) — simulacro B", "1fVdGfcKBt_WuQSbYjjJVXxtvKnbd9lRN", "PDF", 0],
+        ["1ª evaluación · Segundo test (3.º D) — simulacro C", "1qBXAHNeQHaxUGoBk0c4O7sCwvVAGJeBM", "PDF", 0],
+        ["1ª evaluación · Segundo test (adaptado) — simulacro A", "1yGk0OyahL6QpiuUsxqTZAt2qPpGpGaNI", "PDF", 0],
+        ["1ª evaluación · Segundo test (adaptado) — simulacro B", "1-JPpd4FnyzBA67fq9KpPtArMtH5ZCo4Q", "PDF", 0],
+        ["1ª evaluación · Segundo test (adaptado) — simulacro C", "1ow5W_lMkZPCQzap3eAFe3gsjPtT96mJ_", "PDF", 0],
+        ["1ª evaluación · Segundo test — simulacro A", "1breH8pkww9TVyz2GJrd4gm0rbckfP1LS", "PDF", 0],
+        ["1ª evaluación · Segundo test — simulacro B", "1XycfgUMAMmg6zB2OBAedGo8mdhbEYbWS", "PDF", 0],
+        ["1ª evaluación · Segundo test — simulacro C", "1yBpoXu9Fk2RfV1t_XkUCiBDw7Ng7OsFz", "PDF", 0],
+        ["1ª evaluación · Tercer test (adaptado) — simulacro A", "1ZJjNH4sd9ozsasC0qqKQ0vYKJsFi-EW2", "PDF", 0],
+        ["1ª evaluación · Tercer test (adaptado) — simulacro B", "1WjxEebUEqcc26tS3ntlTFj62MP4BZHco", "PDF", 0],
+        ["1ª evaluación · Tercer test (adaptado) — simulacro C", "1IpX01dUMql7Ut8byk4jU7nBAsW_P8jw9", "PDF", 0],
+        ["1ª evaluación · Tercer test (3.º D) — simulacro A", "1lM4uKSV4jMkGQe9RD4DHXoLYw7s_GpoW", "PDF", 0],
+        ["1ª evaluación · Tercer test (3.º D) — simulacro B", "1Tzg9jlrzTyAjifo5S__crYRSolvxYSMc", "PDF", 0],
+        ["1ª evaluación · Tercer test (3.º D) — simulacro C", "13d1YXxAq72Cd0QaGJqSqc_t8dgloRGXX", "PDF", 0],
+        ["1ª evaluación · Tercer test — simulacro A", "1XP6mn9hjeWb6ce9K15PlK0zp60bmtHVg", "PDF", 0],
+        ["1ª evaluación · Tercer test — simulacro B", "1_Z_eZCr1iyDgW8tYQZlwQe4_7c5vA_U5", "PDF", 0],
+        ["1ª evaluación · Tercer test — simulacro C", "1DjuEnkxKwwy4EEKqlzZ_wzvb333xFxXz", "PDF", 0],
+        ["2ª evaluación · Primer test (3C_pautas) — simulacro A", "1EI0z6k4knOq42kOEtLIK3-zTlpvh3lZD", "PDF", 0],
+        ["2ª evaluación · Primer test (3C_pautas) — simulacro B", "1EXL_jdiP1qzl81D45nhd3z7a29Q8Uacm", "PDF", 0],
+        ["2ª evaluación · Primer test (3C_pautas) — simulacro C", "1q1oExAbB-pdmj6MW5omDYrjD9Lu3ke22", "PDF", 0],
+        ["2ª evaluación · Primer test (3.º C) — simulacro A", "1LuVxvdJQrSNl3OkWUvddPjAlYBeXcuWm", "PDF", 0],
+        ["2ª evaluación · Primer test (3.º C) — simulacro B", "1JivmgF_5WWbSXBQWgUHNB3h6bMalVzl9", "PDF", 0],
+        ["2ª evaluación · Primer test (3.º C) — simulacro C", "1JqkgJbs_bAsZVIHREI4rc0DtglzhUQQg", "PDF", 0],
+        ["2ª evaluación · Primer test (3D_pautas) — simulacro A", "16FeHDL4qmSYtDuddYX3GpR6WUgdjoEVf", "PDF", 0],
+        ["2ª evaluación · Primer test (3D_pautas) — simulacro B", "1RxBvWfX9YhWB01AWQlCyVYNjOUFNmMhL", "PDF", 0],
+        ["2ª evaluación · Primer test (3D_pautas) — simulacro C", "1k-Greekm1RJ4XPz6oq9n3XRtbW4BlU8F", "PDF", 0],
+        ["2ª evaluación · Primer test (3.º D) — simulacro A", "1EMasHZ9fyYGL13OG3qRLXj73G2UrSYpX", "PDF", 0],
+        ["2ª evaluación · Primer test (3.º D) — simulacro B", "1hpRo2AvJG-MI9u3yV2IFubAPQN2gzP_7", "PDF", 0],
+        ["2ª evaluación · Primer test (3.º D) — simulacro C", "1PhSBNE7sq7SpHPVN9Qpbpe4sMwnmbUMe", "PDF", 0],
+        ["2ª evaluación · Primer test (adaptación TDA) — simulacro A", "1EeqJ20-ScbNeXqFfU2PXxyDoZJcVSyDj", "PDF", 0],
+        ["2ª evaluación · Primer test (adaptación TDA) — simulacro B", "1cPjpC5KFs3H31BumidiAhyqzql4DDLa2", "PDF", 0],
+        ["2ª evaluación · Primer test (adaptación TDA) — simulacro C", "1_gyDQMsB2zNWWOvisy-Wi8KJPRA9gIEQ", "PDF", 0],
+        ["2ª evaluación · Primer test — simulacro A", "15hCjhqr1pM2cR8R8F9TpnrWA2t2cpALa", "PDF", 0],
+        ["2ª evaluación · Primer test — simulacro B", "1ShHM_isDFttik45naGn6v8wbMcuzOkgj", "PDF", 0],
+        ["2ª evaluación · Primer test — simulacro C", "1K15_RyVJY6jgZeqVqf7SYOGd0LwsWr4a", "PDF", 0],
+        ["2ª evaluación · Segundo test (3.º D) — simulacro A", "1Mr7Ld7vVZAJfS5MXTiqeVZTqDYApm15X", "PDF", 0],
+        ["2ª evaluación · Segundo test (3.º D) — simulacro B", "1T-YMsN0mUH8Q7doM_qk4X3a1bnfjBtJW", "PDF", 0],
+        ["2ª evaluación · Segundo test (3.º D) — simulacro C", "1KEAGBwbmUCm56q0PyYN_uaIzvSdh4xlL", "PDF", 0],
+        ["2ª evaluación · Segundo test (adaptación TDA) — simulacro A", "15A0XOmygu8ZisyPj5ayHyqE3_qlHjKPX", "PDF", 0],
+        ["2ª evaluación · Segundo test (adaptación TDA) — simulacro B", "171FO6tDK4NGAmuEFgNa7koDFzgKPIcku", "PDF", 0],
+        ["2ª evaluación · Segundo test (adaptación TDA) — simulacro C", "1DAowG1QCj7SOHmatsW9tstElYhSwwKpC", "PDF", 0],
+        ["2ª evaluación · Segundo test — simulacro A", "1_uW24_bThCXr4z2GgN54BYgPxHkIG1LC", "PDF", 0],
+        ["2ª evaluación · Segundo test — simulacro B", "1fVu89MytZ8aVl0pkki_tWz6KbVv4wLMs", "PDF", 0],
+        ["2ª evaluación · Segundo test — simulacro C", "18ZkQ_OP2XFpDAwgYdDlRrfAVHyhJ1WmT", "PDF", 0],
+        ["2ª evaluación · Tercer test (3.º D) — simulacro A", "1s_3LUfvjI5c3DdU4NV4GZ97MC24QYKci", "PDF", 0],
+        ["2ª evaluación · Tercer test (3.º D) — simulacro B", "12QZs7hyq9HrE8d3btD0bSZdGL-ynWKGd", "PDF", 0],
+        ["2ª evaluación · Tercer test (3.º D) — simulacro C", "1q5oR2NNIb-Ocr84iZewfof3s3CDIoIMW", "PDF", 0],
+        ["2ª evaluación · Tercer test (adaptación TDA) — simulacro A", "15sXpuxknW9dqJ08UF8YNiJmhgq3uLVO0", "PDF", 0],
+        ["2ª evaluación · Tercer test (adaptación TDA) — simulacro B", "1Z7jy4-ZlLBj5Ksb8NrWZjQbXNXkmJTpC", "PDF", 0],
+        ["2ª evaluación · Tercer test (adaptación TDA) — simulacro C", "18bzucQCOgOQDi64q8e_B91nc_rgJCfCF", "PDF", 0],
+        ["2ª evaluación · Tercer test — simulacro A", "19Bxu7RaIo9B3HOY_2hhNdjNB1oorXweV", "PDF", 0],
+        ["2ª evaluación · Tercer test — simulacro B", "1_rfMyw-CEv1SZT2k3W8GTn-8U-P69PZa", "PDF", 0],
+        ["2ª evaluación · Tercer test — simulacro C", "1RT23AIjBJqmXEOjyaXdvrh7B_fwzCMvM", "PDF", 0],
+        ["3ª evaluación · Primer test (3.º D) — simulacro A", "17wN7z6UJ6W6TsyQdthY5SHGTbn-sEOrS", "PDF", 0],
+        ["3ª evaluación · Primer test (3.º D) — simulacro B", "1vhxglLRNIH_CCaaql6Fcls06fihFZhDM", "PDF", 0],
+        ["3ª evaluación · Primer test (3.º D) — simulacro C", "1NRdPcTlXyyHPHtz25R9y4GRVf0hukBr7", "PDF", 0],
+        ["3ª evaluación · Primer test — simulacro A", "1zOqY-aHK98u6gvlZKtOFGu8FwtvZAX_2", "PDF", 0],
+        ["3ª evaluación · Primer test — simulacro B", "1PEp6I0wSh8xxZpsPM7ZSEP08AvgXgSFL", "PDF", 0],
+        ["3ª evaluación · Primer test — simulacro C", "1wfcal7VQ2FcSGzRkaTzJu-UlGr54PyMN", "PDF", 0],
+        ["3ª evaluación · Segundo test (3.º D) — simulacro A", "1LBTsbWi9RN7Y6kjcn0Ep5etfWDdhPcdI", "PDF", 0],
+        ["3ª evaluación · Segundo test (3.º D) — simulacro B", "1M8OLeY3cm_I60Z8M2qxToQCar94PC0s0", "PDF", 0],
+        ["3ª evaluación · Segundo test (3.º D) — simulacro C", "1gFtxMr_bzM12dIENP445304OSRWyyJdo", "PDF", 0],
+        ["3ª evaluación · Segundo test (adaptación TDA) — simulacro A", "1pAfyDzTtJLs6TdyJJuA1LolzhHh6vv10", "PDF", 0],
+        ["3ª evaluación · Segundo test (adaptación TDA) — simulacro B", "1NVvSVW707fi5Eka3FLNiInbHwKV4UROy", "PDF", 0],
+        ["3ª evaluación · Segundo test (adaptación TDA) — simulacro C", "1M2n3Rk-vVHLVYuEDuwA36D8EssifOA__", "PDF", 0],
+        ["3ª evaluación · Segundo test — simulacro A", "1nkQ3WJQBoheGQWx2MbaK04DqJEsgLMTr", "PDF", 0],
+        ["3ª evaluación · Segundo test — simulacro B", "1EQ9bstFyyxqA9yWuSUFfua6rNHAtS2FH", "PDF", 0],
+        ["3ª evaluación · Segundo test — simulacro C", "1TCp5wc8klVMtG91usZ263VZbDZf7slsN", "PDF", 0],
+        ["3ª evaluación · Tercer test (3.º D) — simulacro A", "1lc03gUojNwBw7DlvY1CNvdbfVrBTsgSX", "PDF", 0],
+        ["3ª evaluación · Tercer test (3.º D) — simulacro B", "1MgYjHQWeHQ4LeZnWke-rYPRFEACSSeNO", "PDF", 0],
+        ["3ª evaluación · Tercer test (3.º D) — simulacro C", "1jwT69psE6bqzk2k7x0XCuSl2C9p_kZb5", "PDF", 0],
+        ["3ª evaluación · Tercer test (adaptación TDA) — simulacro A", "12xvtG0UbXCHwcHenEpId7edO70CTmsSM", "PDF", 0],
+        ["3ª evaluación · Tercer test (adaptación TDA) — simulacro B", "1_3Xq4TIzRMs7hgGVNcWvJhZ9RHG4pX1Z", "PDF", 0],
+        ["3ª evaluación · Tercer test (adaptación TDA) — simulacro C", "1xd5qO44jDAl_wu3Qk5blDKCZ7VDpgDFP", "PDF", 0],
+        ["3ª evaluación · Tercer test — simulacro A", "1engXl4MbUpwv53ja35Bfl2jdktOzRIrR", "PDF", 0],
+        ["3ª evaluación · Tercer test — simulacro B", "1NtI0GpAmauErTn5m9QavrYOljrUdTakB", "PDF", 0],
+        ["3ª evaluación · Tercer test — simulacro C", "19Yze4hRxJTPb8n5Hotu4vystLRmahM4G", "PDF", 0],
+        ["Repesca (adaptación TDA) — simulacro A", "1jUitXZJXE3MbjcwwoJxLXALKA9oBl2cK", "PDF", 0],
+        ["Repesca (adaptación TDA) — simulacro B", "1Fe_8nrtKtQmSf_aQY6AT2tD4SyhukxHA", "PDF", 0],
+        ["Repesca (adaptación TDA) — simulacro C", "16NmHgZEiZmyx4tV31iPyJP50DnDDtkjA", "PDF", 0],
+        ["Repesca — simulacro A", "1DIhhOmfoIBU8x_AKIh-BUcCDeLvFPbQi", "PDF", 0],
+        ["Repesca — simulacro B", "1Rd8PDHHHDXjrUfwvo78bmy4a2w7Q_8qC", "PDF", 0],
+        ["Repesca — simulacro C", "13iYEfpOhuB4Gnm8tj4qElg8EgnqCRJxt", "PDF", 0]
       ]
     }
   });
@@ -428,7 +547,9 @@ window.APUNTES_CURSOS = (function () {
     aviso: "Segunda fase: faltan por subir criterios, presentaciones, libro, ejercicios y los simulacros propios del curso.",
     pau: "Matemáticas II",
     doc: {
-      curriculo: [["Currículo LOMLOE · Matemáticas I y II (Bachillerato)", "1ZoDkTyRES4FQcg-IkZ3thHZSIDdn3U0n", "PDF", 0]],
+      curriculo: [
+        ["Currículo LOMLOE · Matemáticas I y II (Bachillerato)", "1vLM8DCYjxLTdkXmvkCiyGjDGjSgyvloF", "PDF", 0]
+      ],
       criterios: [],
       presentaciones: [],
       libro: [],
@@ -437,74 +558,171 @@ window.APUNTES_CURSOS = (function () {
     }
   });
 
-  /* ======================================================================= BIOLOGÍA */
-
   A.push({
     id: "bio-2bach", materia: "bio", nivel: "bach",
     nombre: "Biología", curso: "2º Bachillerato",
     nota: "Los diecinueve temas de teoría, dos libros completos y el archivo oficial de la PAU con criterios de corrección.",
     pau: "Biología",
     doc: {
-      curriculo: [["Currículo LOMLOE · Biología 2º Bachillerato (addenda)", "1D8sLRSjCpjSPUaD61y80GwuHmgLZ1q4N", "PDF", 0]],
+      curriculo: [
+        ["Currículo LOMLOE · Biología 2º Bachillerato (addenda)", "12az7Fzk_u2PUa1PKl0xOtnjp_rLpHoKP", "PDF", 0]
+      ],
       criterios: [],
       presentaciones: [],
       libro: [
-        ["Libro de Biología PAU · edición del alumno", "1i2Nm5tdN7Fkh7fUIcIoxHsoph8_KRzMr", "PDF", 0],
-        ["ECIR · Biología 2º Bachillerato", "1oNIv3ptAtqggw2z29B5HjhCbMQrrtBLV", "PDF", 0]
+        ["Libro de Biología PAU · edición del alumno", "1g0Oj0jpISLWW7b2K4LVrdrTDjtgbXndh", "PDF", 0],
+        ["ECIR · Biología 2º Bachillerato", "1NDNDyrCMy-apiycRoe0uUbrAkGqmk93T", "PDF", 0]
       ],
       ejercicios: [
-        ["Tema 1 · Bioelementos", "1Xb_SdI_n8SNiUnERnFOBEnYBKMjO6Wm3", "PDF", 0],
-        ["Tema 2 · Glúcidos", "1pDN7oTX_Qemi3BYbv3KRR4f6unZ03_W2", "PDF", 0],
-        ["Tema 3 · Lípidos", "1ppM1UEtGgXL2nreBp2nOiAMXYdaIXDRo", "PDF", 0],
-        ["Tema 4 · Proteínas", "1v-n3PE8veQ2415BWP_D1VCovDj6sV8gM", "PDF", 0],
-        ["Tema 5 · Ácidos nucleicos", "1aVRjbaw52EsSr_lEHTxcMiR8ceOBB7zh", "PDF", 0],
-        ["Tema 6 · Introducción a la célula", "12f467Hnox1R8QHFLWxC5Q75Xu8lVVS6W", "PDF", 0],
-        ["Tema 7 · Envoltura celular", "1ofZRqDMplnAROHD2OIcZ8ivz9zqv2ODK", "PDF", 0],
-        ["Tema 8 · Citoesqueleto", "1jWJMb4CF5CbF3WxUgD7a9fNJYvbsOhjy", "PDF", 0],
-        ["Tema 9 · Sistema de endomembranas", "1JJFbZ1Wz1Q0NfTupqGXBuAYm48EaD7w5", "PDF", 0],
-        ["Tema 10 · Orgánulos energéticos", "1CICwSsKHMfrQdZMRnIOeD43xOupjIcQb", "PDF", 0],
-        ["Tema 11 · Núcleo y división celular", "1wczBIlD5BZgoRS-OduwtnI85lmdBfJTQ", "PDF", 0],
-        ["Tema 12 · Metabolismo y enzimas", "1HcLa_EFq3IMKW3185C87jxhR8hjusq2b", "PDF", 0],
-        ["Tema 13 · Respiración y fotosíntesis", "1cvLIfGs5ndEg7OJKIzZ_B2UBhJyYG183", "PDF", 0],
-        ["Tema 14 · Herencia", "1G_xXrztLpNRhbPZpoEvXItYGxGiTg_ii", "PDF", 0],
-        ["Tema 15 · Genes y expresión génica", "1oGQduFD9DHVox31TlpLQB7P2oyC4rfeN", "PDF", 0],
-        ["Tema 16 · Mutaciones", "1SgkB1pTeaaSw4E0w2cdGp7079nmtnyBw", "PDF", 0],
-        ["Tema 17 · Microorganismos", "1oTCSLZ-IWKqKoedxUIdvPJHhiPubYpFz", "PDF", 0],
-        ["Tema 18 · Microbiología aplicada", "1lj7xP5Mmfx-4SiRP5eI2SVwCEf8c7GWG", "PDF", 0],
-        ["Tema 19 · Inmunología", "1j0lXC5v2pQ_Q6vf2c-GcHZR03vIlMwNO", "PDF", 0]
+        ["Tema 1 · Bioelementos", "1cl0UtSZjwjmaPcCHkrd76VU06N-4vG4Z", "PDF", 0],
+        ["Tema 2 · Glúcidos", "1O9ogPaxf-AbqKCQScv1F4uMh4Ah4ytrQ", "PDF", 0],
+        ["Tema 3 · Lípidos", "1QasBaUZkDkg9Hl4BKAmXoGfHVouSROWS", "PDF", 0],
+        ["Tema 4 · Proteínas", "1fzGeUcuBvClY1GxO4RbNQBnTJFcpzar8", "PDF", 0],
+        ["Tema 5 · Ácidos nucleicos", "1Z2A-4FvEaxPn8YG-Zn_lRQ4mGh2f0YXW", "PDF", 0],
+        ["Tema 6 · Introducción a la célula", "1CBvclIje7kOALq0oFsgXSZ7DSm-epHpM", "PDF", 0],
+        ["Tema 7 · Envoltura celular", "1AXD8UR1PmLhAAcJ9dtApWL1twxvFVfM2", "PDF", 0],
+        ["Tema 8 · Citoesqueleto", "1hiCZ4t_mkVegm_PoYrjQrnDMJWsPunxq", "PDF", 0],
+        ["Tema 9 · Sistema de endomembranas", "1Y74TfMI1tHHaTGiONitriWsTXCFJKxqP", "PDF", 0],
+        ["Tema 10 · Orgánulos energéticos", "10w4vGMcE8qKn9grvjoR2K9_QqcDqobpw", "PDF", 0],
+        ["Tema 11 · Núcleo y división celular", "1XfVR5G2xenhm4bhZKSWRP0T6IWOnf1f_", "PDF", 0],
+        ["Tema 12 · Metabolismo y enzimas", "17VFsSAVMdMtuSqno_7phgyCT3u7d_Fmk", "PDF", 0],
+        ["Tema 13 · Respiración y fotosíntesis", "1Y8YcugZHpB5f4kjmb9g1qie5AX7i1IsS", "PDF", 0],
+        ["Tema 14 · Herencia", "1OcYnykEw6-l3WZkmjpmcEaXPasABxXDt", "PDF", 0],
+        ["Tema 15 · Genes y expresión génica", "14Ao6cM1JJh0TTLc3daztNNXP4nPDOupU", "PDF", 0],
+        ["Tema 16 · Mutaciones", "165hxVsFBA7Lh_jNMQUZ6WoM9vZmLUIpx", "PDF", 0],
+        ["Tema 17 · Microorganismos", "1XOK3xt0rd72fn1sB67E6GYLPopapneSf", "PDF", 0],
+        ["Tema 18 · Microbiología aplicada", "1up2aheHKsLN6Oru8Gp8_YlhTWp1oWWEw", "PDF", 0],
+        ["Tema 19 · Inmunología", "1axtwj7R0RXRctja9dfGJW5G5R0mkl4xG", "PDF", 0]
       ],
       simulacros: []
     }
   });
 
-  /* ============================================================== EN PREPARACIÓN */
-  /* Solo el currículo oficial: el resto del material llegará más adelante. */
+  A.push({
+    id: "bio-1eso", materia: "bio", nivel: "eso",
+    nombre: "Biología y Geología", curso: "1º ESO",
+    proximamente: true,
+    nota: "En preparación. De momento, el currículo oficial LOMLOE.",
+    pau: null,
+    doc: {
+      curriculo: [
+        ["Currículo LOMLOE · Biología y Geología ESO", "1cM5WEsjeNuwur2JXTTX_T2XhCBJoiPCe", "PDF", 0]
+      ],
+      criterios: [],
+      presentaciones: [],
+      libro: [],
+      ejercicios: [],
+      simulacros: []
+    }
+  });
 
-  function pendiente(id, materia, nivel, nombre, curso, curriculo) {
-    A.push({
-      id: id, materia: materia, nivel: nivel, nombre: nombre, curso: curso,
-      proximamente: true,
-      nota: "En preparación. De momento, el currículo oficial LOMLOE.",
-      pau: null,
-      doc: { curriculo: curriculo ? [curriculo] : [], criterios: [], presentaciones: [], libro: [], ejercicios: [], simulacros: [] }
-    });
-  }
+  A.push({
+    id: "bio-3eso", materia: "bio", nivel: "eso",
+    nombre: "Biología y Geología", curso: "3º ESO",
+    proximamente: true,
+    nota: "En preparación. De momento, el currículo oficial LOMLOE.",
+    pau: null,
+    doc: {
+      curriculo: [
+        ["Currículo LOMLOE · Biología y Geología ESO", "1RNNJtmsATBUTBjJIRfDABcuLT582cXlQ", "PDF", 0]
+      ],
+      criterios: [],
+      presentaciones: [],
+      libro: [],
+      ejercicios: [],
+      simulacros: []
+    }
+  });
 
-  pendiente("bio-1eso", "bio", "eso", "Biología y Geología", "1º ESO",
-    ["Currículo LOMLOE · Biología y Geología ESO", "1B_ATcoRm9EPdG7Satw42mp1zXW8kjfzF", "PDF", 0]);
-  pendiente("bio-3eso", "bio", "eso", "Biología y Geología", "3º ESO",
-    ["Currículo LOMLOE · Biología y Geología ESO", "1EnrmSCdtUsnwlaBnScTo6_qotejoa4eK", "PDF", 0]);
-  pendiente("bio-4eso", "bio", "eso", "Biología y Geología", "4º ESO",
-    ["Currículo LOMLOE · Biología y Geología ESO", "1gi3lsc5_sjB7G0k9NU27xVnzLYz6Fmv_", "PDF", 0]);
-  pendiente("bio-1bach", "bio", "bach", "Biología, Geología y Ciencias Ambientales", "1º Bachillerato",
-    ["Currículo LOMLOE · BioGeo y CC. Ambientales 1º Bachillerato", "1YwA63czZbEROidTQJJeYMOpLNuZspR9A", "PDF", 0]);
+  A.push({
+    id: "bio-4eso", materia: "bio", nivel: "eso",
+    nombre: "Biología y Geología", curso: "4º ESO",
+    proximamente: true,
+    nota: "En preparación. De momento, el currículo oficial LOMLOE.",
+    pau: null,
+    doc: {
+      curriculo: [
+        ["Currículo LOMLOE · Biología y Geología ESO", "1p2379DxjCA7oj6SoRVDwzjRZadDfTsoN", "PDF", 0]
+      ],
+      criterios: [],
+      presentaciones: [],
+      libro: [],
+      ejercicios: [],
+      simulacros: []
+    }
+  });
 
-  pendiente("mat-1eso", "mat", "eso", "Matemáticas", "1º ESO",
-    ["Currículo LOMLOE · Matemáticas ESO", "1tRNlqO4qF6OSrEsb3oG3bSts9hHUiDHn", "PDF", 0]);
-  pendiente("mat-4eso", "mat", "eso", "Matemáticas", "4º ESO",
-    ["Currículo LOMLOE · Matemáticas ESO", "1uSpPqoFiZfUSGh1FmY3gcHVHTy8AVAO3", "PDF", 0]);
-  pendiente("mat-1bach", "mat", "bach", "Matemáticas I", "1º Bachillerato",
-    ["Currículo LOMLOE · Matemáticas I y II (Bachillerato)", "1zkYbBiNaSk8xK_-W5VE2TFLSXoD0BpC4", "PDF", 0]);
+  A.push({
+    id: "bio-1bach", materia: "bio", nivel: "bach",
+    nombre: "Biología, Geología y Ciencias Ambientales", curso: "1º Bachillerato",
+    proximamente: true,
+    nota: "En preparación. De momento, el currículo oficial LOMLOE.",
+    pau: null,
+    doc: {
+      curriculo: [
+        ["Currículo LOMLOE · BioGeo y CC. Ambientales 1º Bachillerato", "1bnFeBu49SVmTF4XgTqFdhVRwrI7daj6j", "PDF", 0]
+      ],
+      criterios: [],
+      presentaciones: [],
+      libro: [],
+      ejercicios: [],
+      simulacros: []
+    }
+  });
+
+  A.push({
+    id: "mat-1eso", materia: "mat", nivel: "eso",
+    nombre: "Matemáticas", curso: "1º ESO",
+    proximamente: true,
+    nota: "En preparación. De momento, el currículo oficial LOMLOE.",
+    pau: null,
+    doc: {
+      curriculo: [
+        ["Currículo LOMLOE · Matemáticas ESO", "1T769RgdDVz1_71nSGyGv0UwT2VyQw9RR", "PDF", 0]
+      ],
+      criterios: [],
+      presentaciones: [],
+      libro: [],
+      ejercicios: [],
+      simulacros: []
+    }
+  });
+
+  A.push({
+    id: "mat-4eso", materia: "mat", nivel: "eso",
+    nombre: "Matemáticas", curso: "4º ESO",
+    proximamente: true,
+    nota: "En preparación. De momento, el currículo oficial LOMLOE.",
+    pau: null,
+    doc: {
+      curriculo: [
+        ["Currículo LOMLOE · Matemáticas ESO", "1KbL7BpPY5aFi-39qAxjDdQp9ywqroGnZ", "PDF", 0]
+      ],
+      criterios: [],
+      presentaciones: [],
+      libro: [],
+      ejercicios: [],
+      simulacros: []
+    }
+  });
+
+  A.push({
+    id: "mat-1bach", materia: "mat", nivel: "bach",
+    nombre: "Matemáticas I", curso: "1º Bachillerato",
+    proximamente: true,
+    nota: "En preparación. De momento, el currículo oficial LOMLOE.",
+    pau: null,
+    doc: {
+      curriculo: [
+        ["Currículo LOMLOE · Matemáticas I y II (Bachillerato)", "1z-luVjh7Ad7Bl2yM48ppfzF3RDj2jEs_", "PDF", 0]
+      ],
+      criterios: [],
+      presentaciones: [],
+      libro: [],
+      ejercicios: [],
+      simulacros: []
+    }
+  });
 
   return { version: "2026-07-30", secciones: SECCIONES, asignaturas: A };
 })();
