@@ -544,7 +544,7 @@ window.APUNTES_CURSOS = (function () {
     id: "mat-2bach", materia: "mat", nivel: "bach",
     nombre: "Matemáticas II", curso: "2º Bachillerato",
     nota: "Archivo oficial de la PAU de Matemáticas II: cada convocatoria con su examen y sus criterios de corrección.",
-    aviso: "Segunda fase: faltan por subir criterios, presentaciones, libro, ejercicios y los simulacros propios del curso.",
+    aviso: "Segunda fase: faltan por subir criterios, presentaciones, ejercicios y los simulacros propios del curso.",
     pau: "Matemáticas II",
     doc: {
       curriculo: [
