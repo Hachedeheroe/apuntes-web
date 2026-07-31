@@ -198,11 +198,8 @@
       "aria-label": FIGURAS[0][1],
       style: "display:block;color:var(--ink);--hero-trazo:" + TRAZO + "ms"
     });
-    var rejilla = crear("g", { stroke: "currentColor", "stroke-width": "1", opacity: ".16", "aria-hidden": "true" });
-    [45, 90, 135, 150].forEach(function (y) {
-      rejilla.appendChild(crear("line", { x1: 12, y1: y, x2: ANCHO - 12, y2: y }));
-    });
-    svg.appendChild(rejilla);
+    /* La cuadrícula ya la pone el papel del recuadro (.plot): dibujar aquí un
+       segundo pautado a otro paso solo produce moiré. */
 
     var trazo = crear("path", {
       fill: "none", stroke: "currentColor", "stroke-width": "2",
@@ -219,7 +216,7 @@
     caja.appendChild(svg);
 
     var pie = document.createElement("p");
-    pie.style.cssText = "margin:8px 0 0;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sut);min-height:1.2em";
+    pie.style.cssText = 'margin:10px 0 0;font-family:"Martian Mono",ui-monospace,monospace;font-size:10px;letter-spacing:-.02em;color:var(--grafito);min-height:1.4em';
     caja.appendChild(pie);
 
     var i = 0, vivo = true, visible = true, corriendo = false, raf = 0, tiempos = [];

@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apuntes — Física y Química, Matemáticas y Biología</title>
 <meta name="description" content="Apuntes de clase y bancos de exámenes de Física y Química, Matemáticas y Biología (ESO y Bachillerato), y archivo completo de la PAU de la Comunitat Valenciana.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzAiIGZpbGw9IiMzZjUxYjUiPjwvY2lyY2xlPgogIDxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyLjYiPgogICAgPGVsbGlwc2UgY3g9IjMyIiBjeT0iMzIiIHJ4PSIyMiIgcnk9IjkiPjwvZWxsaXBzZT4KICAgIDxlbGxpcHNlIGN4PSIzMiIgY3k9IjMyIiByeD0iMjIiIHJ5PSI5IiB0cmFuc2Zvcm09InJvdGF0ZSg2MCAzMiAzMikiPjwvZWxsaXBzZT4KICAgIDxlbGxpcHNlIGN4PSIzMiIgY3k9IjMyIiByeD0iMjIiIHJ5PSI5IiB0cmFuc2Zvcm09InJvdGF0ZSgxMjAgMzIgMzIpIj48L2VsbGlwc2U+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzIiIHI9IjQuNSIgZmlsbD0iI2ZmZmZmZiI+PC9jaXJjbGU+Cjwvc3ZnPg==">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23edefe7'/%3E%3Cg stroke='%23c9d2c4' stroke-width='2'%3E%3Cpath d='M0 16h64M0 32h64M0 48h64M16 0v64M32 0v64M48 0v64'/%3E%3C/g%3E%3Crect x='4' y='39' width='56' height='13' fill='%23e4f23f'/%3E%3Cpath d='M6 52C20 6 44 6 58 52' fill='none' stroke='%231e3fa8' stroke-width='7' stroke-linecap='square'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#edefe7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15181a" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <script>
   /* Tema antes del primer pintado: evita el destello de claro→oscuro. */
   try {
@@ -19,17 +21,75 @@
   }
 </script>
 <style>
-:root{--pg:#f3f2f2;--ink:#201e1d;--sup:#eae9e9;--rule:rgba(32,30,29,.4);--fuerte:#201e1d;--sut:rgba(32,30,29,.58);--acc:#ec3013}
-[data-tema="oscuro"]{--pg:#17161a;--ink:#f2f0ef;--sup:#232227;--rule:rgba(242,240,239,.32);--fuerte:#f2f0ef;--sut:rgba(242,240,239,.62);--acc:#ff563c}
-/* Elevación heredada de Modernist */
-:root{--shadow-sm:0 1px 2px color-mix(in srgb,#2d2b2b 14%,transparent);--shadow-md:0 3px 10px color-mix(in srgb,#2d2b2b 16%,transparent);--shadow-lg:0 12px 32px color-mix(in srgb,#2d2b2b 22%,transparent)}
+/* ---------------------------------------------------------------------------
+   Cuaderno de laboratorio — papel de cuadros, tinta, lápiz y subrayador.
+   El filete deja de decorar y pasa a medir: la regla graduada es la pieza
+   que cose portada, asignaturas y archivo de la PAU.
+--------------------------------------------------------------------------- */
+:root{
+  --papel:#edefe7; --tinta:#191c1a; --grafito:#5e6560;
+  --cuadro:#c9d2c4; --boli:#1e3fa8; --rotu:#e4f23f;
+  --sup:#e5e8de; --marca:multiply; --marca-bg:var(--rotu); --rotu-fila:34%;
+  /* Alias del sistema anterior: cualquier estilo heredado sigue en paleta. */
+  --pg:var(--papel); --ink:var(--tinta); --rule:var(--cuadro);
+  --fuerte:var(--tinta); --sut:var(--grafito); --acc:var(--boli);
+  --shadow-sm:0 1px 0 var(--cuadro);
+  --shadow-md:0 6px 18px color-mix(in srgb,#191c1a 10%,transparent);
+  --shadow-lg:0 18px 44px color-mix(in srgb,#191c1a 18%,transparent)}
+[data-tema="oscuro"]{
+  --papel:#15181a; --tinta:#e7eae2; --grafito:#98a29a;
+  --cuadro:#2c332e; --boli:#8faeff; --rotu:#e4f23f;
+  --sup:#1b1f20; --marca:normal; --marca-bg:color-mix(in srgb,var(--rotu) 26%,transparent); --rotu-fila:15%;
+  --shadow-md:0 6px 18px rgba(0,0,0,.5);
+  --shadow-lg:0 18px 44px rgba(0,0,0,.6)}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--pg);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;font-size:15px;line-height:1.55;transition:background .25s ease,color .25s ease}
-a{color:var(--acc);text-underline-offset:3px}
-a:hover{color:var(--acc);text-decoration:underline}
-:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
-::selection{background:color-mix(in srgb,var(--acc) 30%,transparent)}
+body{margin:0;background:var(--papel);color:var(--tinta);
+  font-family:"Newsreader",Georgia,"Times New Roman",serif;font-size:17px;line-height:1.62;
+  font-optical-sizing:auto;transition:background .25s ease,color .25s ease}
+a{color:var(--boli);text-underline-offset:3px}
+a:hover{color:var(--boli);text-decoration:underline}
+:focus-visible{outline:2px solid var(--boli);outline-offset:2px}
+::selection{background:color-mix(in srgb,var(--rotu) 60%,transparent);color:var(--tinta)}
+/* --------------------------------------------------------- tipografía -- */
+/* Regla del sistema: lo que se mide va en monoespaciada (cifras, etiquetas,
+   títulos cortos); lo que se lee va en la serif (prosa y títulos largos). */
+.mono,.anot,.cifra,.et{font-family:"Martian Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.anot{font-size:11px;font-weight:400;line-height:1.5;color:var(--grafito);letter-spacing:-.02em}
+.anot-acc{color:var(--boli)}
+.cifra{font-variant-numeric:tabular-nums;font-weight:700;letter-spacing:-.04em}
+h1,h2,h3,h4{text-wrap:balance}
+.t-mono{font-family:"Martian Mono",ui-monospace,monospace;font-weight:800;letter-spacing:-.035em;line-height:1}
+.t-serif{font-family:"Newsreader",Georgia,serif;font-weight:600;letter-spacing:-.015em;line-height:1.05}
+/* ------------------------------------------------ la regla graduada -- */
+/* Filete con graduación: marca menor cada 12px y mayor cada 60px. */
+.regla{height:14px;border-bottom:1.5px solid var(--tinta);background-repeat:repeat-x;
+  background-position:left bottom;background-size:auto 11px,auto 5px;
+  background-image:repeating-linear-gradient(90deg,var(--tinta) 0 1px,transparent 1px 60px),
+    repeating-linear-gradient(90deg,color-mix(in srgb,var(--tinta) 42%,transparent) 0 1px,transparent 1px 12px)}
+.regla-fina{height:9px;border-bottom-width:1px;border-bottom-color:var(--cuadro);
+  background-size:auto 7px,auto 4px;
+  background-image:repeating-linear-gradient(90deg,var(--cuadro) 0 1px,transparent 1px 36px),
+    repeating-linear-gradient(90deg,color-mix(in srgb,var(--cuadro) 60%,transparent) 0 1px,transparent 1px 9px)}
+/* Calibre de seis muescas: cuántas de las seis secciones tienen material. */
+.calibre{display:inline-grid;grid-auto-flow:column;gap:3px;align-items:end;height:13px;flex:none}
+.calibre i{display:block;width:5px;height:5px;background:var(--cuadro)}
+.calibre i.on{height:13px;background:var(--boli)}
+/* Barra proporcional: sustituye al guion de puntos cuando la longitud
+   significa algo — en la PAU, cuántos PDF tiene esa asignatura. */
+.medida{min-width:44px;height:11px;align-self:center;border-bottom:1px solid var(--cuadro);position:relative}
+.medida b{position:absolute;left:0;bottom:-1px;height:8px;width:calc(var(--p,0) * 100%);
+  border-bottom:2px solid var(--boli);
+  background-image:repeating-linear-gradient(90deg,color-mix(in srgb,var(--boli) 55%,transparent) 0 1px,transparent 1px 6px);
+  background-repeat:repeat-x;background-position:left bottom;background-size:auto 5px;
+  transform-origin:left center}
+.guia{flex:1;min-width:20px;border-bottom:1px solid var(--cuadro);transform:translateY(-5px)}
+/* Papel de cuadros: solo donde hace falta recordar de qué material está
+   hecha la página; nunca como tapiz de fondo. */
+.cuadricula{background-image:
+    linear-gradient(color-mix(in srgb,var(--cuadro) 62%,transparent) 1px,transparent 1px),
+    linear-gradient(90deg,color-mix(in srgb,var(--cuadro) 62%,transparent) 1px,transparent 1px);
+  background-size:24px 24px;background-position:-1px -1px}
 @keyframes surge{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @keyframes telon{from{opacity:0}to{opacity:1}}
 @keyframes cajon{from{transform:translateX(48px);opacity:.3}to{transform:none;opacity:1}}
@@ -41,6 +101,9 @@ a:hover{color:var(--acc);text-decoration:underline}
                    to{opacity:1;clip-path:inset(0 0 0 0);transform:none}}
 @keyframes trazo{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes fila{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+/* La barra se dibuja midiendo, de izquierda a derecha. */
+@keyframes medir{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.medida b{animation:medir .5s cubic-bezier(.2,.7,.3,1) both}
 .rev{opacity:0}
 .rev-on{animation:surge .55s cubic-bezier(.2,.7,.3,1) both}
 .pane{animation:surge .45s cubic-bezier(.2,.7,.3,1) both}
@@ -60,72 +123,133 @@ a:hover{color:var(--acc);text-decoration:underline}
 .entra > :nth-child(5){animation-delay:88ms}  .entra > :nth-child(6){animation-delay:110ms}
 .entra > :nth-child(7){animation-delay:132ms} .entra > :nth-child(8){animation-delay:154ms}
 .entra > :nth-child(9){animation-delay:176ms} .entra > :nth-child(n+10){animation-delay:198ms}
-/* Subrayado de la pestaña activa: una sola regla roja que se desplaza. */
-#subrayado{position:absolute;left:0;bottom:0;height:3px;background:var(--acc);width:0;
-  transform:translateX(0);opacity:0;pointer-events:none;
+/* Marca de la pestaña activa: un trazo de rotulador que se desliza. */
+#subrayado{position:absolute;left:0;bottom:8px;height:13px;background:var(--marca-bg);width:0;
+  mix-blend-mode:var(--marca);opacity:0;pointer-events:none;z-index:0;
+  border-radius:1px 7px 2px 6px;
   transition:transform .34s cubic-bezier(.2,.7,.3,1),width .34s cubic-bezier(.2,.7,.3,1),opacity .2s ease}
+#pestanas button{position:relative;z-index:1}
 #tema-icono{display:inline-block;transition:transform .35s cubic-bezier(.2,.7,.3,1)}
 #tema:hover #tema-icono{transform:rotate(-25deg) scale(1.12)}
 button{transition:background .18s ease,color .18s ease,border-color .18s ease,box-shadow .2s ease}
-/* Estados hover del prototipo (style-hover) */
-.h-acc:hover{border-color:var(--acc);color:var(--acc)}
+/* Estados hover: el subrayador pasa por encima de la fila que señalas. */
+.h-acc:hover{border-color:var(--boli);color:var(--boli)}
 .h-card,.h-sec{transition:border-color .2s ease,box-shadow .25s ease,transform .25s cubic-bezier(.2,.7,.3,1)}
-.h-card:hover{border-color:var(--fuerte);box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.h-sec:hover{border-color:var(--acc);box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.h-fila:hover{background:color-mix(in srgb,var(--acc) 9%,transparent);padding-left:14px;text-decoration:none}
-.desplazado{box-shadow:var(--shadow-md)}
+.h-card:hover{border-color:var(--boli);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.h-sec:hover{border-color:var(--boli);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.h-fila:hover{background:color-mix(in srgb,var(--rotu) var(--rotu-fila),transparent);padding-left:14px;text-decoration:none}
+.desplazado{box-shadow:0 1px 0 var(--cuadro),var(--shadow-md)}
 /* Relato visual: el texto recorre la página mientras las ilustraciones
    permanecen ancladas y cambian de escala con el scroll. */
-.story{margin-top:clamp(64px,9vw,112px);border-top:2px solid var(--fuerte);border-bottom:2px solid var(--fuerte)}
-.story-grid{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(360px,1.2fr);position:relative}
+.story{margin-top:clamp(64px,9vw,112px);border-top:1.5px solid var(--tinta);border-bottom:1.5px solid var(--tinta)}
+.story-grid{display:grid;grid-template-columns:minmax(260px,.85fr) minmax(360px,1.15fr);position:relative}
 .story-copy{grid-column:1;min-width:0}
 .story-step{min-height:72vh;padding:clamp(32px,5vw,64px) clamp(24px,4vw,48px) clamp(32px,5vw,64px) 0;display:flex;flex-direction:column;justify-content:center;opacity:.24;transition:opacity .28s ease}
-.story-step+.story-step{border-top:1px solid var(--rule)}
+.story-step+.story-step{border-top:1px solid var(--cuadro)}
 .story-step.story-activo{opacity:1}
-.story-step h3{font-size:clamp(32px,5vw,62px);font-weight:800;letter-spacing:-.04em;line-height:.94;margin:12px 0 18px}
-.story-step p{max-width:36ch;margin:0;color:var(--sut);font-size:clamp(15px,1.8vw,18px);line-height:1.55;text-wrap:pretty}
-.story-link{align-self:flex-start;margin-top:26px;min-height:44px;border:2px solid var(--fuerte);background:transparent;color:var(--ink);font:600 12px/1 "Archivo",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:14px 16px;cursor:pointer;text-align:left}
-.story-link:hover{border-color:var(--acc);color:var(--acc)}
-.story-stage{grid-column:2;grid-row:1;position:sticky;top:var(--story-top,136px);align-self:start;height:var(--story-alto,calc(100vh - 168px));min-height:520px;overflow:clip;background:var(--sup);border-left:2px solid var(--fuerte)}
-.story-stage::before,.story-stage::after{content:"";position:absolute;background:var(--rule);pointer-events:none}
+.story-step h3{font-family:"Newsreader",Georgia,serif;font-size:clamp(30px,4.6vw,56px);font-weight:600;letter-spacing:-.02em;line-height:1.02;margin:10px 0 16px}
+.story-step p{max-width:38ch;margin:0;color:var(--grafito);font-size:clamp(16px,1.8vw,18px);line-height:1.6;text-wrap:pretty}
+.story-link{align-self:flex-start;margin-top:26px;min-height:44px;border:1px solid var(--tinta);background:transparent;color:var(--tinta);
+  font:500 11px/1 "Martian Mono",ui-monospace,monospace;letter-spacing:-.02em;padding:14px 15px;cursor:pointer;text-align:left}
+.story-link:hover{border-color:var(--boli);color:var(--boli);background:color-mix(in srgb,var(--rotu) var(--rotu-fila),transparent)}
+.story-stage{grid-column:2;grid-row:1;position:sticky;top:var(--story-top,136px);align-self:start;height:var(--story-alto,calc(100vh - 168px));min-height:520px;overflow:clip;background:var(--sup);border-left:1.5px solid var(--tinta);
+  background-image:
+    linear-gradient(color-mix(in srgb,var(--cuadro) 62%,transparent) 1px,transparent 1px),
+    linear-gradient(90deg,color-mix(in srgb,var(--cuadro) 62%,transparent) 1px,transparent 1px);
+  background-size:24px 24px}
+.story-stage::before,.story-stage::after{content:"";position:absolute;background:color-mix(in srgb,var(--tinta) 45%,transparent);pointer-events:none}
 .story-stage::before{top:0;bottom:0;left:50%;width:1px}
 .story-stage::after{left:0;right:0;top:50%;height:1px}
 .story-img{position:absolute;z-index:2;left:50%;top:50%;width:min(92%,680px);height:auto;opacity:0;transform:translate3d(-50%,-50%,0) scale(.7);transform-origin:center;will-change:transform,opacity;pointer-events:none;user-select:none}
-.story-meta{position:absolute;z-index:4;left:18px;right:18px;top:16px;display:flex;justify-content:space-between;gap:16px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sut);pointer-events:none}
-.story-progress{position:absolute;z-index:4;left:18px;right:18px;bottom:16px;height:2px;background:var(--rule);pointer-events:none}
-.story-progress span{display:block;width:0;height:100%;background:var(--acc);transform-origin:left center}
+.story-meta{position:absolute;z-index:4;left:18px;right:18px;top:16px;display:flex;justify-content:space-between;gap:16px;
+  font:400 10px/1.4 "Martian Mono",ui-monospace,monospace;letter-spacing:-.02em;color:var(--grafito);pointer-events:none}
+.story-progress{position:absolute;z-index:4;left:18px;right:18px;bottom:16px;height:7px;border-bottom:1px solid color-mix(in srgb,var(--tinta) 40%,transparent);pointer-events:none}
+.story-progress span{display:block;width:0;height:100%;border-bottom:2px solid var(--boli);transform-origin:left center}
 /* Asignatura desplegable: la cabecera es un botón de ancho completo y el
    cuerpo solo existe en el DOM cuando está abierto. */
 .asig-abrir{width:100%;display:flex;align-items:center;gap:16px;text-align:left;background:transparent;border:0;
-  color:var(--ink);font-family:inherit;padding:18px clamp(14px,3vw,22px);cursor:pointer}
-.asig-abrir:hover{background:color-mix(in srgb,var(--acc) 8%,transparent)}
+  color:var(--tinta);font-family:inherit;padding:18px clamp(14px,3vw,22px);cursor:pointer}
+.asig-abrir:hover{background:color-mix(in srgb,var(--rotu) var(--rotu-fila),transparent)}
 .chev{transition:transform .25s cubic-bezier(.2,.7,.3,1)}
-[aria-expanded="true"] .chev{transform:rotate(180deg);color:var(--acc)}
+[aria-expanded="true"] .chev{transform:rotate(180deg);color:var(--boli)}
 @keyframes desplegar{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
-.asig-cuerpo{border-top:2px solid var(--fuerte);padding:0 clamp(14px,3vw,22px) 8px;
+.asig-cuerpo{border-top:1px solid var(--cuadro);padding:0 clamp(14px,3vw,22px) 8px;
   animation:desplegar .3s cubic-bezier(.2,.7,.3,1) both}
 /* Cada sección es una franja con su propio aire: a la izquierda qué es y
    cuánto hay, a la derecha los documentos sobre el fondo de la página. El
    contraste de superficie es lo que separa las seis listas entre sí. */
 .sec{display:grid;grid-template-columns:minmax(190px,.32fr) 1fr;gap:clamp(18px,3.5vw,40px);
-  align-items:start;padding:clamp(26px,3.6vw,38px) 0;border-top:2px solid var(--fuerte)}
+  align-items:start;padding:clamp(26px,3.6vw,38px) 0;border-top:1px solid var(--cuadro)}
 .sec-id{display:flex;flex-direction:column;gap:8px;min-width:0}
-.sec-id h4{margin:0;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
-  border-left:3px solid var(--acc);padding-left:11px;line-height:1.3}
-.sec-id p{margin:0;padding-left:14px;font-size:13px;line-height:1.5;color:var(--sut);max-width:32ch;text-wrap:pretty}
-.sec-n{padding-left:14px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sut)}
+.sec-id h4{margin:0;font-family:"Martian Mono",ui-monospace,monospace;font-size:12px;font-weight:700;
+  letter-spacing:-.03em;border-left:3px solid var(--boli);padding-left:11px;line-height:1.35}
+.sec-id p{margin:0;padding-left:14px;font-size:15px;line-height:1.5;color:var(--grafito);max-width:32ch;text-wrap:pretty}
+.sec-n{padding-left:14px;font-family:"Martian Mono",ui-monospace,monospace;font-size:11px;letter-spacing:-.02em;color:var(--grafito);font-variant-numeric:tabular-nums}
 /* Lo que aún no existe ocupa menos aire que lo que sí: el ritmo se mantiene,
    la jerarquía también. */
 .sec-hueca{padding-top:clamp(18px,2.4vw,24px);padding-bottom:clamp(18px,2.4vw,24px)}
-.sec-hueca h4{border-left-color:var(--rule);color:var(--sut)}
-.sec-lista{border:2px solid var(--rule);background:var(--pg)}
-.sec-hueco{border:2px dashed var(--rule);padding:15px 17px;color:var(--sut);font-style:italic;font-size:14px}
-.h-doc{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--rule);
-  color:var(--ink);text-decoration:none;font-size:15px;padding:12px 16px;
+.sec-hueca h4{border-left-color:var(--cuadro);color:var(--grafito)}
+.sec-lista{border:1px solid var(--cuadro);background:var(--papel)}
+.sec-hueco{border:1px dashed var(--cuadro);padding:14px 17px;color:var(--grafito);font-style:italic;font-size:16px}
+.h-doc{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--cuadro);
+  color:var(--tinta);text-decoration:none;font-size:16px;padding:11px 16px;
   transition:background .15s ease,padding-left .2s ease}
 .sec-lista .h-doc:last-child{border-bottom:0}
-.h-doc:hover{background:color-mix(in srgb,var(--acc) 9%,transparent);padding-left:22px;text-decoration:none}
-.doc-tag{font-size:12px;color:var(--sut);flex:none;letter-spacing:.06em}
+.h-doc:hover{background:color-mix(in srgb,var(--rotu) var(--rotu-fila),transparent);padding-left:22px;text-decoration:none}
+.doc-tag{font-family:"Martian Mono",ui-monospace,monospace;font-size:10px;color:var(--grafito);flex:none;letter-spacing:-.02em}
+.doc-anio{font-family:"Martian Mono",ui-monospace,monospace;font-weight:700;font-size:13px;flex:none;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+/* ------------------------------------------------------------- portada -- */
+.hero-h{font-family:"Martian Mono",ui-monospace,monospace;font-weight:800;
+  font-size:clamp(40px,9.2vw,102px);letter-spacing:-.055em;line-height:.98;margin:16px 0 0}
+.hero-e{max-width:46ch;font-size:clamp(18px,2.1vw,22px);line-height:1.5;margin:0;text-wrap:pretty}
+/* La portada enseña lo que hace la casa: una curva trazada sobre cuadrícula. */
+.plot{border:1px solid var(--cuadro);background:var(--sup);padding:14px 16px 12px;min-width:0;max-width:460px;width:100%;justify-self:end;
+  background-image:
+    linear-gradient(color-mix(in srgb,var(--cuadro) 62%,transparent) 1px,transparent 1px),
+    linear-gradient(90deg,color-mix(in srgb,var(--cuadro) 62%,transparent) 1px,transparent 1px);
+  background-size:24px 24px}
+/* Banda de medida: los cuatro números del archivo colgando de una sola regla. */
+.banda{margin-top:clamp(30px,4.5vw,44px)}
+.banda-datos{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-top:12px}
+.dato{padding:0 16px 4px;border-left:1px solid var(--cuadro)}
+.dato:first-child{padding-left:0;border-left:0}
+.dato-n{font-family:"Martian Mono",ui-monospace,monospace;font-weight:700;font-variant-numeric:tabular-nums;
+  letter-spacing:-.055em;font-size:clamp(28px,4.2vw,42px);line-height:1}
+.dato-l{display:block;margin-top:6px;font-family:"Martian Mono",ui-monospace,monospace;font-size:10.5px;
+  letter-spacing:-.02em;line-height:1.4;color:var(--grafito);max-width:18ch}
+/* Al plegarse a dos columnas, el separador solo va entre columnas. */
+@media (max-width:640px){
+  .banda-datos{grid-template-columns:1fr 1fr}
+  .dato{padding:14px 12px 4px}
+  .dato:nth-child(odd){padding-left:0;border-left:0}
+}
+/* ---------------------------------------------------------- estructura -- */
+.h2{font-family:"Newsreader",Georgia,serif;font-weight:600;letter-spacing:-.02em;
+  font-size:clamp(26px,3.4vw,38px);line-height:1.1;margin:clamp(48px,6vw,72px) 0 0}
+.h2-mono{font-family:"Martian Mono",ui-monospace,monospace;font-weight:700;letter-spacing:-.04em;
+  font-size:clamp(24px,3vw,34px);line-height:1.1}
+.tarjeta{border:1px solid var(--cuadro);background:var(--sup);display:flex;flex-direction:column}
+.tarjeta-sec{text-align:left;color:var(--tinta);font-family:inherit;padding:20px;display:flex;flex-direction:column;gap:9px;cursor:pointer}
+.tarjeta-t{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:22px;letter-spacing:-.015em;line-height:1.15}
+.ficha-t{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(20px,2.4vw,25px);letter-spacing:-.015em;line-height:1.15}
+/* Dentro de una materia todas las asignaturas comparten nombre: el curso es
+   la clave por la que se busca, así que pesa como tal. */
+.curso{font-family:"Martian Mono",ui-monospace,monospace;font-size:12px;font-weight:700;letter-spacing:-.03em;color:var(--boli);line-height:1.4}
+.ayuda-t{font-weight:600;margin:0 0 4px;font-size:18px}
+/* --------------------------------------------------------------- PAU -- */
+/* Rejilla, no flex: todas las barras arrancan en la misma vertical. Una
+   medida sin origen común no se puede comparar de un vistazo. */
+.pau-fila{width:100%;display:grid;grid-template-columns:8px minmax(0,1fr) 260px 7ch;gap:12px;align-items:center;
+  text-align:left;background:transparent;
+  border:0;border-bottom:1px solid var(--cuadro);color:var(--tinta);font-family:inherit;font-size:16px;
+  padding:10px 4px;cursor:pointer;transition:background .15s ease,padding-left .2s ease}
+.pau-fila:hover{background:color-mix(in srgb,var(--rotu) var(--rotu-fila),transparent);padding-left:12px}
+.pau-n{font-family:"Martian Mono",ui-monospace,monospace;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;
+  letter-spacing:-.03em;color:var(--grafito);flex:none;width:7ch;text-align:right}
+.pau-fila:hover .pau-n{color:var(--boli)}
+.pau-nom{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:860px){.pau-fila{grid-template-columns:8px minmax(0,1fr) 120px 7ch}}
+@media (max-width:640px){.medida{display:none}.pau-fila{grid-template-columns:8px minmax(0,1fr) 7ch;gap:10px}.pau-nom{white-space:normal}}
 @media (max-width:760px){
   .sec{grid-template-columns:1fr;gap:14px;padding:24px 0}
   .h-doc{padding-top:14px;padding-bottom:14px}
@@ -133,6 +257,9 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
 @media (prefers-reduced-motion:reduce){.chev{transition:none}.asig-cuerpo{animation:none}.h-doc{transition:none}}
 /* Objetivos táctiles de 44px en móvil */
 @media (max-width:640px){
+  /* En el móvil el buscador ocupa su propia línea, debajo de marca y tema. */
+  .cab-busca{order:3;flex-basis:100%;max-width:none;min-width:0}
+  #tema{order:2}
   #pestanas button{padding-top:15px!important;padding-bottom:12px!important}
   #tema,.tap,.enl,#panel-host a{min-height:44px}
   #buscador,#pau-q{padding-top:13px!important;padding-bottom:13px!important}
@@ -141,23 +268,23 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
 }
 @media (max-width:760px){
   .story-grid{display:flex;flex-direction:column}
-  .story-stage{order:-1;grid-column:auto;position:sticky;top:var(--story-top,214px);width:100%;align-self:stretch;height:var(--story-alto,46vh);min-height:330px;border-left:0;border-bottom:2px solid var(--fuerte);z-index:1}
+  .story-stage{order:-1;grid-column:auto;position:sticky;top:var(--story-top,214px);width:100%;align-self:stretch;height:var(--story-alto,46vh);min-height:330px;border-left:0;border-bottom:1.5px solid var(--tinta);z-index:1}
   .story-copy{position:relative;z-index:2}
   .story-step{min-height:70vh;justify-content:flex-end;padding:50vh 0 28px;opacity:0}
-  .story-step>div{background:var(--pg);border-top:2px solid var(--fuerte);padding:20px 16px}
+  .story-step>div{background:var(--papel);border-top:1.5px solid var(--tinta);padding:20px 16px}
   .story-step+.story-step{border-top:0}
   .story-img{width:min(92%,500px)}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .rev,.rev-on,.pane,.pane-der,.pane-izq,.telon,.cajon,
-  .hero-k,.hero-h,.hero-p,.entra > *{opacity:1;animation:none;transform:none;clip-path:none}
+  .hero-k,.hero-h,.hero-p,.entra > *,.medida b{opacity:1;animation:none;transform:none;clip-path:none}
   .hero-r{animation:none;transform:none}
   button,#subrayado,#tema-icono,.h-card,.h-sec{transition:none}
   .h-fila:hover{transition:none}
   .h-card:hover,.h-sec:hover{transform:none}
   .story-grid{display:block}
-  .story-stage{position:static;height:auto;min-height:0;border-left:0;border-bottom:2px solid var(--fuerte);display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule);padding:0;overflow:hidden}
+  .story-stage{position:static;height:auto;min-height:0;border-left:0;border-bottom:1.5px solid var(--tinta);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--cuadro);padding:0;overflow:hidden}
   .story-stage::before,.story-stage::after,.story-meta,.story-progress{display:none}
   .story-img{position:relative;inset:auto;width:100%;opacity:1!important;transform:none!important;background:var(--sup);will-change:auto}
   .story-step{min-height:0;padding:32px 0;opacity:1;transition:none}
@@ -166,36 +293,37 @@ button{transition:background .18s ease,color .18s ease,border-color .18s ease,bo
 </style>
 </head>
 <body>
-<div style="min-height:100vh;background:var(--pg);color:var(--ink);font-family:'Archivo',system-ui,sans-serif">
+<div style="min-height:100vh;background:var(--papel);color:var(--tinta)">
 
-  <header id="cabecera" style="position:sticky;top:0;z-index:30;background:var(--pg);border-bottom:2px solid var(--fuerte);transition:box-shadow .25s ease">
-    <div style="max-width:1180px;margin:0 auto;padding:12px clamp(16px,4vw,32px);display:flex;align-items:center;gap:clamp(12px,3vw,28px);flex-wrap:wrap">
-      <div style="display:flex;flex-direction:column;line-height:1.05;margin-right:auto">
-        <span style="font-weight:800;font-size:19px;letter-spacing:-.02em">Apuntes</span>
-        <span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sut)">H. Sierra · València</span>
+  <header id="cabecera" style="position:sticky;top:0;z-index:30;background:var(--papel);border-bottom:1.5px solid var(--tinta);transition:box-shadow .25s ease">
+    <div style="max-width:1120px;margin:0 auto;padding:12px clamp(16px,4vw,32px);display:flex;align-items:center;gap:clamp(12px,3vw,28px);flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:3px;margin-right:auto">
+        <span class="mono" style="font-weight:800;font-size:17px;letter-spacing:-.05em;line-height:1">Apuntes</span>
+        <span class="anot">H. Sierra · València</span>
       </div>
-      <div style="display:flex;align-items:center;gap:8px;border:2px solid var(--rule);padding:0 10px;background:var(--sup);min-width:min(320px,100%);flex:1 1 240px;max-width:420px">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none;color:var(--sut)" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
-        <input id="buscador" type="search" placeholder="Buscar curso, asignatura o examen…" aria-label="Buscar" autocomplete="off" style="flex:1;min-width:0;border:0;outline:none;background:transparent;color:var(--ink);font-family:inherit;font-size:14px;padding:9px 0">
+      <div class="cab-busca" style="display:flex;align-items:center;gap:8px;border:1px solid var(--cuadro);padding:0 11px;background:var(--sup);min-width:min(320px,100%);flex:1 1 240px;max-width:420px">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="flex:none;color:var(--grafito)" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+        <input id="buscador" type="search" placeholder="Buscar curso, asignatura o examen…" aria-label="Buscar" autocomplete="off" style="flex:1;min-width:0;border:0;outline:none;background:transparent;color:var(--tinta);font-family:inherit;font-size:16px;padding:9px 0">
       </div>
-      <button id="tema" aria-label="Cambiar tema" class="h-acc" style="display:inline-flex;align-items:center;gap:7px;border:2px solid var(--rule);background:transparent;color:var(--ink);font-family:inherit;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:9px 12px;cursor:pointer">
+      <button id="tema" aria-label="Cambiar tema" class="h-acc mono" style="display:inline-flex;align-items:center;gap:7px;border:1px solid var(--cuadro);background:transparent;color:var(--tinta);font-weight:500;font-size:11px;letter-spacing:-.02em;padding:10px 12px;cursor:pointer">
         <span id="tema-icono">☾</span><span id="tema-label">Oscuro</span>
       </button>
     </div>
-    <nav style="border-top:1px solid var(--rule);overflow-x:auto">
-      <div id="pestanas" style="position:relative;max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,32px);display:flex;gap:0;min-width:max-content"></div>
+    <nav style="border-top:1px solid var(--cuadro);overflow-x:auto">
+      <div id="pestanas" style="position:relative;max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,32px);display:flex;gap:0;min-width:max-content"></div>
     </nav>
   </header>
 
-  <main style="max-width:1180px;margin:0 auto;padding:clamp(24px,5vw,56px) clamp(16px,4vw,32px) 96px">
+  <main style="max-width:1120px;margin:0 auto;padding:clamp(24px,5vw,56px) clamp(16px,4vw,32px) 96px">
     <div id="vista"></div>
     <noscript>
-      <p style="border:2px solid var(--rule);padding:18px 20px">Esta página necesita JavaScript para mostrar los cursos y el archivo de la PAU. Actívalo o escribe a Hugo Sierra para recibir los enlaces de las carpetas.</p>
+      <p style="border:1px solid var(--cuadro);padding:18px 20px">Esta página necesita JavaScript para mostrar los cursos y el archivo de la PAU. Actívalo o escribe a Hugo Sierra para recibir los enlaces de las carpetas.</p>
     </noscript>
 
-    <footer style="margin-top:80px;border-top:2px solid var(--fuerte);padding-top:16px;font-size:13px;color:var(--sut)">
-      <p style="margin:0 0 6px">Material propio salvo indicación. Exámenes PAU: universitats.gva.es (GVA). Banco 1º Bach FyQ: fiquipedia.es, licencia Creative Commons.</p>
-      <p style="margin:0">© 2026 Hugo Sierra · Material educativo · Los archivos se abren en Google Drive.</p>
+    <footer style="margin-top:80px">
+      <div class="regla" aria-hidden="true"></div>
+      <p class="anot" style="margin:16px 0 6px;max-width:78ch">Material propio salvo indicación. Exámenes PAU: universitats.gva.es (GVA). Banco 1º Bach FyQ: fiquipedia.es, licencia Creative Commons.</p>
+      <p class="anot" style="margin:0">© 2026 Hugo Sierra · Material educativo · Los archivos se abren en Google Drive.</p>
     </footer>
   </main>
 
@@ -216,10 +344,12 @@ var EMB = function (id) { return "https://drive.google.com/embeddedfolderview?id
 /* Las asignaturas viven en cursos.js con una estructura idéntica para todas:
    seis secciones fijas, se llenen o no. Aquí solo queda la cabecera de cada
    materia. */
+/* El antetítulo dice el tramo educativo real de la materia. Numerarlas
+   («Parte 1, 2, 3») sugeriría un orden que no existe. */
 var MATERIAS = {
-  fyq: { titulo: "Física y Química", kicker: "Parte 1" },
-  mat: { titulo: "Matemáticas", kicker: "Parte 2" },
-  bio: { titulo: "Biología", kicker: "Parte 3" }
+  fyq: { titulo: "Física y Química", kicker: "2º–4º ESO · 1º y 2º de Bachillerato" },
+  mat: { titulo: "Matemáticas", kicker: "2º y 3º ESO · 2º de Bachillerato" },
+  bio: { titulo: "Biología", kicker: "2º de Bachillerato" }
 };
 
 var CATALOGO = window.APUNTES_CURSOS || { secciones: [], asignaturas: [] };
@@ -336,41 +466,46 @@ var N_DOCS = ASIGNATURAS.reduce(function (n, a) { return n + totalDocs(a); }, 0)
 var ESTADISTICAS = [
   { valor: N_ASIGS, label: "Asignaturas con material" },
   { valor: N_DOCS, label: "Documentos de clase" },
-  { valor: 1991, label: "PDF de PAU" },
+  { valor: 1991, label: "PDF de la PAU" },
   { texto: "2010–26", label: "Convocatorias" }
 ];
 
 var SECCIONES = [
-  { kicker: "Parte 1", titulo: "Física y Química", detalle: "2º–4º ESO · 1º Bach · Física y Química de 2º Bach", destino: "fyq" },
-  { kicker: "Parte 2", titulo: "Matemáticas", detalle: "2º y 3º ESO · Matemáticas II de 2º Bachillerato", destino: "mat" },
-  { kicker: "Parte 3", titulo: "Biología", detalle: "2º Bachillerato · 19 temas y PAU 2010–2026", destino: "bio" },
-  { kicker: "Parte 4", titulo: "Selectivos PAU", detalle: "40 asignaturas · 1991 PDF · examen y criterios", destino: "pau" }
+  { titulo: "Física y Química", detalle: "2º–4º ESO · 1º Bach · Física y Química de 2º Bach", destino: "fyq" },
+  { titulo: "Matemáticas", detalle: "2º y 3º ESO · Matemáticas II de 2º Bachillerato", destino: "mat" },
+  { titulo: "Biología", detalle: "2º Bachillerato · 19 temas y PAU 2010–2026", destino: "bio" },
+  { titulo: "Selectivos PAU", detalle: "40 asignaturas · 1991 PDF · examen y criterios", destino: "pau" }
 ];
 
 /* --------------------------------------------------------------- estilos -- */
 
+var MONO = 'font-family:"Martian Mono",ui-monospace,monospace';
+
+/* Azul de boli = lo que has elegido. Amarillo de rotulador = dónde está el
+   puntero. Dos señales que no compiten. */
 function btn(activo) {
-  return "border:2px solid " + (activo ? "var(--acc)" : "var(--rule)") + ";background:" + (activo ? "var(--acc)" : "transparent") +
-    ";color:" + (activo ? "var(--pg)" : "var(--ink)") + ";font-family:inherit;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:9px 13px;cursor:pointer;text-align:left";
+  return "border:1px solid " + (activo ? "var(--boli)" : "var(--cuadro)") + ";background:" + (activo ? "var(--boli)" : "transparent") +
+    ";color:" + (activo ? "var(--papel)" : "var(--tinta)") + ";" + MONO +
+    ";font-weight:" + (activo ? "700" : "500") + ";font-size:11px;letter-spacing:-.02em;padding:10px 13px;cursor:pointer;text-align:left";
 }
-/* El subrayado ya no lo pinta cada pestaña: lo lleva una regla que se desliza
-   (#subrayado). Aquí solo se reserva su altura para que nada salte. */
+/* La marca ya no la pinta cada pestaña: la lleva un trazo de rotulador que se
+   desliza (#subrayado). Aquí solo se reserva su sitio para que nada salte. */
 function tabEstilo(activo) {
-  return "appearance:none;border:0;border-bottom:3px solid transparent" +
-    ";background:transparent;color:" + (activo ? "var(--ink)" : "var(--sut)") +
-    ";font-family:inherit;font-weight:" + (activo ? "800" : "600") + ";font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:13px 16px 11px;cursor:pointer;white-space:nowrap";
+  return "appearance:none;border:0;border-bottom:1px solid transparent" +
+    ";background:transparent;color:" + (activo ? "var(--tinta)" : "var(--grafito)") + ";" + MONO +
+    ";font-weight:" + (activo ? "700" : "500") + ";font-size:12px;letter-spacing:-.03em;padding:14px 14px 13px;cursor:pointer;white-space:nowrap";
 }
 function ordenEstilo(activo) { return btn(activo) + ";border:0;white-space:nowrap"; }
 function retardo(i) { return "animation-delay:" + (i * 70) + "ms"; }
 
-var CAJA_BUSCA = "display:flex;align-items:center;gap:8px;border:2px solid var(--rule);background:var(--sup);padding:0 10px;flex:1 1 260px";
-var LUPA = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none;color:var(--sut)" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>';
-var ICONO_LLAVE = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>';
+var CAJA_BUSCA = "display:flex;align-items:center;gap:8px;border:1px solid var(--cuadro);background:var(--sup);padding:0 11px;flex:1 1 260px";
+var LUPA = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="flex:none;color:var(--grafito)" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>';
+var ICONO_LLAVE = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="flex:none" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>';
 var AVISO_RESTRINGIDO = "Carpeta restringida: requiere iniciar sesión con una cuenta autorizada del profesorado.";
-var REGLA = '<hr style="height:2px;border:0;background:var(--fuerte);margin:20px 0 0">';
-var FILA = "width:100%;display:flex;align-items:baseline;gap:10px;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--rule);color:var(--ink);font-family:inherit;font-size:15px;padding:11px 4px;cursor:pointer;transition:background .15s ease,padding-left .2s ease";
-var PUNTOS = '<span style="flex:1;border-bottom:2px dotted var(--rule);transform:translateY(-5px)"></span>';
-var TARJETA = "border:2px solid var(--rule);background:var(--sup);display:flex;flex-direction:column";
+var REGLA = '<div class="regla" style="margin:22px 0 0" aria-hidden="true"></div>';
+var FILA = "width:100%;display:flex;align-items:baseline;gap:10px;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--cuadro);color:var(--tinta);font-family:inherit;font-size:16px;padding:11px 4px;cursor:pointer;transition:background .15s ease,padding-left .2s ease";
+var PUNTOS = '<span class="guia"></span>';
+var TARJETA = "border:1px solid var(--cuadro);background:var(--sup);display:flex;flex-direction:column";
 
 /* ---------------------------------------------------------------- vistas -- */
 
@@ -424,7 +559,7 @@ function filaDocumento(d) {
 function filaPauDoc(d) {
   var detalle = (d.conv === d.tipo ? d.tipo : d.conv + " · " + d.tipo) + (d.matiz ? " · " + d.matiz : "");
   return '<a class="h-doc" href="https://drive.google.com/file/d/' + esc(d.id) + '/view" target="_blank" rel="noopener">' +
-    '<span style="font-weight:800;flex:none;font-variant-numeric:tabular-nums">' + d.anio + "</span>" +
+    '<span class="doc-anio">' + d.anio + "</span>" +
     "<span>" + esc(detalle) + "</span>" + PUNTOS + '<span class="doc-tag">PDF</span></a>';
 }
 
@@ -465,102 +600,123 @@ function bloqueSeccion(a, sec) {
 }
 
 function cuerpoAsignatura(a) {
+  /* El aviso va marcado con rotulador: es la nota al margen del cuaderno. */
   var aviso = a.aviso
-    ? '<p style="margin:0 0 14px;border-left:3px solid var(--acc);padding:8px 12px;background:color-mix(in srgb,var(--acc) 8%,transparent);font-size:13px">' + esc(a.aviso) + "</p>"
+    ? '<p style="margin:0 0 16px;border-left:3px solid var(--tinta);padding:10px 13px;background:color-mix(in srgb,var(--rotu) var(--rotu-fila),transparent);font-size:16px">' + esc(a.aviso) + "</p>"
     : "";
   var leyenda = tieneRestringidos(a)
-    ? '<p style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sut);margin:0;border-top:2px solid var(--fuerte);padding:14px 0 4px">' +
+    ? '<p class="anot" style="display:flex;align-items:center;gap:8px;margin:0;border-top:1px solid var(--cuadro);padding:14px 0 4px">' +
       ICONO_LLAVE + "<span>" + esc(AVISO_RESTRINGIDO) + "</span></p>"
     : "";
   return aviso + SECCIONES_DOC.map(function (s) { return bloqueSeccion(a, s); }).join("") + leyenda;
+}
+
+/* Calibre de seis muescas: de un vistazo, cuánto del curso está montado. */
+function calibre(llenas, total) {
+  var s = '<span class="calibre" aria-hidden="true">';
+  for (var i = 0; i < total; i++) s += "<i" + (i < llenas ? ' class="on"' : "") + "></i>";
+  return s + "</span>";
 }
 
 function tarjetaAsignatura(a, i) {
   var abierta = !!S.abiertas[a.id];
   var n = totalDocs(a);
   var pau = docsPau(a);
+  var llenas = seccionesLlenas(a);
   var meta = a.proximamente
     ? "Próximamente"
-    : n + (n === 1 ? " documento" : " documentos") + (pau ? " · " + pau.length + " PAU" : "") +
-      " · " + seccionesLlenas(a) + "/6 secciones";
-  var chevron = '<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex:none;color:var(--sut)" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>';
-  return '<article class="rev" id="asig-' + esc(a.id) + '" style="border:2px solid ' + (abierta ? "var(--fuerte)" : "var(--rule)") +
+    : n + (n === 1 ? " documento" : " documentos") + (pau ? " · " + pau.length + " de la PAU" : "") +
+      " · " + llenas + "/6 secciones";
+  var chevron = '<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="flex:none;color:var(--grafito)" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>';
+  return '<article class="rev" id="asig-' + esc(a.id) + '" style="border:1px solid ' + (abierta ? "var(--tinta)" : "var(--cuadro)") +
     ";background:var(--sup);" + retardo(i) + '">' +
     '<h3 style="margin:0">' +
     '<button class="asig-abrir" data-asig="' + esc(a.id) + '" aria-expanded="' + (abierta ? "true" : "false") +
     '" aria-controls="cuerpo-' + esc(a.id) + '">' +
-    '<span style="display:flex;flex-direction:column;gap:3px;min-width:0;flex:1">' +
-    '<span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc)">' + esc(a.curso) + "</span>" +
-    '<span style="font-weight:800;font-size:clamp(19px,2.4vw,23px);letter-spacing:-.015em">' + esc(a.nombre) + "</span>" +
-    '<span style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--sut)">' + esc(meta) + "</span>" +
+    '<span style="display:flex;flex-direction:column;gap:5px;min-width:0;flex:1">' +
+    '<span class="curso">' + esc(a.curso) + "</span>" +
+    '<span class="ficha-t">' + esc(a.nombre) + "</span>" +
+    '<span style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">' +
+    (a.proximamente ? "" : calibre(llenas, 6)) +
+    '<span class="anot">' + esc(meta) + "</span></span>" +
     "</span>" + chevron + "</button></h3>" +
     (abierta
       ? '<div class="asig-cuerpo" id="cuerpo-' + esc(a.id) + '" role="region" aria-label="' + esc(a.nombre + " " + a.curso) + '">' +
-        '<p style="margin:16px 0 20px;font-size:15px;line-height:1.55;max-width:62ch;text-wrap:pretty">' + esc(a.nota) + "</p>" +
+        '<p style="margin:18px 0 22px;font-size:17px;line-height:1.55;max-width:62ch;text-wrap:pretty">' + esc(a.nota) + "</p>" +
         cuerpoAsignatura(a) + "</div>"
       : "") +
     "</article>";
 }
 
+/* En la PAU la longitud significa algo, así que el guion se convierte en barra:
+   cada asignatura se mide contra la que más exámenes acumula. */
+var PAU_MAX = PAU.reduce(function (m, p) { return Math.max(m, p[1]); }, 1);
+
 function filaPau(p, conEtiqueta) {
   var marca = conEtiqueta
-    ? '<span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);flex:none">PAU</span>'
-    : '<span style="display:inline-block;width:.5em;height:.5em;flex:none;background:' + (p[3] ? "var(--acc)" : "transparent") +
-      ";border:1px solid " + (p[3] ? "var(--acc)" : "transparent") + '"></span>';
-  return '<button class="h-fila" ' + abridor("PAU · Comunitat Valenciana", p[0], p[2]) + ' style="' + FILA + '">' +
-    marca + "<span>" + esc(p[0]) + "</span>" + PUNTOS +
-    '<span style="font-size:12px;color:var(--sut);flex:none">' + p[1] + " PDF</span></button>";
+    ? '<span class="anot anot-acc" style="flex:none">PAU</span>'
+    : '<span style="display:inline-block;width:6px;height:6px;flex:none;background:' + (p[3] ? "var(--boli)" : "transparent") + '"></span>';
+  return '<button class="pau-fila" ' + abridor("PAU · Comunitat Valenciana", p[0], p[2]) + ">" +
+    marca + '<span class="pau-nom"' + (p[3] ? ' style="font-weight:600"' : "") + ">" + esc(p[0]) + "</span>" +
+    '<span class="medida" style="--p:' + (p[1] / PAU_MAX).toFixed(3) + '" aria-hidden="true"><b></b></span>' +
+    '<span class="pau-n">' + p[1] + " PDF</span></button>";
 }
 
 function vistaInicio() {
+  /* Los cuatro números del archivo cuelgan de una sola regla graduada: es la
+     misma pieza que mide las asignaturas y los exámenes de la PAU. */
   var stats = ESTADISTICAS.map(function (s, i) {
     var cifra = s.texto !== undefined
       ? esc(s.texto)
       : '<span data-stat="' + s.valor + '">0</span>';
-    return '<div class="rev" style="background:var(--pg);padding:18px 16px;' + retardo(i) + '">' +
-      '<div style="font-weight:800;font-size:clamp(26px,4vw,38px);letter-spacing:-.03em;line-height:1">' + cifra + "</div>" +
-      '<div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sut);margin-top:6px">' + esc(s.label) + "</div></div>";
+    return '<div class="dato rev" style="' + retardo(i) + '">' +
+      '<div class="dato-n">' + cifra + "</div>" +
+      '<span class="dato-l">' + esc(s.label) + "</span></div>";
   }).join("");
 
   var secciones = SECCIONES.map(function (s, i) {
-    return '<button class="rev h-sec" data-ir="' + s.destino + '" style="text-align:left;border:2px solid var(--rule);background:var(--sup);color:var(--ink);font-family:inherit;padding:20px;display:flex;flex-direction:column;gap:8px;cursor:pointer;' + retardo(i) + '">' +
-      '<span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)">' + esc(s.kicker) + "</span>" +
-      '<span style="font-weight:800;font-size:21px;letter-spacing:-.015em">' + esc(s.titulo) + "</span>" +
-      '<span style="font-size:13px;color:var(--sut);line-height:1.5">' + esc(s.detalle) + "</span></button>";
+    var n = s.destino === "pau"
+      ? PAU.length
+      : ASIGNATURAS.filter(function (a) { return a.materia === s.destino; }).length;
+    return '<button class="rev h-sec tarjeta tarjeta-sec" data-ir="' + s.destino + '" style="' + retardo(i) + '">' +
+      '<span class="anot anot-acc">' + n + (n === 1 ? " asignatura" : " asignaturas") + "</span>" +
+      '<span class="tarjeta-t">' + esc(s.titulo) + "</span>" +
+      '<span style="font-size:16px;color:var(--grafito);line-height:1.45">' + esc(s.detalle) + "</span></button>";
   }).join("");
 
   var ayuda = [
-    ["Elige asignatura arriba", "Cada pestaña reúne las asignaturas de una materia; al pulsar una se despliega su curso entero con la misma estructura."],
-    ["Busca el examen que quieras", "Escribe la asignatura, el año o la convocatoria y ve directo al PDF, sin bucear por carpetas."],
-    ["Practica con la PAU", "Convocatorias 2010–2026 de las 40 asignaturas, con examen y criterios de corrección."]
+    ["Elige una asignatura", "Cada pestaña reúne las asignaturas de una materia. Al pulsar una se despliega el curso entero, siempre con las mismas seis secciones."],
+    ["Busca por nombre, año o convocatoria", "Escribe «física 2023» o «latín extraordinaria» y ve directo al PDF, sin bucear por carpetas."],
+    ["Practica con la PAU", "Convocatorias 2010–2026 de las 40 asignaturas, cada una con el examen y los criterios de corrección."]
   ].map(function (a) {
-    return '<div class="rev"><p style="font-weight:600;margin:0 0 6px">' + esc(a[0]) + "</p>" +
-      '<p style="color:var(--sut);margin:0;line-height:1.55">' + esc(a[1]) + "</p></div>";
+    return '<div class="rev"><p class="ayuda-t">' + esc(a[0]) + "</p>" +
+      '<p style="color:var(--grafito);margin:0;line-height:1.55;font-size:16px">' + esc(a[1]) + "</p></div>";
   }).join("");
 
   return "<section>" +
-    '<p class="hero-k" style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sut);margin:0">Física y Química · Matemáticas · Biología</p>' +
-    '<h1 class="hero-h" style="font-size:clamp(52px,11vw,116px);font-weight:800;letter-spacing:-.035em;line-height:.92;margin:14px 0 0">Apuntes</h1>' +
-    '<hr class="hero-r" style="height:2px;border:0;background:var(--fuerte);margin:22px 0 0">' +
-    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,4vw,44px);align-items:start;margin-top:24px">' +
-    '<p class="hero-p" style="max-width:52ch;font-size:clamp(16px,2vw,19px);line-height:1.5;margin:0;text-wrap:pretty">Materiales de clase y bancos de exámenes, de 2º de ESO a 2º de Bachillerato, y el archivo completo de la PAU valenciana.</p>' +
-    '<div class="hero-p" id="hero-anim" style="border:2px solid var(--rule);padding:14px 16px 12px;min-width:0;max-width:460px;justify-self:end;width:100%"></div></div>' +
-    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;background:var(--rule);border:2px solid var(--fuerte);margin-top:36px">' + stats + "</div>" +
+    '<p class="hero-k anot">Física y Química · Matemáticas · Biología</p>' +
+    '<h1 class="hero-h">Apuntes</h1>' +
+    '<div class="hero-r regla" style="margin:22px 0 0" aria-hidden="true"></div>' +
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,4vw,44px);align-items:start;margin-top:26px">' +
+    '<p class="hero-p hero-e">Materiales de clase y bancos de exámenes, de 2º de ESO a 2º de Bachillerato, y el archivo completo de la PAU valenciana.</p>' +
+    '<div class="hero-p plot cuadricula" id="hero-anim"></div></div>' +
+    '<div class="banda"><div class="regla" aria-hidden="true"></div>' +
+    '<div class="banda-datos">' + stats + "</div></div>" +
     '<section id="historia-visual" class="story" aria-labelledby="historia-titulo">' +
     '<div style="padding:clamp(28px,5vw,52px) 0">' +
-    '<p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin:0 0 10px">Explora las materias</p>' +
-    '<h2 id="historia-titulo" style="font-size:clamp(34px,6vw,72px);font-weight:800;letter-spacing:-.04em;line-height:.96;margin:0;max-width:12ch">Aprender también es mirar.</h2></div>' +
+    '<p class="anot anot-acc" style="margin:0 0 10px">Explora las materias</p>' +
+    '<h2 id="historia-titulo" class="t-serif" style="font-size:clamp(32px,5.6vw,64px);margin:0;max-width:13ch">Aprender también es mirar.</h2></div>' +
     '<div class="story-grid"><div class="story-copy">' +
     '<article class="story-step story-activo" data-story-step="0"><div>' +
-    '<span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)">01 · Materia</span>' +
+    '<span class="anot anot-acc">Materia</span>' +
     '<h3>La materia se mueve.</h3><p>Trayectorias, ondas, átomos y enlaces: la Física y la Química convierten lo invisible en algo que puedes observar, medir y explicar.</p>' +
     '<button class="story-link" data-ir="fyq">Entrar en Física y Química</button></div></article>' +
     '<article class="story-step" data-story-step="1"><div>' +
-    '<span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)">02 · Número</span>' +
+    '<span class="anot anot-acc">Número</span>' +
     '<h3>Las formas piensan.</h3><p>Funciones, superficies y estructuras geométricas revelan patrones. Las Matemáticas ordenan lo complejo sin quitarle profundidad.</p>' +
     '<button class="story-link" data-ir="mat">Entrar en Matemáticas</button></div></article>' +
     '<article class="story-step" data-story-step="2"><div>' +
-    '<span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)">03 · Vida</span>' +
+    '<span class="anot anot-acc">Vida</span>' +
     '<h3>La vida deja huella.</h3><p>De la célula al ADN, cada escala contiene otra historia. La Biología conecta formas, procesos y evolución en un mismo sistema.</p>' +
     '<button class="story-link" data-ir="bio">Entrar en Biología</button></div></article></div>' +
     '<div class="story-stage" aria-hidden="true">' +
@@ -569,15 +725,15 @@ function vistaInicio() {
     '<img class="story-img" data-story-img="1" src="assets/visuales/matematicas.webp" width="1000" height="1000" alt="" loading="lazy" decoding="async">' +
     '<img class="story-img" data-story-img="2" src="assets/visuales/biologia.webp" width="1000" height="1000" alt="" loading="lazy" decoding="async">' +
     '<div class="story-progress"><span data-story-progress></span></div></div></div></section>' +
-    '<h2 style="font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.02em;margin:56px 0 0">Secciones</h2>' +
-    '<hr style="height:2px;border:0;background:var(--fuerte);margin:14px 0 0">' +
+    '<h2 class="h2">Dónde está cada cosa</h2>' +
+    '<div class="regla regla-fina" style="margin:14px 0 0" aria-hidden="true"></div>' +
     '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:22px">' + secciones + "</div>" +
-    '<h2 style="font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.02em;margin:56px 0 0">Cómo usar esta web</h2>' +
-    '<hr style="height:2px;border:0;background:var(--fuerte);margin:14px 0 0">' +
-    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:22px">' + ayuda + "</div>" +
-    '<div style="border:2px solid var(--rule);padding:18px 20px;margin-top:40px">' +
-    '<p style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin:0 0 6px">Calendarios</p>' +
-    '<p style="margin:0;color:var(--sut)">Las fechas de exámenes y entregas se activarán al inicio del curso 2026-27. El resto de secciones están operativas.</p></div>' +
+    '<h2 class="h2">Cómo usar esta web</h2>' +
+    '<div class="regla regla-fina" style="margin:14px 0 0" aria-hidden="true"></div>' +
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;margin-top:22px">' + ayuda + "</div>" +
+    '<div style="border:1px solid var(--cuadro);padding:18px 20px;margin-top:44px">' +
+    '<p class="anot anot-acc" style="margin:0 0 6px">Calendarios</p>' +
+    '<p style="margin:0;color:var(--grafito);font-size:16px">Las fechas de exámenes y entregas se activarán al inicio del curso 2026-27. El resto de secciones ya están operativas.</p></div>' +
     "</section>";
 }
 
@@ -604,12 +760,12 @@ function vistaMateria(clave) {
   var conMaterial = ASIGNATURAS.filter(function (a) { return a.materia === clave && !a.proximamente; }).length;
   var total = ASIGNATURAS.filter(function (a) { return a.materia === clave; }).length;
   return "<section>" +
-    '<p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sut);margin:0">' + esc(m.kicker) + "</p>" +
-    '<h2 style="font-size:clamp(34px,7vw,64px);font-weight:800;letter-spacing:-.03em;line-height:1;margin:10px 0 0">' + esc(m.titulo) + "</h2>" +
+    '<p class="anot" style="margin:0">' + esc(m.kicker) + "</p>" +
+    '<h2 class="t-serif" style="font-size:clamp(32px,6vw,60px);margin:10px 0 0">' + esc(m.titulo) + "</h2>" +
     REGLA +
-    '<p style="max-width:60ch;margin:20px 0 0;text-wrap:pretty">Elige una asignatura y se despliega su curso completo, siempre con las mismas seis secciones: currículo, criterios, presentaciones, libro, ejercicios por temas y simulacros de examen.</p>' +
-    '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:20px">' + filtros + "</div>" +
-    '<p style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sut);margin:16px 0 0">' +
+    '<p style="max-width:60ch;margin:22px 0 0;text-wrap:pretty">Elige una asignatura y se despliega su curso completo, siempre con las mismas seis secciones: currículo, criterios, presentaciones, libro, ejercicios por temas y simulacros de examen.</p>' +
+    '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:22px">' + filtros + "</div>" +
+    '<p class="anot" style="margin:16px 0 0">' +
     conMaterial + " de " + total + " asignaturas con material</p>" +
     '<div id="cursos-grid" style="display:grid;gap:12px;margin-top:16px">' + listaAsignaturas(clave) + "</div>" +
     "</section>";
@@ -637,15 +793,16 @@ function vistaPau() {
     return '<button class="tap" data-orden="' + o[0] + '" style="' + ordenEstilo(S.orden === o[0]) + '">' + esc(o[1]) + "</button>";
   }).join("");
   return "<section>" +
-    '<p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sut);margin:0">Parte 4</p>' +
-    '<h2 style="font-size:clamp(30px,6vw,58px);font-weight:800;letter-spacing:-.03em;line-height:1;margin:10px 0 0">Selectivos — PAU Comunitat Valenciana</h2>' +
+    '<p class="anot" style="margin:0">Comunitat Valenciana · 2010–2026</p>' +
+    '<h2 class="t-serif" style="font-size:clamp(30px,5.4vw,56px);margin:10px 0 0">Selectivos — PAU</h2>' +
     REGLA +
-    '<p style="max-width:62ch;margin:20px 0 0;text-wrap:pretty">Archivo completo de la PAU valenciana: las 40 asignaturas, convocatorias 2010–2026 (ordinaria, extraordinaria y modelos), cada una con examen y criterios de corrección. Fuente: <a href="https://universitats.gva.es/es/proves-acces-universitat" target="_blank" rel="noopener">universitats.gva.es</a>.</p>' +
-    '<div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:20px">' +
+    '<p style="max-width:62ch;margin:22px 0 0;text-wrap:pretty">Archivo completo de la PAU valenciana: las 40 asignaturas, convocatorias 2010–2026 (ordinaria, extraordinaria y modelos), cada una con examen y criterios de corrección. Fuente: <a href="https://universitats.gva.es/es/proves-acces-universitat" target="_blank" rel="noopener">universitats.gva.es</a>.</p>' +
+    '<div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:22px">' +
     '<div style="' + CAJA_BUSCA + '">' + LUPA +
-    '<input id="pau-q" type="search" value="' + esc(S.qPau) + '" placeholder="Filtrar asignatura — p. ej. física, latín, dibujo…" aria-label="Filtrar asignatura PAU" autocomplete="off" style="flex:1;min-width:0;border:0;outline:none;background:transparent;color:var(--ink);font-family:inherit;font-size:14px;padding:10px 0"></div>' +
-    '<div style="display:flex;gap:0;border:2px solid var(--rule)">' + ordenes + "</div></div>" +
-    '<p id="pau-resumen" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sut);margin:16px 0 0">' + lista.length + " de 40 asignaturas · examen + criterios + modelo</p>" +
+    '<input id="pau-q" type="search" value="' + esc(S.qPau) + '" placeholder="Filtrar asignatura — p. ej. física, latín, dibujo…" aria-label="Filtrar asignatura PAU" autocomplete="off" style="flex:1;min-width:0;border:0;outline:none;background:transparent;color:var(--tinta);font-family:inherit;font-size:16px;padding:10px 0"></div>' +
+    '<div style="display:flex;gap:0;border:1px solid var(--cuadro)">' + ordenes + "</div></div>" +
+    '<p id="pau-resumen" class="anot" style="margin:18px 0 0">' + lista.length + " de 40 asignaturas · examen + criterios + modelo</p>" +
+    '<p class="anot" style="margin:5px 0 0">La barra mide los PDF de cada asignatura frente a la que más acumula (' + PAU_MAX + ").</p>" +
     '<div id="pau-cuerpo">' + cuerpoPau(lista, true) + "</div></section>";
 }
 
@@ -669,29 +826,29 @@ function vistaBusqueda(gq) {
   var tarjetas = resCursos.map(function (a) {
     var n = totalDocs(a);
     return '<button class="h-card" data-abrir="' + esc(a.id) + '" style="' + TARJETA +
-      ';padding:18px;gap:8px;text-align:left;color:var(--ink);font-family:inherit;cursor:pointer">' +
-      '<span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc)">' +
+      ';padding:18px;gap:8px;text-align:left;color:var(--tinta);font-family:inherit;cursor:pointer">' +
+      '<span class="anot anot-acc">' +
       esc(MATERIAS[a.materia].titulo + " · " + a.curso) + "</span>" +
-      '<span style="font-weight:800;font-size:19px;letter-spacing:-.01em">' + esc(a.nombre) + "</span>" +
-      '<span style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--sut)">' +
+      '<span class="ficha-t">' + esc(a.nombre) + "</span>" +
+      '<span class="anot">' +
       (a.proximamente ? "Próximamente" : n + " documentos") + "</span>" +
-      '<span style="font-size:13px;color:var(--sut);line-height:1.5">' + esc(a.nota) + "</span></button>";
+      '<span style="font-size:16px;color:var(--grafito);line-height:1.5">' + esc(a.nota) + "</span></button>";
   }).join("");
 
   var TOPE_MAT = 40;
   var bloqueMaterial = "";
   if (resMaterial.length) {
-    bloqueMaterial = '<h3 style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sut);font-weight:600;margin:32px 0 0">' +
+    bloqueMaterial = '<h3 class="anot" style="margin:34px 0 0">' +
       "Material de clase · " + resMaterial.length +
       (resMaterial.length > TOPE_MAT ? " (se muestran los " + TOPE_MAT + " primeros)" : "") + "</h3>" +
       '<div style="margin-top:10px">' + resMaterial.slice(0, TOPE_MAT).map(function (r) {
         var cerrado = esRestringido(r.d);
         return '<a class="h-fila" href="' + esc(VER(r.d[1])) + '" target="_blank" rel="noopener" style="' +
-          FILA + ";text-decoration:none" + (cerrado ? ";color:var(--sut)" : "") + '">' +
+          FILA + ";text-decoration:none" + (cerrado ? ";color:var(--grafito)" : "") + '">' +
           (cerrado ? ICONO_LLAVE : "") +
-          '<span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);flex:none">' +
+          '<span class="anot anot-acc" style="flex:none">' +
           esc(r.a.curso) + "</span><span>" + esc(r.a.nombre + " · " + r.sec + " · " + r.d[0]) + "</span>" + PUNTOS +
-          '<span style="font-size:12px;color:var(--sut);flex:none">' + esc(r.d[2] || "PDF") + "</span></a>";
+          '<span class="doc-tag">' + esc(r.d[2] || "PDF") + "</span></a>";
       }).join("") + "</div>";
   }
 
@@ -700,16 +857,16 @@ function vistaBusqueda(gq) {
   var bloqueDocs = "";
   if (resDocs.length) {
     var recorte = resDocs.slice(0, TOPE);
-    bloqueDocs = '<h3 style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sut);font-weight:600;margin:32px 0 0">' +
+    bloqueDocs = '<h3 class="anot" style="margin:34px 0 0">' +
       "Exámenes · " + resDocs.length +
       (resDocs.length > TOPE ? " (se muestran los " + TOPE + " primeros)" : "") + "</h3>" +
       '<div style="margin-top:10px">' + recorte.map(function (d) {
         return '<a class="h-fila" href="https://drive.google.com/file/d/' + esc(d.id) + '/view" target="_blank" rel="noopener" style="' +
           FILA + ';text-decoration:none">' +
-          '<span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);flex:none">PAU</span>' +
-          '<span style="font-weight:800;flex:none;font-variant-numeric:tabular-nums">' + d.anio + "</span>" +
+          '<span class="anot anot-acc" style="flex:none">PAU</span>' +
+          '<span class="doc-anio">' + d.anio + "</span>" +
           "<span>" + esc(d.asig + " · " + (d.conv === d.tipo ? d.tipo : d.conv + " · " + d.tipo) + (d.matiz ? " · " + d.matiz : "")) + "</span>" +
-          PUNTOS + '<span style="font-size:12px;color:var(--sut);flex:none">PDF</span></a>';
+          PUNTOS + '<span class="doc-tag">PDF</span></a>';
       }).join("") + "</div>";
   }
 
@@ -719,8 +876,8 @@ function vistaBusqueda(gq) {
   var resumen = total + (total === 1 ? " coincidencia" : " coincidencias") + " para «" + S.q.trim() + "»";
 
   return "<section>" +
-    '<p style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sut);margin:0 0 8px">Resultados</p>' +
-    '<h2 style="font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-.02em;margin:0">' + esc(resumen) + "</h2>" +
+    '<p class="anot" style="margin:0 0 8px">Resultados</p>' +
+    '<h2 class="t-serif" style="font-size:clamp(26px,4.4vw,42px);margin:0">' + esc(resumen) + "</h2>" +
     REGLA +
     '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:24px">' + tarjetas + "</div>" +
     bloqueMaterial +
@@ -1069,15 +1226,15 @@ function renderPau() {
 /* ----------------------------------------------------------------- panel -- */
 
 function htmlPanel(p) {
-  return '<div class="telon" data-telon style="position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.5);display:flex;justify-content:flex-end">' +
-    '<div class="cajon" role="dialog" aria-modal="true" aria-label="' + esc(p.titulo) + '" style="width:min(780px,100%);height:100%;background:var(--pg);border-left:2px solid var(--fuerte);display:flex;flex-direction:column">' +
-    '<div style="display:flex;align-items:center;gap:12px;padding:14px clamp(14px,3vw,22px);border-bottom:2px solid var(--fuerte)">' +
+  return '<div class="telon" data-telon style="position:fixed;inset:0;z-index:60;background:color-mix(in srgb,#191c1a 58%,transparent);display:flex;justify-content:flex-end">' +
+    '<div class="cajon" role="dialog" aria-modal="true" aria-label="' + esc(p.titulo) + '" style="width:min(780px,100%);height:100%;background:var(--papel);border-left:1.5px solid var(--tinta);display:flex;flex-direction:column">' +
+    '<div style="display:flex;align-items:center;gap:12px;padding:14px clamp(14px,3vw,22px);border-bottom:1.5px solid var(--tinta)">' +
     '<div style="margin-right:auto;min-width:0">' +
-    '<div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(p.kicker) + "</div>" +
-    '<div style="font-weight:800;font-size:19px;letter-spacing:-.015em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(p.titulo) + "</div></div>" +
-    '<a class="h-acc" href="' + esc(D(p.id)) + '" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;border:2px solid var(--rule);color:var(--ink);text-decoration:none;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:9px 12px;flex:none">' +
-    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path></svg><span>Drive</span></a>' +
-    '<button class="h-acc" data-cerrar aria-label="Cerrar" style="border:2px solid var(--rule);background:transparent;color:var(--ink);width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none">' +
+    '<div class="anot anot-acc" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(p.kicker) + "</div>" +
+    '<div class="ficha-t" style="margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(p.titulo) + "</div></div>" +
+    '<a class="h-acc mono" href="' + esc(D(p.id)) + '" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;border:1px solid var(--cuadro);color:var(--tinta);text-decoration:none;font-weight:500;font-size:11px;letter-spacing:-.02em;padding:10px 12px;flex:none">' +
+    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path></svg><span>Drive</span></a>' +
+    '<button class="h-acc" data-cerrar aria-label="Cerrar" style="border:1px solid var(--cuadro);background:transparent;color:var(--tinta);width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none">' +
     '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div>' +
     cuerpoPanel(p) + "</div></div>";
 }
@@ -1087,7 +1244,7 @@ function htmlPanel(p) {
 function cuerpoPanel(p) {
   if (p.modo !== "docs") {
     return '<div style="flex:1;position:relative;background:var(--sup)">' +
-      '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--sut);font-size:12px;letter-spacing:.16em;text-transform:uppercase">Cargando carpeta…</div>' +
+      '<div class="anot" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">Cargando carpeta…</div>' +
       '<iframe src="' + esc(EMB(p.id)) + '" title="Carpeta de Google Drive" style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;transition:opacity .4s ease;opacity:0"></iframe></div>';
   }
   var chips = ["Todos"].concat(IDX.tipos).map(function (t) {
@@ -1095,9 +1252,9 @@ function cuerpoPanel(p) {
   }).join("");
   return '<div style="padding:14px clamp(14px,3vw,22px) 0;display:flex;gap:10px;flex-wrap:wrap;align-items:center">' +
     '<div style="' + CAJA_BUSCA + '">' + LUPA +
-    '<input id="doc-q" type="search" placeholder="Filtrar — p. ej. 2023, extraordinaria…" aria-label="Filtrar exámenes" autocomplete="off" style="flex:1;min-width:0;border:0;outline:none;background:transparent;color:var(--ink);font-family:inherit;font-size:14px;padding:10px 0"></div>' +
+    '<input id="doc-q" type="search" placeholder="Filtrar — p. ej. 2023, extraordinaria…" aria-label="Filtrar exámenes" autocomplete="off" style="flex:1;min-width:0;border:0;outline:none;background:transparent;color:var(--tinta);font-family:inherit;font-size:16px;padding:10px 0"></div>' +
     '<div style="display:flex;gap:6px;flex-wrap:wrap">' + chips + "</div></div>" +
-    '<div id="doc-resumen" style="padding:12px clamp(14px,3vw,22px) 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sut)"></div>' +
+    '<div id="doc-resumen" class="anot" style="padding:14px clamp(14px,3vw,22px) 0"></div>' +
     '<div id="doc-lista" style="flex:1;overflow:auto;padding:8px clamp(14px,3vw,22px) 24px"></div>';
 }
 
@@ -1125,9 +1282,9 @@ function filaDoc(d) {
   var detalle = (d.conv === d.tipo ? d.tipo : d.conv + " · " + d.tipo) + (d.matiz ? " · " + d.matiz : "");
   return '<a class="h-fila" href="https://drive.google.com/file/d/' + esc(d.id) + '/view" target="_blank" rel="noopener" style="' +
     FILA + ';text-decoration:none">' +
-    '<span style="font-weight:800;flex:none;font-variant-numeric:tabular-nums">' + d.anio + "</span>" +
+    '<span class="doc-anio">' + d.anio + "</span>" +
     "<span>" + esc(detalle) + "</span>" + PUNTOS +
-    '<span style="font-size:12px;color:var(--sut);flex:none">PDF</span></a>';
+    '<span class="doc-tag">PDF</span></a>';
 }
 
 function pintarDocs() {
