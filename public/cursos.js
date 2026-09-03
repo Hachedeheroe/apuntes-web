@@ -75,7 +75,7 @@ window.APUNTES_CURSOS = (function () {
   A.push({
     id: "fyq-3eso", materia: "fyq", nivel: "eso",
     nombre: "Física y Química", curso: "3º ESO",
-    nota: "Ocho temas con presentación y boletín de ejercicios emparejados.",
+    nota: "Seis presentaciones alineadas con la secuencia didáctica del curso 2026-27.",
     pau: null,
     doc: {
       curriculo: [
@@ -85,14 +85,12 @@ window.APUNTES_CURSOS = (function () {
         ["Criterios de evaluación", "18Uk4C9rClvylRmFJHvJjuTWo8AtdDg4U", "PDF", 0]
       ],
       presentaciones: [
-        ["Tema 1 · Método científico y medida", "1ImUf1-W_Q_KKCDdQ5Cm_3sY8qEXp2NUH", "PDF", 0],
-        ["Tema 2 · El átomo", "1bcXauzNAC1r8LfciYnRpb4b16DXWpI8H", "PDF", 0],
-        ["Tema 3 · Tabla periódica", "1XaYm7MrhkQFDP6lzdx38PfAov2S4888V", "PDF", 0],
-        ["Tema 4 · Formulación inorgánica", "1px31938lzBd3BZYhjJb3sJm1CtzN6JKR", "PDF", 0],
-        ["Tema 5 · Reacciones químicas", "11W7ZDy8946h9tQXJ9BLoQXWBhx5Ma_yv", "PDF", 0],
-        ["Tema 6 · Energía y calor", "1jHK-6uQ79qiPoutk9ZImT2EIxF3DAdsC", "PDF", 0],
-        ["Tema 7 · Circuitos eléctricos", "1B4J-gR_zBCynKuq6XbopdWopEHYGOZCI", "PDF", 0],
-        ["Tema 8 · Electricidad y magnetismo", "1Vfv1k1UyFA14b-LtElE9qV5NsERTBmfy", "PDF", 0]
+        ["Unidad 1 · Modelo atómico, tabla periódica y mol", "1ImUf1-W_Q_KKCDdQ5Cm_3sY8qEXp2NUH", "PDF", 0],
+        ["Unidad 2 · Mezclas y disoluciones", "1bcXauzNAC1r8LfciYnRpb4b16DXWpI8H", "PDF", 0],
+        ["Unidad 3 · Gases", "1XaYm7MrhkQFDP6lzdx38PfAov2S4888V", "PDF", 0],
+        ["Unidad 4 · Reacciones químicas", "1px31938lzBd3BZYhjJb3sJm1CtzN6JKR", "PDF", 0],
+        ["Unidad 5 · Cinemática", "11W7ZDy8946h9tQXJ9BLoQXWBhx5Ma_yv", "PDF", 0],
+        ["Unidad 6 · Dinámica", "1jHK-6uQ79qiPoutk9ZImT2EIxF3DAdsC", "PDF", 0]
       ],
       libro: [],
       ejercicios: [
