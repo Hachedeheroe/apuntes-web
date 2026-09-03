@@ -110,7 +110,7 @@ window.APUNTES_CURSOS = (function () {
   A.push({
     id: "fyq-4eso", materia: "fyq", nivel: "eso",
     nombre: "Física y Química", curso: "4º ESO",
-    nota: "Curso 2026-27 completo: libro del alumno, diez temas con presentación y boletín, y los exámenes del curso pasado.",
+    nota: "Curso 2026-27 completo: libro del alumno, diez temas con presentación y boletín, y evaluación acumulativa con tres pruebas (10 %, 25 % y 45 %) más SBA (20 %).",
     pau: null,
     doc: {
       curriculo: [
@@ -119,7 +119,7 @@ window.APUNTES_CURSOS = (function () {
       criterios: [
         ["Criterios de evaluación 2026-27", "1kNLqhYni9TBHBPs6zID3lr8e9LYIDqNm", "DOCX", 0],
         ["Criterios de evaluación 2025-26", "1RJzJtmIZutZcwy6a9RgJrFCrCwfpWPJe", "PDF", 0],
-        ["Criterios de calificación (resumen)", "1LObUsnk0GeKM7-S_Vuo1NOUMMKLezwLx", "PDF", 0]
+        ["Criterios de calificación y pruebas acumulativas 2026-27", "1LObUsnk0GeKM7-S_Vuo1NOUMMKLezwLx", "PDF", 0]
       ],
       presentaciones: [
         ["Tema 0 · Materia, laboratorio y disoluciones", "1Txv5q3KCPb2mzG7kXiCssyevLnG7Pr9J", "PDF", 0],
@@ -722,5 +722,5 @@ window.APUNTES_CURSOS = (function () {
     }
   });
 
-  return { version: "2026-07-30", secciones: SECCIONES, asignaturas: A };
+  return { version: "2026-09-03", secciones: SECCIONES, asignaturas: A };
 })();
